@@ -96,8 +96,8 @@ body {
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
 }
 
 .hero-buttons {
