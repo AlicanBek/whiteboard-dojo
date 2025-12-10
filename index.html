@@ -5,144 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whiteboard Dojo - Master the Art of Design Challenges</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="#" class="logo">Whiteboard Dojo</a>
+            <a href="index.html" class="logo">Whiteboard Dojo</a>
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-section="dojo">Dojo</a></li>
-                <li><a href="#" class="nav-link" data-section="docs">Docs</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="pages/dojo.html" class="nav-link">Dojo</a></li>
+                <li><a href="pages/docs.html" class="nav-link">Docs</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <!-- Dojo Section -->
-        <section class="dojo-section" id="dojo-section">
-            <div class="dojo-header">
-                <h1 class="dojo-title">The Dojo</h1>
-                <p class="dojo-subtitle">Practice whiteboard challenges and sharpen your design thinking skills</p>
-            </div>
-
-            <div class="challenge-generator">
-                <!-- Selectors Row -->
-                <div class="selectors-row">
-                    <div class="selector-section">
-                        <label class="selector-label">Category:</label>
-                        <div class="selector-buttons">
-                            <button class="selector-btn category-btn active" data-category="all">All</button>
-                            <button class="selector-btn category-btn" data-category="branding">Branding</button>
-                            <button class="selector-btn category-btn" data-category="marketing">Marketing</button>
-                            <button class="selector-btn category-btn" data-category="product-ux">Product & UX</button>
-                        </div>
-                    </div>
-                    
-                    <div class="selector-section">
-                        <label class="selector-label">Level:</label>
-                        <div class="selector-buttons">
-                            <button class="selector-btn difficulty-btn active" data-difficulty="beginner">Beginner</button>
-                            <button class="selector-btn difficulty-btn" data-difficulty="intermediate">Intermediate</button>
-                            <button class="selector-btn difficulty-btn" data-difficulty="advanced">Advanced</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Generate Button Row -->
-                <div class="generate-row">
-                    <button class="button button-primary generate-btn" id="new-challenge-btn">
-                        <span class="generate-icon">⚡</span>
-                        Generate New Challenge
-                    </button>
-                </div>
-
-                <!-- Challenge Display (Full Width) -->
-                <div class="challenge-display">
-                    <div class="challenge-content" id="challenge-content">
-                        <div class="challenge-placeholder">
-                            <span class="placeholder-text">Click "Generate New Challenge" to create your practice challenge</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timer Controls (Bottom, Centered) -->
-                <div class="timer-section">
-                    <div class="timer-controls-wrapper">
-                        <label for="timer-display" class="timer-main-label">Set Timer:</label>
-                        <div class="timer-input-group">
-                            <button class="timer-adjust-btn" id="decrease-timer-btn">−</button>
-                            <input type="text" id="timer-display" class="timer-display" value="20:00" placeholder="MM:SS">
-                            <button class="timer-adjust-btn" id="increase-timer-btn">+</button>
-                        </div>
-                        <div class="timer-action-buttons">
-                            <button class="button button-secondary timer-btn" id="start-timer-btn" disabled>Start</button>
-                            <button class="button button-secondary timer-btn" id="pause-timer-btn" disabled>Pause</button>
-                            <button class="button button-secondary timer-btn" id="reset-timer-btn">Reset</button>
-                        </div>
-                    </div>
-                </div>
+        <section class="hero">
+            <h1 class="hero-title">Whiteboard Dojo</h1>
+            <p class="hero-subtitle">Master the art of design challenges through deliberate practice and structured learning. Sharpen your design thinking, communication, and problem-solving skills.</p>
+            
+            <div class="hero-buttons">
+                <a href="pages/dojo.html" class="hero-button hero-button-primary">
+                    Start Practicing
+                </a>
+                <a href="pages/docs.html" class="hero-button hero-button-secondary">
+                    Learn More
+                </a>
             </div>
         </section>
 
-        <!-- Docs Section -->
-        <section class="docs-section" id="docs-section">
-            <div class="docs-header">
-                <h1 class="docs-title">The Docs</h1>
-                <p class="docs-subtitle">Learn the art and science of whiteboard challenges</p>
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">44+ Challenges</h3>
+                <p class="feature-description">Practice with diverse design challenges across branding, marketing, and product UX categories.</p>
             </div>
 
-            <div class="docs-nav">
-                <div class="docs-section-item">
-                    <h3 class="docs-section-title">The Whiteboard Challenge</h3>
-                    <ul class="docs-links">
-                        <li><a class="docs-link" data-article="what-is-whiteboard-challenge">What is a Whiteboard Challenge?</a></li>
-                        <li><a class="docs-link" data-article="why-we-love-whiteboard-challenges">Why We Love Whiteboard Challenges</a></li>
-                        <li><a class="docs-link" data-article="whiteboard-challenge-fundamentals">Whiteboard Challenge Fundamentals</a></li>
-                    </ul>
-                </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Three Difficulty Levels</h3>
+                <p class="feature-description">Start as a beginner and progress through intermediate and advanced challenges.</p>
+            </div>
 
-                <div class="docs-section-item">
-                    <h3 class="docs-section-title">For Individual Practice & Interview Prep</h3>
-                    <ul class="docs-links">
-                        <li><a class="docs-link" data-article="running-solo-practice-sessions">Running Solo Practice Sessions</a></li>
-                        <li><a class="docs-link" data-article="preparing-for-your-challenge">Preparing for Your Challenge</a></li>
-                        <li><a class="docs-link" data-article="job-interview-whiteboard-challenges">Whiteboard Challenges in Job Interviews</a></li>
-                        <li><a class="docs-link" data-article="self-assessment-after-challenges">Self-Assessment After Challenges</a></li>
-                        <li><a class="docs-link" data-article="building-whiteboard-skills">Building Your Whiteboard Skills</a></li>
-                    </ul>
-                </div>
+            <div class="feature">
+                <div class="feature-icon">⏱️</div>
+                <h3 class="feature-title">Built-in Timer</h3>
+                <p class="feature-description">Practice with realistic time constraints to prepare for real-world scenarios.</p>
+            </div>
 
-                <div class="docs-section-item">
-                    <h3 class="docs-section-title">For Team Development</h3>
-                    <ul class="docs-links">
-                        <li><a class="docs-link" data-article="running-team-practice-sessions">Running Practice Sessions with Your Team</a></li>
-                        <li><a class="docs-link" data-article="preparing-team-for-challenges">Preparing Your Team for Challenges</a></li>
-                        <li><a class="docs-link" data-article="role-playing-during-challenge">Role Playing During a Challenge</a></li>
-                        <li><a class="docs-link" data-article="team-assessment-after-challenge">Team Assessment After the Challenge</a></li>
-                    </ul>
-                </div>
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+                <h3 class="feature-title">Comprehensive Docs</h3>
+                <p class="feature-description">Learn strategies and best practices for whiteboard challenges from expert guides.</p>
+            </div>
 
-                <div class="docs-section-item">
-                    <h3 class="docs-section-title">For Hiring & Assessment</h3>
-                    <ul class="docs-links">
-                        <li><a class="docs-link" data-article="why-whiteboard-challenges-in-hiring">Why Whiteboard Challenges Should Be Part of Your Hiring Process</a></li>
-                        <li><a class="docs-link" data-article="designing-effective-hiring-challenges">Designing Effective Challenges for Hiring</a></li>
-                        <li><a class="docs-link" data-article="running-interview-challenge">Running the Interview Challenge</a></li>
-                        <li><a class="docs-link" data-article="evaluating-performance-making-decisions">Evaluating Performance and Making Decisions</a></li>
-                    </ul>
-                </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Structured Learning</h3>
+                <p class="feature-description">Follow a curriculum for individual practice, team development, and interview prep.</p>
+            </div>
 
-                <div class="docs-section-item">
-                    <h3 class="docs-section-title">How You Can Contribute to This Project</h3>
-                    <ul class="docs-links">
-                        <li><a class="docs-link" data-article="make-whiteboard-dojo-better-together">Let's Make Whiteboard Dojo Better Together!</a></li>
-                    </ul>
-                </div>
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h3 class="feature-title">For Everyone</h3>
+                <p class="feature-description">Whether you're interviewing, training teams, or hiring, Whiteboard Dojo has you covered.</p>
             </div>
         </section>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

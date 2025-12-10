@@ -265,28 +265,6 @@ const decreaseTimerBtn = document.getElementById('decrease-timer-btn');
 const startTimerBtn = document.getElementById('start-timer-btn');
 const pauseTimerBtn = document.getElementById('pause-timer-btn');
 const resetTimerBtn = document.getElementById('reset-timer-btn');
-const navLinks = document.querySelectorAll('.nav-link');
-const dojoSection = document.getElementById('dojo-section');
-const docsSection = document.getElementById('docs-section');
-
-// Navigation
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const section = e.target.dataset.section;
-        
-        navLinks.forEach(l => l.classList.remove('active'));
-        e.target.classList.add('active');
-        
-        if (section === 'dojo') {
-            dojoSection.style.display = 'block';
-            docsSection.style.display = 'none';
-        } else {
-            dojoSection.style.display = 'none';
-            docsSection.style.display = 'block';
-        }
-    });
-});
 
 // Category selection
 categoryBtns.forEach(btn => {
@@ -298,7 +276,7 @@ categoryBtns.forEach(btn => {
         // Reset challenge display
         challengeContent.innerHTML = `
             <div class="challenge-placeholder">
-                <span class="placeholder-text">Click "New Challenge" to generate your practice challenge</span>
+                <span class="placeholder-text">Click "Generate New Challenge" to generate your practice challenge</span>
             </div>
         `;
         currentChallenge = null;
@@ -316,7 +294,7 @@ difficultyBtns.forEach(btn => {
         // Reset challenge display
         challengeContent.innerHTML = `
             <div class="challenge-placeholder">
-                <span class="placeholder-text">Click "New Challenge" to generate your practice challenge</span>
+                <span class="placeholder-text">Click "Generate New Challenge" to generate your practice challenge</span>
             </div>
         `;
         currentChallenge = null;
