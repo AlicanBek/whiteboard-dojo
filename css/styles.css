@@ -1,16 +1,20 @@
 :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary: #64748b;
-    --accent: #f59e0b;
-    --background: #ffffff;
-    --surface: #f8fafc;
-    --border: #e2e8f0;
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --success: #10b981;
-    --warning: #f59e0b;
-    --error: #ef4444;
+    --primary: #f97316;
+    --primary-dark: #ea580c;
+    --primary-light: #fb923c;
+    --secondary: #9ca3af;
+    --accent: #fbbf24;
+    --background: #0a0a0a;
+    --surface: #1a1a1a;
+    --surface-elevated: #262626;
+    --border: #2a2a2a;
+    --border-light: #404040;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-muted: #737373;
+    --success: #22c55e;
+    --warning: #fbbf24;
+    --error: #f87171;
 }
 
 * {
@@ -20,7 +24,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
     background-color: var(--background);
     color: var(--text-primary);
     line-height: 1.6;
@@ -29,7 +33,7 @@ body {
 /* Header */
 .header {
     background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -87,10 +91,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary);
 }
 
 .hero-subtitle {
@@ -119,14 +120,14 @@ body {
 }
 
 .hero-button-primary {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     color: white;
-    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.2);
 }
 
 .hero-button-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 16px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 5px 16px rgba(249, 115, 22, 0.4), 0 0 20px rgba(249, 115, 22, 0.15);
 }
 
 .hero-button-secondary {
@@ -153,6 +154,7 @@ body {
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .feature-icon {
@@ -184,10 +186,7 @@ body {
     font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary);
 }
 
 .dojo-subtitle {
@@ -203,6 +202,7 @@ body {
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Challenge Generator Layout */
@@ -258,7 +258,7 @@ body {
 .selector-btn.active {
     border-color: var(--primary);
     color: var(--primary);
-    background: rgba(37, 99, 235, 0.05);
+    background: rgba(249, 115, 22, 0.08);
 }
 
 .generate-btn {
@@ -266,13 +266,13 @@ body {
     font-size: 1rem;
     font-weight: 600;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.2);
     transform: translateY(0);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: var(--primary);
     border: none;
     color: white;
     cursor: pointer;
@@ -280,7 +280,7 @@ body {
 
 .generate-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 16px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 5px 16px rgba(249, 115, 22, 0.4), 0 0 20px rgba(249, 115, 22, 0.15);
 }
 
 .generate-btn:active {
@@ -499,7 +499,7 @@ body {
 
 .timer-input-group:focus-within {
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
 }
 
 /* Docs Section */
@@ -516,10 +516,7 @@ body {
     font-size: 2.25rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--primary);
 }
 
 .docs-subtitle {
@@ -534,6 +531,7 @@ body {
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .docs-section-item {
