@@ -4,111 +4,7 @@ This document outlines all available challenges in the Whiteboard Dojo, organize
 
 ---
 
-## 🎨 Branding
-
-### Beginner
-
-- Design a simple logo
-- For: A local coffee shop
-- To Help: Young professionals identify the brand
-
-- Design a color palette
-- For: A fitness startup
-- To Help: Convey energy and motivation
-
-- Design a business card layout
-- For: A freelance photographer
-- To Help: Make a memorable first impression
-
-- Design a packaging layout
-- For: A boutique skincare brand
-- To Help: Stand out on retail shelves and communicate brand values
-
-- Design social media graphics
-- For: A fitness influencer
-- To Help: Create consistent, engaging visual content across platforms
-
-### Intermediate
-
-- Design a complete brand identity system
-- For: A sustainable fashion brand
-- To Help: Appeal to environmentally conscious millennials
-
-- Design a brand refresh strategy
-- For: An established restaurant chain
-- To Help: Attract younger customers while retaining loyalty
-
-- Design a brand guidelines system
-- For: A startup acquiring another company
-- To Help: Merge two brand identities while maintaining equity
-
-- Design a corporate rebrand campaign
-- For: A legacy manufacturing company modernizing its image
-- To Help: Signal innovation without alienating existing customers
-
-### Advanced
-
-- Design a comprehensive rebranding strategy
-- For: A B2B software company pivoting to consumer market
-- To Help: Completely change market perception and target audience
-
-- Design a luxury brand identity system
-- For: A sustainable jewelry startup
-- To Help: Appeal to affluent environmentally-conscious consumers
-
-- Design a rebrand for a crisis recovery
-- For: A company recovering from negative press
-- To Help: Rebuild trust and establish a new brand narrative
-
----
-
-## 📱 Marketing
-
-### Beginner
-
-- Design a social media post template
-- For: A bakery's Instagram account
-- To Help: Increase daily engagement with local customers
-
-- Design an email newsletter layout
-- For: A book club
-- To Help: Keep members informed about upcoming meetings
-
-- Design a social media campaign calendar
-- For: A local charity
-- To Help: Build awareness and drive volunteer signups
-
-- Design a podcast artwork and branding
-- For: An indie podcast creator
-- To Help: Create a professional presence across platforms
-
-### Intermediate
-
-- Design a landing page for a marketing campaign
-- For: A SaaS product launch
-- To Help: Convert free trial users to paid subscribers
-
-- Design a multi-channel campaign strategy
-- For: A non-profit fundraising event
-- To Help: Reach diverse donor demographics across platforms
-
-- Design a video marketing strategy
-- For: A B2B SaaS company
-- To Help: Educate prospects and reduce sales cycle length
-
-- Design a guerrilla marketing campaign
-- For: A sustainable fashion startup with limited budget
-- To Help: Generate viral awareness and media coverage
-
-### Advanced
-
-- Design a comprehensive marketing automation flow
-- For: An e-commerce platform
-- To Help: Reduce cart abandonment and increase customer lifetime value
-
----
-
-## 🛍️ Product & UX
+## 🎨 Product & UX Design
 
 ### Beginner
 
@@ -200,13 +96,221 @@ This document outlines all available challenges in the Whiteboard Dojo, organize
 - For: A content streaming service
 - To Help: Support both algorithmic recommendations and user preferences
 
-- Design an omnichannel customer experience strategy
-- For: A retail fashion brand
-- To Help: Seamlessly integrate online and physical store interactions
+---
 
-- Design a community-driven growth marketing strategy
+## 📈 Marketing & Growth
+
+### Beginner
+
+- Design a social media post template
+- For: A bakery's Instagram account
+- To Help: Increase daily engagement with local customers
+
+- Design an email newsletter layout
+- For: A book club
+- To Help: Keep members informed about upcoming meetings
+
+- Design a referral program interface
+- For: A mobile app startup
+- To Help: Incentivize users to invite friends
+
+- Design a content calendar
+- For: A lifestyle blogger
+- To Help: Plan and schedule consistent posts across platforms
+
+### Intermediate
+
+- Design a landing page for a marketing campaign
+- For: A SaaS product launch
+- To Help: Convert free trial users to paid subscribers
+
+- Design a multi-channel campaign strategy
+- For: A non-profit fundraising event
+- To Help: Reach diverse donor demographics across platforms
+
+- Design a viral loop strategy
+- For: A social networking app
+- To Help: Achieve exponential user growth through network effects
+
+- Design a content distribution strategy
+- For: A B2B software company
+- To Help: Maximize reach across owned, earned, and paid channels
+
+### Advanced
+
+- Design a comprehensive marketing automation flow
+- For: An e-commerce platform
+- To Help: Reduce cart abandonment and increase customer lifetime value
+
+- Design a growth experiment framework
+- For: A fintech startup
+- To Help: Systematically test and optimize acquisition channels
+
+- Design a community-driven growth strategy
 - For: A developer tools platform
 - To Help: Build organic adoption through influencers and advocates
+
+---
+
+## 💼 Sales & Pitching
+
+### Beginner
+
+- Design a 60-second elevator pitch
+- For: A mobile app for busy parents
+- To Help: Clearly communicate value to potential investors
+
+- Design a product demo script
+- For: A productivity software tool
+- To Help: Showcase key features to prospective customers
+
+- Design a cold email template
+- For: A B2B SaaS sales team
+- To Help: Book discovery calls with enterprise prospects
+
+- Design a discovery call framework
+- For: A consulting services firm
+- To Help: Uncover client pain points and qualify opportunities
+
+### Intermediate
+
+- Design a sales presentation deck
+- For: An enterprise software solution
+- To Help: Convince C-level executives to adopt the platform
+
+- Design an objection handling framework
+- For: A high-ticket coaching program
+- To Help: Address common concerns and move prospects to close
+
+- Design a competitive battle card
+- For: A SaaS sales team facing strong competition
+- To Help: Position unique value and counter competitor claims
+
+- Design a value-based pricing pitch
+- For: A custom software development agency
+- To Help: Justify premium pricing through ROI calculations
+
+### Advanced
+
+- Design a strategic account plan
+- For: An enterprise software vendor targeting Fortune 500
+- To Help: Orchestrate complex multi-stakeholder sales cycles
+
+- Design an investor pitch deck
+- For: A seed-stage startup raising Series A
+- To Help: Secure $5M funding with compelling growth narrative
+
+- Design a partnership proposal
+- For: A marketplace platform seeking channel partners
+- To Help: Structure mutually beneficial co-selling agreements
+
+---
+
+## 🎯 Strategy & Operations
+
+### Beginner
+
+- Design a project timeline
+- For: A website redesign project
+- To Help: Coordinate designers, developers, and stakeholders
+
+- Design a process documentation
+- For: A customer support team
+- To Help: Standardize ticket handling and reduce response times
+
+- Design a resource allocation plan
+- For: A small marketing agency
+- To Help: Balance team workload across client projects
+
+- Design a meeting agenda framework
+- For: A remote-first startup
+- To Help: Run efficient, productive team sync meetings
+
+### Intermediate
+
+- Design a quarterly OKR framework
+- For: A fast-growing tech startup
+- To Help: Align cross-functional teams around strategic priorities
+
+- Design a vendor evaluation matrix
+- For: An operations team selecting a CRM system
+- To Help: Systematically compare solutions and make data-driven decisions
+
+- Design a scaling operations playbook
+- For: A marketplace expanding to new markets
+- To Help: Replicate success while adapting to local contexts
+
+- Design a crisis response plan
+- For: An e-commerce company during peak season
+- To Help: Handle operational failures and maintain customer satisfaction
+
+### Advanced
+
+- Design a business model transformation strategy
+- For: A traditional media company pivoting to digital
+- To Help: Navigate organizational change while maintaining revenue
+
+- Design a merger integration plan
+- For: Two SaaS companies combining operations
+- To Help: Unify processes, systems, and cultures efficiently
+
+- Design a multi-year strategic roadmap
+- For: A scaling startup planning IPO
+- To Help: Balance growth, profitability, and operational excellence
+
+---
+
+## 📊 Data & Analytics
+
+### Beginner
+
+- Design a basic metrics dashboard
+- For: A content creator tracking audience growth
+- To Help: Visualize key performance indicators across platforms
+
+- Design a sales report template
+- For: A small retail business
+- To Help: Track daily revenue and identify top-selling products
+
+- Design a customer feedback analysis
+- For: A mobile app with user reviews
+- To Help: Categorize feedback themes and prioritize improvements
+
+- Design a website traffic report
+- For: A blog or portfolio site
+- To Help: Understand visitor behavior and popular content
+
+### Intermediate
+
+- Design a cohort retention analysis
+- For: A subscription-based mobile app
+- To Help: Identify when and why users churn
+
+- Design an A/B test framework
+- For: An e-commerce product page
+- To Help: Determine which design variation drives more conversions
+
+- Design a customer segmentation model
+- For: A SaaS platform with diverse user base
+- To Help: Personalize marketing and product experiences
+
+- Design a funnel conversion analysis
+- For: A lead generation website
+- To Help: Identify drop-off points and optimization opportunities
+
+### Advanced
+
+- Design a predictive churn model
+- For: A subscription service
+- To Help: Proactively identify at-risk customers for retention campaigns
+
+- Design an attribution modeling system
+- For: A multi-channel marketing operation
+- To Help: Understand true impact of each touchpoint on conversions
+
+- Design a real-time anomaly detection dashboard
+- For: A high-traffic e-commerce platform
+- To Help: Immediately identify and respond to unusual patterns or issues
 
 ---
 
@@ -214,10 +318,12 @@ This document outlines all available challenges in the Whiteboard Dojo, organize
 
 | Category | Beginner | Intermediate | Advanced | Total |
 |----------|----------|--------------|----------|-------|
-| Branding | 5 | 4 | 3 | 12 |
-| Marketing | 4 | 4 | 3 | 11 |
-| Product & UX | 7 | 7 | 7 | 21 |
-| **Total** | **16** | **15** | **13** | **44** |
+| Product & UX Design | 7 | 7 | 7 | 21 |
+| Marketing & Growth | 4 | 4 | 3 | 11 |
+| Sales & Pitching | 4 | 4 | 3 | 11 |
+| Strategy & Operations | 4 | 4 | 3 | 11 |
+| Data & Analytics | 4 | 4 | 3 | 11 |
+| **Total** | **23** | **23** | **19** | **65** |
 
 ---
 

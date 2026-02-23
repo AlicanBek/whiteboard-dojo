@@ -623,9 +623,11 @@
                         <label class="selector-label">Category:</label>
                         <div class="selector-buttons">
                             <button class="selector-btn category-btn active" data-category="all">All</button>
-                            <button class="selector-btn category-btn" data-category="branding">Branding</button>
-                            <button class="selector-btn category-btn" data-category="marketing">Marketing</button>
-                            <button class="selector-btn category-btn" data-category="product-ux">Product & UX</button>
+                            <button class="selector-btn category-btn" data-category="product-ux-design">Product & UX Design</button>
+                            <button class="selector-btn category-btn" data-category="marketing-growth">Marketing & Growth</button>
+                            <button class="selector-btn category-btn" data-category="sales-pitching">Sales & Pitching</button>
+                            <button class="selector-btn category-btn" data-category="strategy-operations">Strategy & Operations</button>
+                            <button class="selector-btn category-btn" data-category="data-analytics">Data & Analytics</button>
                         </div>
                     </div>
                     
@@ -736,45 +738,50 @@
     <script>
         // Sample challenges data with categories and new structure
         const challenges = {
-            branding: {
+            "product-ux-design": {
                 beginner: [
                     {
-                        design: "a simple logo",
-                        for: "a local coffee shop",
-                        toHelp: "young professionals identify the brand"
+                        design: "a login screen",
+                        for: "a fitness app",
+                        toHelp: "busy professionals"
                     },
                     {
-                        design: "a color palette",
-                        for: "a fitness startup",
-                        toHelp: "convey energy and motivation"
+                        design: "a shopping cart view",
+                        for: "a recipe app",
+                        toHelp: "college students"
                     },
                     {
-                        design: "a business card layout",
-                        for: "a freelance photographer",
-                        toHelp: "make a memorable first impression"
+                        design: "a profile page",
+                        for: "a music streaming app",
+                        toHelp: "commuters"
                     }
                 ],
                 intermediate: [
                     {
-                        design: "a complete brand identity system",
-                        for: "a sustainable fashion brand",
-                        toHelp: "appeal to environmentally conscious millennials"
+                        design: "a multi-step checkout flow",
+                        for: "an e-commerce platform",
+                        toHelp: "elderly users with accessibility needs"
                     },
                     {
-                        design: "a brand refresh strategy",
-                        for: "an established restaurant chain",
-                        toHelp: "attract younger customers while retaining loyalty"
+                        design: "a habit tracking dashboard",
+                        for: "a productivity app",
+                        toHelp: "freelancers and consultants"
                     }
                 ],
                 advanced: [
                     {
-                        design: "a comprehensive rebranding strategy",
-                        for: "a B2B software company pivoting to consumer market",
-                        toHelp: "completely change market perception and target audience"
+                        design: "a real-time collaboration system",
+                        for: "a design tool",
+                        toHelp: "distributed teams across different time zones"
+                    },
+                    {
+                        design: "a financial planning dashboard",
+                        for: "a fintech application",
+                        toHelp: "both individual investors and financial advisors"
                     }
                 ]
             },
-            marketing: {
+            "marketing-growth": {
                 beginner: [
                     {
                         design: "a social media post template",
@@ -782,9 +789,9 @@
                         toHelp: "increase daily engagement with local customers"
                     },
                     {
-                        design: "an email newsletter layout",
-                        for: "a book club",
-                        toHelp: "keep members informed about upcoming meetings"
+                        design: "a referral program interface",
+                        for: "a mobile app startup",
+                        toHelp: "incentivize users to invite friends"
                     }
                 ],
                 intermediate: [
@@ -794,9 +801,9 @@
                         toHelp: "convert free trial users to paid subscribers"
                     },
                     {
-                        design: "a multi-channel campaign strategy",
-                        for: "a non-profit fundraising event",
-                        toHelp: "reach diverse donor demographics across platforms"
+                        design: "a viral loop strategy",
+                        for: "a social networking app",
+                        toHelp: "achieve exponential user growth through network effects"
                     }
                 ],
                 advanced: [
@@ -807,86 +814,102 @@
                     }
                 ]
             },
-            "product-ux": {
+            "sales-pitching": {
                 beginner: [
                     {
-                        design: "a login screen",
-                        for: "a fitness app",
-                        toHelp: "busy professionals"
+                        design: "a 60-second elevator pitch",
+                        for: "a mobile app for busy parents",
+                        toHelp: "clearly communicate value to potential investors"
                     },
                     {
-                        design: "a shopping cart view",
-                        for: "a recipe app", 
-                        toHelp: "college students"
-                    },
-                    {
-                        design: "a profile page",
-                        for: "a music streaming app",
-                        toHelp: "commuters"
-                    },
-                    {
-                        design: "a search results view",
-                        for: "a book reading app",
-                        toHelp: "bookworms"
-                    },
-                    {
-                        design: "a notification settings screen",
-                        for: "a meditation app",
-                        toHelp: "stressed workers"
+                        design: "a product demo script",
+                        for: "a productivity software tool",
+                        toHelp: "showcase key features to prospective customers"
                     }
                 ],
                 intermediate: [
                     {
-                        design: "a multi-step checkout flow",
-                        for: "an e-commerce platform",
-                        toHelp: "elderly users with accessibility needs"
+                        design: "a sales presentation deck",
+                        for: "an enterprise software solution",
+                        toHelp: "convince C-level executives to adopt the platform"
                     },
                     {
-                        design: "a collaborative playlist feature",
-                        for: "a music streaming service",
-                        toHelp: "remote teams who want to bond"
-                    },
-                    {
-                        design: "a habit tracking dashboard",
-                        for: "a productivity app",
-                        toHelp: "freelancers and consultants"
-                    },
-                    {
-                        design: "a meal planning interface",
-                        for: "a nutrition app",
-                        toHelp: "families with dietary restrictions"
-                    },
-                    {
-                        design: "a project management dashboard",
-                        for: "a team collaboration tool",
-                        toHelp: "creative agencies"
+                        design: "a competitive battle card",
+                        for: "a SaaS sales team facing strong competition",
+                        toHelp: "position unique value and counter competitor claims"
                     }
                 ],
                 advanced: [
                     {
-                        design: "a real-time collaboration system",
-                        for: "a design tool",
-                        toHelp: "distributed teams across different time zones"
+                        design: "an investor pitch deck",
+                        for: "a seed-stage startup raising Series A",
+                        toHelp: "secure $5M funding with compelling growth narrative"
+                    }
+                ]
+            },
+            "strategy-operations": {
+                beginner: [
+                    {
+                        design: "a project timeline",
+                        for: "a website redesign project",
+                        toHelp: "coordinate designers, developers, and stakeholders"
                     },
                     {
-                        design: "an AI-powered content moderation interface",
-                        for: "a social media platform",
-                        toHelp: "moderators handling complex policy violations"
+                        design: "a process documentation",
+                        for: "a customer support team",
+                        toHelp: "standardize ticket handling and reduce response times"
+                    }
+                ],
+                intermediate: [
+                    {
+                        design: "a quarterly OKR framework",
+                        for: "a fast-growing tech startup",
+                        toHelp: "align cross-functional teams around strategic priorities"
                     },
                     {
-                        design: "a financial planning dashboard",
-                        for: "a fintech application",
-                        toHelp: "both individual investors and financial advisors"
+                        design: "a scaling operations playbook",
+                        for: "a marketplace expanding to new markets",
+                        toHelp: "replicate success while adapting to local contexts"
+                    }
+                ],
+                advanced: [
+                    {
+                        design: "a business model transformation strategy",
+                        for: "a traditional media company pivoting to digital",
+                        toHelp: "navigate organizational change while maintaining revenue"
+                    }
+                ]
+            },
+            "data-analytics": {
+                beginner: [
+                    {
+                        design: "a basic metrics dashboard",
+                        for: "a content creator tracking audience growth",
+                        toHelp: "visualize key performance indicators across platforms"
                     },
                     {
-                        design: "a multi-tenant analytics platform",
-                        for: "an enterprise SaaS tool",
-                        toHelp: "different business units with varying needs"
+                        design: "a sales report template",
+                        for: "a small retail business",
+                        toHelp: "track daily revenue and identify top-selling products"
+                    }
+                ],
+                intermediate: [
+                    {
+                        design: "a cohort retention analysis",
+                        for: "a subscription-based mobile app",
+                        toHelp: "identify when and why users churn"
                     },
                     {
-                        design: "a crisis management communication system",
-                        for: "an emergency response platform",
-                        toHelp: "first responders coordinating across multiple agencies"
+                        design: "an A/B test framework",
+                        for: "an e-commerce product page",
+                        toHelp: "determine which design variation drives more conversions"
+                    }
+                ],
+                advanced: [
+                    {
+                        design: "a predictive churn model",
+                        for: "a subscription service",
+                        toHelp: "proactively identify at-risk customers for retention campaigns"
                     }
                 ]
             }

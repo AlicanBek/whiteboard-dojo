@@ -1,137 +1,6 @@
 // Sample challenges data with categories and new structure
 const challenges = {
-    branding: {
-        beginner: [
-            {
-                design: "a simple logo",
-                for: "a local coffee shop",
-                toHelp: "young professionals identify the brand"
-            },
-            {
-                design: "a color palette",
-                for: "a fitness startup",
-                toHelp: "convey energy and motivation"
-            },
-            {
-                design: "a business card layout",
-                for: "a freelance photographer",
-                toHelp: "make a memorable first impression"
-            },
-            {
-                design: "a packaging layout",
-                for: "a boutique skincare brand",
-                toHelp: "stand out on retail shelves and communicate brand values"
-            },
-            {
-                design: "social media graphics",
-                for: "a fitness influencer",
-                toHelp: "create consistent, engaging visual content across platforms"
-            }
-        ],
-        intermediate: [
-            {
-                design: "a complete brand identity system",
-                for: "a sustainable fashion brand",
-                toHelp: "appeal to environmentally conscious millennials"
-            },
-            {
-                design: "a brand refresh strategy",
-                for: "an established restaurant chain",
-                toHelp: "attract younger customers while retaining loyalty"
-            },
-            {
-                design: "a brand guidelines system",
-                for: "a startup acquiring another company",
-                toHelp: "merge two brand identities while maintaining equity"
-            },
-            {
-                design: "a corporate rebrand campaign",
-                for: "a legacy manufacturing company modernizing its image",
-                toHelp: "signal innovation without alienating existing customers"
-            }
-        ],
-        advanced: [
-            {
-                design: "a comprehensive rebranding strategy",
-                for: "a B2B software company pivoting to consumer market",
-                toHelp: "completely change market perception and target audience"
-            },
-            {
-                design: "a luxury brand identity system",
-                for: "a sustainable jewelry startup",
-                toHelp: "appeal to affluent environmentally-conscious consumers"
-            },
-            {
-                design: "a rebrand for a crisis recovery",
-                for: "a company recovering from negative press",
-                toHelp: "rebuild trust and establish a new brand narrative"
-            }
-        ]
-    },
-    marketing: {
-        beginner: [
-            {
-                design: "a social media post template",
-                for: "a bakery's Instagram account",
-                toHelp: "increase daily engagement with local customers"
-            },
-            {
-                design: "an email newsletter layout",
-                for: "a book club",
-                toHelp: "keep members informed about upcoming meetings"
-            },
-            {
-                design: "a social media campaign calendar",
-                for: "a local charity",
-                toHelp: "build awareness and drive volunteer signups"
-            },
-            {
-                design: "podcast artwork and branding",
-                for: "an indie podcast creator",
-                toHelp: "create a professional presence across platforms"
-            }
-        ],
-        intermediate: [
-            {
-                design: "a landing page for a marketing campaign",
-                for: "a SaaS product launch",
-                toHelp: "convert free trial users to paid subscribers"
-            },
-            {
-                design: "a multi-channel campaign strategy",
-                for: "a non-profit fundraising event",
-                toHelp: "reach diverse donor demographics across platforms"
-            },
-            {
-                design: "a video marketing strategy",
-                for: "a B2B SaaS company",
-                toHelp: "educate prospects and reduce sales cycle length"
-            },
-            {
-                design: "a guerrilla marketing campaign",
-                for: "a sustainable fashion startup with limited budget",
-                toHelp: "generate viral awareness and media coverage"
-            }
-        ],
-        advanced: [
-            {
-                design: "a comprehensive marketing automation flow",
-                for: "an e-commerce platform",
-                toHelp: "reduce cart abandonment and increase customer lifetime value"
-            },
-            {
-                design: "an omnichannel customer experience strategy",
-                for: "a retail fashion brand",
-                toHelp: "seamlessly integrate online and physical store interactions"
-            },
-            {
-                design: "a community-driven growth marketing strategy",
-                for: "a developer tools platform",
-                toHelp: "build organic adoption through influencers and advocates"
-            }
-        ]
-    },
-    "product-ux": {
+    "product-ux-design": {
         beginner: [
             {
                 design: "a login screen",
@@ -140,7 +9,7 @@ const challenges = {
             },
             {
                 design: "a shopping cart view",
-                for: "a recipe app", 
+                for: "a recipe app",
                 toHelp: "college students"
             },
             {
@@ -241,6 +110,258 @@ const challenges = {
                 design: "a personalization engine interface",
                 for: "a content streaming service",
                 toHelp: "support both algorithmic recommendations and user preferences"
+            }
+        ]
+    },
+    "marketing-growth": {
+        beginner: [
+            {
+                design: "a social media post template",
+                for: "a bakery's Instagram account",
+                toHelp: "increase daily engagement with local customers"
+            },
+            {
+                design: "an email newsletter layout",
+                for: "a book club",
+                toHelp: "keep members informed about upcoming meetings"
+            },
+            {
+                design: "a referral program interface",
+                for: "a mobile app startup",
+                toHelp: "incentivize users to invite friends"
+            },
+            {
+                design: "a content calendar",
+                for: "a lifestyle blogger",
+                toHelp: "plan and schedule consistent posts across platforms"
+            }
+        ],
+        intermediate: [
+            {
+                design: "a landing page for a marketing campaign",
+                for: "a SaaS product launch",
+                toHelp: "convert free trial users to paid subscribers"
+            },
+            {
+                design: "a multi-channel campaign strategy",
+                for: "a non-profit fundraising event",
+                toHelp: "reach diverse donor demographics across platforms"
+            },
+            {
+                design: "a viral loop strategy",
+                for: "a social networking app",
+                toHelp: "achieve exponential user growth through network effects"
+            },
+            {
+                design: "a content distribution strategy",
+                for: "a B2B software company",
+                toHelp: "maximize reach across owned, earned, and paid channels"
+            }
+        ],
+        advanced: [
+            {
+                design: "a comprehensive marketing automation flow",
+                for: "an e-commerce platform",
+                toHelp: "reduce cart abandonment and increase customer lifetime value"
+            },
+            {
+                design: "a growth experiment framework",
+                for: "a fintech startup",
+                toHelp: "systematically test and optimize acquisition channels"
+            },
+            {
+                design: "a community-driven growth strategy",
+                for: "a developer tools platform",
+                toHelp: "build organic adoption through influencers and advocates"
+            }
+        ]
+    },
+    "sales-pitching": {
+        beginner: [
+            {
+                design: "a 60-second elevator pitch",
+                for: "a mobile app for busy parents",
+                toHelp: "clearly communicate value to potential investors"
+            },
+            {
+                design: "a product demo script",
+                for: "a productivity software tool",
+                toHelp: "showcase key features to prospective customers"
+            },
+            {
+                design: "a cold email template",
+                for: "a B2B SaaS sales team",
+                toHelp: "book discovery calls with enterprise prospects"
+            },
+            {
+                design: "a discovery call framework",
+                for: "a consulting services firm",
+                toHelp: "uncover client pain points and qualify opportunities"
+            }
+        ],
+        intermediate: [
+            {
+                design: "a sales presentation deck",
+                for: "an enterprise software solution",
+                toHelp: "convince C-level executives to adopt the platform"
+            },
+            {
+                design: "an objection handling framework",
+                for: "a high-ticket coaching program",
+                toHelp: "address common concerns and move prospects to close"
+            },
+            {
+                design: "a competitive battle card",
+                for: "a SaaS sales team facing strong competition",
+                toHelp: "position unique value and counter competitor claims"
+            },
+            {
+                design: "a value-based pricing pitch",
+                for: "a custom software development agency",
+                toHelp: "justify premium pricing through ROI calculations"
+            }
+        ],
+        advanced: [
+            {
+                design: "a strategic account plan",
+                for: "an enterprise software vendor targeting Fortune 500",
+                toHelp: "orchestrate complex multi-stakeholder sales cycles"
+            },
+            {
+                design: "an investor pitch deck",
+                for: "a seed-stage startup raising Series A",
+                toHelp: "secure $5M funding with compelling growth narrative"
+            },
+            {
+                design: "a partnership proposal",
+                for: "a marketplace platform seeking channel partners",
+                toHelp: "structure mutually beneficial co-selling agreements"
+            }
+        ]
+    },
+    "strategy-operations": {
+        beginner: [
+            {
+                design: "a project timeline",
+                for: "a website redesign project",
+                toHelp: "coordinate designers, developers, and stakeholders"
+            },
+            {
+                design: "a process documentation",
+                for: "a customer support team",
+                toHelp: "standardize ticket handling and reduce response times"
+            },
+            {
+                design: "a resource allocation plan",
+                for: "a small marketing agency",
+                toHelp: "balance team workload across client projects"
+            },
+            {
+                design: "a meeting agenda framework",
+                for: "a remote-first startup",
+                toHelp: "run efficient, productive team sync meetings"
+            }
+        ],
+        intermediate: [
+            {
+                design: "a quarterly OKR framework",
+                for: "a fast-growing tech startup",
+                toHelp: "align cross-functional teams around strategic priorities"
+            },
+            {
+                design: "a vendor evaluation matrix",
+                for: "an operations team selecting a CRM system",
+                toHelp: "systematically compare solutions and make data-driven decisions"
+            },
+            {
+                design: "a scaling operations playbook",
+                for: "a marketplace expanding to new markets",
+                toHelp: "replicate success while adapting to local contexts"
+            },
+            {
+                design: "a crisis response plan",
+                for: "an e-commerce company during peak season",
+                toHelp: "handle operational failures and maintain customer satisfaction"
+            }
+        ],
+        advanced: [
+            {
+                design: "a business model transformation strategy",
+                for: "a traditional media company pivoting to digital",
+                toHelp: "navigate organizational change while maintaining revenue"
+            },
+            {
+                design: "a merger integration plan",
+                for: "two SaaS companies combining operations",
+                toHelp: "unify processes, systems, and cultures efficiently"
+            },
+            {
+                design: "a multi-year strategic roadmap",
+                for: "a scaling startup planning IPO",
+                toHelp: "balance growth, profitability, and operational excellence"
+            }
+        ]
+    },
+    "data-analytics": {
+        beginner: [
+            {
+                design: "a basic metrics dashboard",
+                for: "a content creator tracking audience growth",
+                toHelp: "visualize key performance indicators across platforms"
+            },
+            {
+                design: "a sales report template",
+                for: "a small retail business",
+                toHelp: "track daily revenue and identify top-selling products"
+            },
+            {
+                design: "a customer feedback analysis",
+                for: "a mobile app with user reviews",
+                toHelp: "categorize feedback themes and prioritize improvements"
+            },
+            {
+                design: "a website traffic report",
+                for: "a blog or portfolio site",
+                toHelp: "understand visitor behavior and popular content"
+            }
+        ],
+        intermediate: [
+            {
+                design: "a cohort retention analysis",
+                for: "a subscription-based mobile app",
+                toHelp: "identify when and why users churn"
+            },
+            {
+                design: "an A/B test framework",
+                for: "an e-commerce product page",
+                toHelp: "determine which design variation drives more conversions"
+            },
+            {
+                design: "a customer segmentation model",
+                for: "a SaaS platform with diverse user base",
+                toHelp: "personalize marketing and product experiences"
+            },
+            {
+                design: "a funnel conversion analysis",
+                for: "a lead generation website",
+                toHelp: "identify drop-off points and optimization opportunities"
+            }
+        ],
+        advanced: [
+            {
+                design: "a predictive churn model",
+                for: "a subscription service",
+                toHelp: "proactively identify at-risk customers for retention campaigns"
+            },
+            {
+                design: "an attribution modeling system",
+                for: "a multi-channel marketing operation",
+                toHelp: "understand true impact of each touchpoint on conversions"
+            },
+            {
+                design: "a real-time anomaly detection dashboard",
+                for: "a high-traffic e-commerce platform",
+                toHelp: "immediately identify and respond to unusual patterns or issues"
             }
         ]
     }
