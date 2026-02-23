@@ -237,29 +237,6 @@ body {
     font-size: 0.9rem;
 }
 
-.selector-dropdown {
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--border);
-    background: var(--background);
-    color: var(--text-primary);
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    min-width: 180px;
-}
-
-.selector-dropdown:hover {
-    border-color: var(--primary);
-}
-
-.selector-dropdown:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-}
-
 .selector-buttons {
     display: flex;
     gap: 0.5rem;

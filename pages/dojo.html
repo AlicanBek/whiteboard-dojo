@@ -31,24 +31,24 @@
                 <!-- Selectors Row -->
                 <div class="selectors-row">
                     <div class="selector-section">
-                        <label class="selector-label" for="category-select">Category:</label>
-                        <select id="category-select" class="selector-dropdown">
-                            <option value="all">All</option>
-                            <option value="product-ux-design">Product & UX Design</option>
-                            <option value="marketing-growth">Marketing & Growth</option>
-                            <option value="sales-pitching">Sales & Pitching</option>
-                            <option value="strategy-operations">Strategy & Operations</option>
-                            <option value="data-analytics">Data & Analytics</option>
-                        </select>
+                        <label class="selector-label">Category:</label>
+                        <div class="selector-buttons">
+                            <button class="selector-btn category-btn active" data-category="all">All</button>
+                            <button class="selector-btn category-btn" data-category="product-ux-design">Product & UX Design</button>
+                            <button class="selector-btn category-btn" data-category="marketing-growth">Marketing & Growth</button>
+                            <button class="selector-btn category-btn" data-category="sales-pitching">Sales & Pitching</button>
+                            <button class="selector-btn category-btn" data-category="strategy-operations">Strategy & Operations</button>
+                            <button class="selector-btn category-btn" data-category="data-analytics">Data & Analytics</button>
+                        </div>
                     </div>
 
                     <div class="selector-section">
-                        <label class="selector-label" for="difficulty-select">Level:</label>
-                        <select id="difficulty-select" class="selector-dropdown">
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                        </select>
+                        <label class="selector-label">Level:</label>
+                        <div class="selector-buttons">
+                            <button class="selector-btn difficulty-btn active" data-difficulty="beginner">Beginner</button>
+                            <button class="selector-btn difficulty-btn" data-difficulty="intermediate">Intermediate</button>
+                            <button class="selector-btn difficulty-btn" data-difficulty="advanced">Advanced</button>
+                        </div>
                     </div>
                 </div>
 

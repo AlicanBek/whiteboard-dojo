@@ -376,8 +376,8 @@ let timeLeft = 0;
 let isTimerRunning = false;
 
 // DOM elements
-const categorySelect = document.getElementById('category-select');
-const difficultySelect = document.getElementById('difficulty-select');
+const categoryBtns = document.querySelectorAll('.category-btn');
+const difficultyBtns = document.querySelectorAll('.difficulty-btn');
 const challengeContent = document.querySelector('#challenge-content');
 const newChallengeBtn = document.getElementById('new-challenge-btn');
 const timerDisplay = document.getElementById('timer-display');
@@ -410,31 +410,39 @@ navLinks.forEach(link => {
 });
 
 // Category selection
-categorySelect.addEventListener('change', () => {
-    currentCategory = categorySelect.value;
+categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.dataset.category;
 
-    // Reset challenge display
-    challengeContent.innerHTML = `
-        <div class="challenge-placeholder">
-            <span class="placeholder-text">Click "New Challenge" to generate your practice challenge</span>
-        </div>
-    `;
-    currentChallenge = null;
-    startTimerBtn.disabled = true;
+        // Reset challenge display
+        challengeContent.innerHTML = `
+            <div class="challenge-placeholder">
+                <span class="placeholder-text">Click "New Challenge" to generate your practice challenge</span>
+            </div>
+        `;
+        currentChallenge = null;
+        startTimerBtn.disabled = true;
+    });
 });
 
 // Difficulty selection
-difficultySelect.addEventListener('change', () => {
-    currentDifficulty = difficultySelect.value;
+difficultyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        difficultyBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentDifficulty = btn.dataset.difficulty;
 
-    // Reset challenge display
-    challengeContent.innerHTML = `
-        <div class="challenge-placeholder">
-            <span class="placeholder-text">Click "New Challenge" to generate your practice challenge</span>
-        </div>
-    `;
-    currentChallenge = null;
-    startTimerBtn.disabled = true;
+        // Reset challenge display
+        challengeContent.innerHTML = `
+            <div class="challenge-placeholder">
+                <span class="placeholder-text">Click "New Challenge" to generate your practice challenge</span>
+            </div>
+        `;
+        currentChallenge = null;
+        startTimerBtn.disabled = true;
+    });
 });
 
 // Helper function to get all challenges from all categories
