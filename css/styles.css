@@ -801,10 +801,10 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--surface);
-    border-top: 1px solid var(--border-light);
-    margin-top: 4rem;
-    padding: 3rem 2rem 2rem;
+    background: var(--background);
+    border-top: 2px solid var(--border-light);
+    margin-top: 6rem;
+    padding: 4rem 2rem 2rem;
 }
 
 .footer-content {
@@ -812,7 +812,8 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
+    margin-bottom: 3rem;
 }
 
 .footer-about {
@@ -820,22 +821,26 @@ body {
 }
 
 .footer-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 .footer-description {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 .footer-section-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .footer-links {
@@ -844,30 +849,42 @@ body {
 
 .footer-link {
     display: block;
-    padding: 0.5rem 0;
-    color: var(--text-secondary);
+    padding: 0.6rem 0;
+    color: var(--text-primary);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    font-size: 0.95rem;
 }
 
 .footer-link:hover {
     color: var(--primary);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
     max-width: 1200px;
-    margin: 2rem auto 0;
-    padding-top: 2rem;
+    margin: 0 auto;
+    padding-top: 2.5rem;
     border-top: 1px solid var(--border);
     text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
 }
 
 /* Responsive Footer */
 @media (max-width: 768px) {
+    .footer {
+        padding: 3rem 1.5rem 2rem;
+        margin-top: 4rem;
+    }
+
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-about {
+        max-width: 100%;
     }
 }
