@@ -1,12 +1,9 @@
 // Centralized footer for Whiteboard Dojo
-// Add this script to any page with: <div id="footer-container" data-base-path="./"></div>
+// Add this script to any page with: <div id="footer-container"></div>
 
 function createFooter() {
     const container = document.getElementById('footer-container');
     if (!container) return;
-
-    // Get base path from data attribute (e.g., './', '../', '../../')
-    const basePath = container.getAttribute('data-base-path') || './';
 
     const footerHTML = `
     <footer class="footer">
@@ -22,9 +19,9 @@ function createFooter() {
             <div class="footer-section">
                 <h3 class="footer-section-title">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="${basePath}index.html" class="footer-link">Home</a></li>
-                    <li><a href="${basePath}pages/dojo.html" class="footer-link">The Dojo</a></li>
-                    <li><a href="${basePath}pages/docs.html" class="footer-link">Documentation</a></li>
+                    <li><a href="/index.html" class="footer-link">Home</a></li>
+                    <li><a href="/pages/dojo.html" class="footer-link">The Dojo</a></li>
+                    <li><a href="/pages/docs.html" class="footer-link">Documentation</a></li>
                 </ul>
             </div>
 
