@@ -11,8 +11,7 @@ function createFooter() {
             <div class="footer-about">
                 <div class="footer-title">Whiteboard Dojo</div>
                 <p class="footer-description">
-                    Practice makes perfect. Master technical interviews through
-                    deliberate practice with real whiteboard challenges.
+                    Practice with purpose. Sharpen your skills with real whiteboard challenges.
                 </p>
             </div>
 
