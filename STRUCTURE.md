@@ -10,7 +10,10 @@ whiteboard-dojo/
 ├── css/
 │   └── styles.css                      # All shared CSS styles
 ├── js/
-│   └── dojo.js                         # Challenge generator and timer logic
+│   ├── dojo.js                         # Challenge data (150 challenges)
+│   └── script.js                       # Challenge generator and timer logic (mirrors dojo.js)
+├── images/
+│   └── logo.svg                        # Whiteboard Dojo logo
 ├── pages/
 │   ├── dojo.html                       # The Dojo (challenge practice page)
 │   ├── docs.html                       # Documentation hub/index
@@ -33,8 +36,9 @@ whiteboard-dojo/
 │       ├── running-interview-challenge.html
 │       ├── evaluating-performance-making-decisions.html
 │       └── make-whiteboard-dojo-better-together.html
-├── CHALLENGES.md                       # Challenge reference document
-└── whiteboard-dojo.html                # (Legacy - original single-page version)
+├── CHALLENGES.md                       # Challenge reference document (150 challenges)
+├── STRUCTURE.md                        # This file - project structure documentation
+└── DOCUMENTATION_COMPLETE.md           # Documentation generation notes
 ```
 
 ## Pages Overview
@@ -47,10 +51,10 @@ whiteboard-dojo/
 
 ### 2. **The Dojo** (`pages/dojo.html`)
 - Interactive challenge generator
-- Category and difficulty selectors
+- Category and difficulty selectors (5 categories: Product & UX Design, Marketing & Growth, Sales & Pitching, Strategy & Operations, Data & Analytics)
 - Challenge display with design, context, and user information
 - Built-in timer with controls
-- Uses `js/dojo.js` for all functionality
+- Uses `script.js` (which mirrors `js/dojo.js`) for all functionality
 
 ### 3. **Documentation Hub** (`pages/docs.html`)
 - Overview of all available documentation
@@ -80,8 +84,13 @@ whiteboard-dojo/
 - Color-coded with CSS variables for easy theming
 
 ### Challenge Data
-- Challenges data stored in `js/dojo.js`
-- 44 total challenges across 3 categories and 3 difficulty levels
+- Challenges data stored in both `js/dojo.js` and `script.js` (synchronized)
+- **150 total challenges** across 5 categories and 3 difficulty levels:
+  - Product & UX Design: 30 challenges (10 beginner, 10 intermediate, 10 advanced)
+  - Marketing & Growth: 30 challenges (10 beginner, 10 intermediate, 10 advanced)
+  - Sales & Pitching: 30 challenges (10 beginner, 10 intermediate, 10 advanced)
+  - Strategy & Operations: 30 challenges (10 beginner, 10 intermediate, 10 advanced)
+  - Data & Analytics: 30 challenges (10 beginner, 10 intermediate, 10 advanced)
 - Matches the `CHALLENGES.md` reference document
 
 ### Documentation
@@ -97,7 +106,8 @@ whiteboard-dojo/
 - Responsive breakpoints at the bottom
 
 ### JavaScript
-- `js/dojo.js` contains all challenge and timer logic
+- `js/dojo.js` contains challenge data (150 challenges)
+- `script.js` contains challenge generator, timer logic, and mirrors dojo.js
 - Challenges data structure matches the documentation
 
 ### Pages
@@ -116,8 +126,8 @@ whiteboard-dojo/
 
 ### To Add a New Challenge:
 
-1. Open `js/dojo.js` and locate the `challenges` object
-2. Add your challenge to the appropriate category and difficulty level
+1. Open both `js/dojo.js` and `script.js` and locate the `challenges` object
+2. Add your challenge to the appropriate category and difficulty level in both files
 3. Update `CHALLENGES.md` with the new challenge
 4. Test by running the Dojo and generating the challenge
 
@@ -132,14 +142,8 @@ All relative paths are set up to work with this structure.
 
 ## Next Steps
 
-1. Fill in the remaining documentation articles using the template
+1. Keep challenges updated with modern, relevant scenarios
 2. Test all links and navigation across pages
-3. Consider adding breadcrumb navigation or a docs sidebar
+3. Consider adding more categories or difficulty levels as needed
 4. Set up web hosting or deployment
 5. Create a CONTRIBUTING.md for contributors
-
-## Legacy Files
-
-- `whiteboard-dojo.html` - Original single-page version (kept for reference)
-- `styles.css` (in root) - Replaced by `css/styles.css`
-- `script.js` (in root) - Replaced by `js/dojo.js`
