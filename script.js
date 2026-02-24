@@ -36,6 +36,21 @@ const challenges = {
                 design: "an onboarding flow",
                 for: "a project management tool",
                 toHelp: "new users understand core features quickly"
+            },
+            {
+                design: "a daily mood tracker interface",
+                for: "a mental wellness companion app",
+                toHelp: "teenagers express emotions without typing"
+            },
+            {
+                design: "a voice command tutorial screen",
+                for: "a smart home control app",
+                toHelp: "elderly users discover hands-free features"
+            },
+            {
+                design: "a progress celebration screen",
+                for: "a language learning app",
+                toHelp: "motivate learners when they reach milestones"
             }
         ],
         intermediate: [
@@ -73,6 +88,21 @@ const challenges = {
                 design: "an activity feed for a social app",
                 for: "a professional networking platform",
                 toHelp: "users discover relevant content and connections"
+            },
+            {
+                design: "a gift recommendation engine interface",
+                for: "a social marketplace app",
+                toHelp: "users who struggle with choosing thoughtful presents"
+            },
+            {
+                design: "a skill-based matchmaking system",
+                for: "a volunteer coordination platform",
+                toHelp: "connect nonprofits with people's actual talents"
+            },
+            {
+                design: "a micro-learning challenge interface",
+                for: "a professional development app",
+                toHelp: "users learn new skills during their commute"
             }
         ],
         advanced: [
@@ -110,6 +140,21 @@ const challenges = {
                 design: "a personalization engine interface",
                 for: "a content streaming service",
                 toHelp: "support both algorithmic recommendations and user preferences"
+            },
+            {
+                design: "a dynamic consent management system",
+                for: "a healthcare data platform",
+                toHelp: "patients control access across multiple providers and research institutions"
+            },
+            {
+                design: "an ethical AI decision-visualization tool",
+                for: "an autonomous vehicle control system",
+                toHelp: "engineers audit and understand edge-case behaviors"
+            },
+            {
+                design: "a cross-reality collaboration workspace",
+                for: "a spatial computing platform",
+                toHelp: "users seamlessly switch between VR, AR, and traditional screens"
             }
         ]
     },
@@ -134,6 +179,36 @@ const challenges = {
                 design: "a content calendar",
                 for: "a lifestyle blogger",
                 toHelp: "plan and schedule consistent posts across platforms"
+            },
+            {
+                design: "a customer testimonial showcase",
+                for: "a local service business website",
+                toHelp: "build trust with potential first-time customers"
+            },
+            {
+                design: "a seasonal promotion campaign",
+                for: "a coffee shop's loyalty app",
+                toHelp: "drive foot traffic during slow morning hours"
+            },
+            {
+                design: "a user-generated content strategy",
+                for: "a pet product brand",
+                toHelp: "encourage customers to share photos with their purchases"
+            },
+            {
+                design: "a welcome email series",
+                for: "an online course platform",
+                toHelp: "engage new sign-ups during their first week"
+            },
+            {
+                design: "a birthday rewards campaign",
+                for: "a beauty products subscription box",
+                toHelp: "increase customer retention and personal connection"
+            },
+            {
+                design: "a TikTok content strategy",
+                for: "a sustainable fashion brand",
+                toHelp: "reach Gen Z shoppers through authentic storytelling"
             }
         ],
         intermediate: [
@@ -156,6 +231,36 @@ const challenges = {
                 design: "a content distribution strategy",
                 for: "a B2B software company",
                 toHelp: "maximize reach across owned, earned, and paid channels"
+            },
+            {
+                design: "an influencer partnership program",
+                for: "a health and wellness startup",
+                toHelp: "build credibility with skeptical audiences"
+            },
+            {
+                design: "a re-engagement campaign",
+                for: "a gaming app with churned users",
+                toHelp: "bring back players who haven't logged in for 30+ days"
+            },
+            {
+                design: "a podcast advertising strategy",
+                for: "a luxury travel booking service",
+                toHelp: "reach affluent listeners ready to book experiences"
+            },
+            {
+                design: "a community activation plan",
+                for: "an open-source developer platform",
+                toHelp: "turn casual users into active contributors"
+            },
+            {
+                design: "a location-based marketing campaign",
+                for: "a grocery delivery app",
+                toHelp: "target users in newly launched neighborhoods"
+            },
+            {
+                design: "a lifecycle marketing framework",
+                for: "a fintech credit card",
+                toHelp: "nurture customers from application to power user"
             }
         ],
         advanced: [
@@ -173,6 +278,41 @@ const challenges = {
                 design: "a community-driven growth strategy",
                 for: "a developer tools platform",
                 toHelp: "build organic adoption through influencers and advocates"
+            },
+            {
+                design: "a zero-budget viral campaign",
+                for: "a climate tech startup",
+                toHelp: "achieve 100K impressions through creativity alone"
+            },
+            {
+                design: "a privacy-first attribution system",
+                for: "a consumer app in a cookieless world",
+                toHelp: "measure campaign effectiveness without invasive tracking"
+            },
+            {
+                design: "a narrative-driven brand evolution",
+                for: "a legacy company entering Web3",
+                toHelp: "reposition brand for crypto-native audiences while retaining existing customers"
+            },
+            {
+                design: "a hyperlocal expansion playbook",
+                for: "a food delivery platform",
+                toHelp: "launch in 50 new cities with limited marketing budget"
+            },
+            {
+                design: "a thought leadership engine",
+                for: "a B2B AI infrastructure company",
+                toHelp: "establish CEO as industry visionary and drive inbound leads"
+            },
+            {
+                design: "a cross-platform gamification strategy",
+                for: "a fitness app ecosystem",
+                toHelp: "create network effects between hardware, mobile app, and social community"
+            },
+            {
+                design: "a cultural moment hijacking framework",
+                for: "a Gen Z-focused brand",
+                toHelp: "authentically participate in trending conversations without seeming forced"
             }
         ]
     },
@@ -197,6 +337,36 @@ const challenges = {
                 design: "a discovery call framework",
                 for: "a consulting services firm",
                 toHelp: "uncover client pain points and qualify opportunities"
+            },
+            {
+                design: "a follow-up email sequence",
+                for: "a freelance web designer",
+                toHelp: "stay top-of-mind with potential clients after initial meeting"
+            },
+            {
+                design: "a pricing conversation script",
+                for: "a boutique marketing agency",
+                toHelp: "confidently present fees without underselling services"
+            },
+            {
+                design: "a LinkedIn outreach message",
+                for: "a B2B sales development rep",
+                toHelp: "start conversations with cold prospects"
+            },
+            {
+                design: "a demo booking landing page",
+                for: "a project management software",
+                toHelp: "convert website visitors into qualified leads"
+            },
+            {
+                design: "a referral request script",
+                for: "a real estate agent",
+                toHelp: "ask satisfied clients for introductions naturally"
+            },
+            {
+                design: "a voicemail script",
+                for: "an insurance sales professional",
+                toHelp: "get prospects to return calls"
             }
         ],
         intermediate: [
@@ -219,6 +389,36 @@ const challenges = {
                 design: "a value-based pricing pitch",
                 for: "a custom software development agency",
                 toHelp: "justify premium pricing through ROI calculations"
+            },
+            {
+                design: "a negotiation framework",
+                for: "a commercial real estate broker",
+                toHelp: "navigate complex multi-party deals while protecting margins"
+            },
+            {
+                design: "a champion-building strategy",
+                for: "an enterprise sales rep",
+                toHelp: "identify and empower internal advocates within prospect organizations"
+            },
+            {
+                design: "a storytelling pitch structure",
+                for: "a social impact startup",
+                toHelp: "emotionally engage donors while demonstrating measurable impact"
+            },
+            {
+                design: "a proof-of-concept proposal",
+                for: "a data analytics consulting firm",
+                toHelp: "de-risk large contracts with pilot programs"
+            },
+            {
+                design: "a multi-stakeholder presentation",
+                for: "a healthcare technology vendor",
+                toHelp: "address diverse concerns of doctors, administrators, and patients"
+            },
+            {
+                design: "a renewal conversation framework",
+                for: "a SaaS customer success manager",
+                toHelp: "expand accounts while addressing usage gaps"
             }
         ],
         advanced: [
@@ -236,6 +436,41 @@ const challenges = {
                 design: "a partnership proposal",
                 for: "a marketplace platform seeking channel partners",
                 toHelp: "structure mutually beneficial co-selling agreements"
+            },
+            {
+                design: "a boardroom transformation pitch",
+                for: "a management consulting firm",
+                toHelp: "sell a $2M organizational change initiative to skeptical board members"
+            },
+            {
+                design: "a global expansion sales playbook",
+                for: "a SaaS company entering Asia-Pacific markets",
+                toHelp: "adapt messaging and tactics for diverse cultural contexts"
+            },
+            {
+                design: "a category creation pitch",
+                for: "a startup defining a new market",
+                toHelp: "convince prospects they have a problem they didn't know existed"
+            },
+            {
+                design: "a hostile takeover defense presentation",
+                for: "a boutique investment bank",
+                toHelp: "persuade shareholders to reject acquisition offer"
+            },
+            {
+                design: "a crisis turnkey sales plan",
+                for: "a cybersecurity firm",
+                toHelp: "sell emergency incident response during active data breach"
+            },
+            {
+                design: "a consortium sale strategy",
+                for: "an infrastructure technology vendor",
+                toHelp: "coordinate bid across multiple government agencies and contractors"
+            },
+            {
+                design: "a platform ecosystem pitch",
+                for: "a B2B marketplace",
+                toHelp: "sell vision that requires prospects to change entire business model"
             }
         ]
     },
@@ -260,6 +495,36 @@ const challenges = {
                 design: "a meeting agenda framework",
                 for: "a remote-first startup",
                 toHelp: "run efficient, productive team sync meetings"
+            },
+            {
+                design: "a simple inventory system",
+                for: "a small retail store",
+                toHelp: "track stock levels and prevent shortages"
+            },
+            {
+                design: "a client onboarding checklist",
+                for: "a freelance consulting business",
+                toHelp: "ensure smooth project kickoffs every time"
+            },
+            {
+                design: "a team capacity planning spreadsheet",
+                for: "a creative agency with 10 people",
+                toHelp: "prevent burnout and overcommitment"
+            },
+            {
+                design: "a decision-making framework",
+                for: "a product team evaluating feature requests",
+                toHelp: "prioritize based on impact and effort"
+            },
+            {
+                design: "a standard operating procedure",
+                for: "a restaurant opening routine",
+                toHelp: "ensure consistency across multiple shifts"
+            },
+            {
+                design: "a supplier evaluation checklist",
+                for: "a small manufacturing business",
+                toHelp: "choose reliable vendors for raw materials"
             }
         ],
         intermediate: [
@@ -282,6 +547,36 @@ const challenges = {
                 design: "a crisis response plan",
                 for: "an e-commerce company during peak season",
                 toHelp: "handle operational failures and maintain customer satisfaction"
+            },
+            {
+                design: "a supply chain optimization strategy",
+                for: "a direct-to-consumer brand",
+                toHelp: "reduce shipping costs without compromising delivery speed"
+            },
+            {
+                design: "a remote work policy framework",
+                for: "a traditionally office-based company",
+                toHelp: "maintain culture and productivity while offering flexibility"
+            },
+            {
+                design: "a product launch coordination plan",
+                for: "a SaaS company with multiple departments",
+                toHelp: "synchronize engineering, marketing, sales, and support efforts"
+            },
+            {
+                design: "a customer health scoring system",
+                for: "a B2B subscription service",
+                toHelp: "proactively identify churn risks and expansion opportunities"
+            },
+            {
+                design: "a cross-team collaboration model",
+                for: "a matrixed organization",
+                toHelp: "clarify ownership when people report to multiple managers"
+            },
+            {
+                design: "a post-mortem analysis framework",
+                for: "a fintech experiencing service outages",
+                toHelp: "learn from incidents without blame culture"
             }
         ],
         advanced: [
@@ -299,6 +594,41 @@ const challenges = {
                 design: "a multi-year strategic roadmap",
                 for: "a scaling startup planning IPO",
                 toHelp: "balance growth, profitability, and operational excellence"
+            },
+            {
+                design: "a platform governance framework",
+                for: "a marketplace with millions of third-party sellers",
+                toHelp: "enforce quality standards without stifling entrepreneurship"
+            },
+            {
+                design: "a zero-based budgeting initiative",
+                for: "a public company under activist investor pressure",
+                toHelp: "cut costs strategically while investing in growth areas"
+            },
+            {
+                design: "a distributed workforce operating model",
+                for: "a global enterprise with 10,000+ employees",
+                toHelp: "standardize processes across 30 countries with different labor laws"
+            },
+            {
+                design: "a sustainability transformation program",
+                for: "a manufacturing conglomerate",
+                toHelp: "achieve carbon neutrality without disrupting production"
+            },
+            {
+                design: "a competitive response strategy",
+                for: "an incumbent threatened by disruptive startup",
+                toHelp: "leverage existing strengths while building new capabilities"
+            },
+            {
+                design: "a regulatory compliance framework",
+                for: "a fintech expanding into banking services",
+                toHelp: "navigate complex regulations across multiple jurisdictions"
+            },
+            {
+                design: "a moonshot project incubation model",
+                for: "a tech giant exploring emerging technologies",
+                toHelp: "balance innovation freedom with accountability to core business"
             }
         ]
     },
@@ -323,6 +653,36 @@ const challenges = {
                 design: "a website traffic report",
                 for: "a blog or portfolio site",
                 toHelp: "understand visitor behavior and popular content"
+            },
+            {
+                design: "a monthly expense tracker",
+                for: "a freelancer managing business finances",
+                toHelp: "categorize spending and identify cost-saving opportunities"
+            },
+            {
+                design: "a social media engagement report",
+                for: "a local restaurant's Instagram",
+                toHelp: "identify which posts drive the most customer interest"
+            },
+            {
+                design: "a simple conversion funnel",
+                for: "a lead magnet landing page",
+                toHelp: "see where potential customers drop off"
+            },
+            {
+                design: "a customer satisfaction scorecard",
+                for: "a service business collecting survey responses",
+                toHelp: "spot trends in customer happiness over time"
+            },
+            {
+                design: "a team productivity dashboard",
+                for: "a project manager tracking task completion",
+                toHelp: "visualize team velocity and identify blockers"
+            },
+            {
+                design: "an email campaign performance report",
+                for: "a newsletter with growing subscribers",
+                toHelp: "understand open rates and click patterns"
             }
         ],
         intermediate: [
@@ -345,6 +705,36 @@ const challenges = {
                 design: "a funnel conversion analysis",
                 for: "a lead generation website",
                 toHelp: "identify drop-off points and optimization opportunities"
+            },
+            {
+                design: "a revenue forecasting model",
+                for: "a growing SaaS business",
+                toHelp: "predict monthly recurring revenue based on historical trends"
+            },
+            {
+                design: "a customer lifetime value calculator",
+                for: "a subscription box service",
+                toHelp: "determine how much to spend on customer acquisition"
+            },
+            {
+                design: "a product usage heat map",
+                for: "a mobile app development team",
+                toHelp: "visualize which features users engage with most"
+            },
+            {
+                design: "a seasonality analysis dashboard",
+                for: "an e-commerce fashion retailer",
+                toHelp: "prepare inventory based on predictable demand patterns"
+            },
+            {
+                design: "a multi-touch attribution report",
+                for: "a digital marketing team",
+                toHelp: "understand which channels contribute to conversions"
+            },
+            {
+                design: "a user journey mapping analysis",
+                for: "a fintech onboarding flow",
+                toHelp: "identify friction points in the sign-up process"
             }
         ],
         advanced: [
@@ -362,6 +752,41 @@ const challenges = {
                 design: "a real-time anomaly detection dashboard",
                 for: "a high-traffic e-commerce platform",
                 toHelp: "immediately identify and respond to unusual patterns or issues"
+            },
+            {
+                design: "a causal inference framework",
+                for: "a product team testing new features",
+                toHelp: "distinguish correlation from causation in user behavior changes"
+            },
+            {
+                design: "a dynamic pricing algorithm",
+                for: "a ride-sharing platform",
+                toHelp: "optimize supply-demand matching across cities in real-time"
+            },
+            {
+                design: "a fraud detection system",
+                for: "a payment processing company",
+                toHelp: "identify suspicious transactions without blocking legitimate users"
+            },
+            {
+                design: "a recommendation engine performance audit",
+                for: "a streaming entertainment platform",
+                toHelp: "measure and improve algorithmic content discovery"
+            },
+            {
+                design: "a multi-dimensional cohort analysis",
+                for: "a marketplace with buyers and sellers",
+                toHelp: "understand network effects and cross-side dynamics"
+            },
+            {
+                design: "a real-time personalization engine",
+                for: "a news media platform",
+                toHelp: "serve individualized content while maintaining editorial standards"
+            },
+            {
+                design: "a data quality governance framework",
+                for: "an enterprise with siloed data systems",
+                toHelp: "ensure consistency and accuracy across hundreds of data sources"
             }
         ]
     }
