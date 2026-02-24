@@ -1,0 +1,6 @@
+# robots.txt for Whiteboard Dojo
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.whiteboarddojo.com/sitemap.xml
