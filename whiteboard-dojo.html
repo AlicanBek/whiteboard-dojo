@@ -53,10 +53,24 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
+        }
+
+        .logo-image {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
         .nav-links {
@@ -600,7 +614,10 @@
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="#" class="logo">Whiteboard Dojo</a>
+            <a href="#" class="logo">
+                <img src="images/logo.svg" alt="Whiteboard Dojo Logo" class="logo-image">
+                <span class="logo-text">Whiteboard Dojo</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-section="dojo">Dojo</a></li>
                 <li><a href="#" class="nav-link" data-section="docs">Docs</a></li>

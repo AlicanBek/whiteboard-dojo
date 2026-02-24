@@ -33,7 +33,7 @@ function createFooter() {
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Whiteboard Dojo. Built with love for the craft of building 🧡</p>
+            <p>&copy; 2026 Whiteboard Dojo. Built with love for the craft of building ❤️</p>
         </div>
     </footer>
     `;
