@@ -5,21 +5,25 @@ function createFooter() {
     const container = document.getElementById('footer-container');
     if (!container) return;
 
-    // Determine the relative path based on current location
-    const path = window.location.pathname;
+    // Calculate base path using the script's own location
+    // This script is always at js/footer.js relative to the project root
     let basePath = '';
 
-    // Check if we're in pages/docs/ subdirectory
-    if (path.includes('/pages/docs/')) {
-        basePath = '../../';
-    }
-    // Check if we're in pages/ subdirectory
-    else if (path.includes('/pages/')) {
-        basePath = '../';
-    }
-    // Otherwise we're in the root
-    else {
-        basePath = '';
+    // Use the script tag that loaded this file to determine the base
+    const scripts = document.getElementsByTagName('script');
+    for (let script of scripts) {
+        if (script.src.includes('footer.js')) {
+            // Get the src attribute which is relative to the HTML file
+            const src = script.getAttribute('src');
+            if (src.startsWith('../../js/')) {
+                basePath = '../../';
+            } else if (src.startsWith('../js/')) {
+                basePath = '../';
+            } else if (src.startsWith('js/')) {
+                basePath = '';
+            }
+            break;
+        }
     }
 
     const footerHTML = `
