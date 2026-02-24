@@ -5,12 +5,29 @@ function createFooter() {
     const container = document.getElementById('footer-container');
     if (!container) return;
 
+    // Determine the relative path based on current location
+    const path = window.location.pathname;
+    let basePath = '';
+
+    // Check if we're in pages/docs/ subdirectory
+    if (path.includes('/pages/docs/')) {
+        basePath = '../../';
+    }
+    // Check if we're in pages/ subdirectory
+    else if (path.includes('/pages/')) {
+        basePath = '../';
+    }
+    // Otherwise we're in the root
+    else {
+        basePath = '';
+    }
+
     const footerHTML = `
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-about">
                 <div class="footer-title">
-                    <img src="/images/logo.svg" alt="Whiteboard Dojo Logo" class="footer-logo-image">
+                    <img src="${basePath}images/logo.svg" alt="Whiteboard Dojo Logo" class="footer-logo-image">
                     Whiteboard Dojo
                 </div>
                 <p class="footer-description">
@@ -21,9 +38,9 @@ function createFooter() {
             <div class="footer-section">
                 <h3 class="footer-section-title">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="/index.html" class="footer-link">Home</a></li>
-                    <li><a href="/pages/dojo.html" class="footer-link">The Dojo</a></li>
-                    <li><a href="/pages/docs.html" class="footer-link">Documentation</a></li>
+                    <li><a href="${basePath}index.html" class="footer-link">Home</a></li>
+                    <li><a href="${basePath}pages/dojo.html" class="footer-link">The Dojo</a></li>
+                    <li><a href="${basePath}pages/docs.html" class="footer-link">Documentation</a></li>
                 </ul>
             </div>
 
