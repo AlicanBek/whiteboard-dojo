@@ -9,7 +9,10 @@ function createFooter() {
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-about">
-                <div class="footer-title">Whiteboard Dojo</div>
+                <div class="footer-title">
+                    <img src="/images/logo.svg" alt="Whiteboard Dojo Logo" class="footer-logo-image">
+                    Whiteboard Dojo
+                </div>
                 <p class="footer-description">
                     Practice with purpose. Sharpen your skills with real whiteboard challenges.
                 </p>
