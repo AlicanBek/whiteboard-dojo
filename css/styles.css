@@ -1313,7 +1313,7 @@ body {
     cursor: crosshair;
     border-radius: 8px;
     background-color: #ffffff;
-    background-image: radial-gradient(circle, #666666 3px, transparent 3px);
+    background-image: radial-gradient(circle, #e0e0e0 1.5px, transparent 1.5px);
     background-size: 20px 20px;
     background-position: 0 0;
 }
