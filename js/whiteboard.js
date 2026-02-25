@@ -713,11 +713,125 @@ function handleKeyDown(e) {
 }
 
 // ========================================
+// Challenge Timer State
+// ========================================
+
+let challengeTimer = null;
+let challengeTimeLeft = 0;
+let isTimerRunning = false;
+const DEFAULT_TIMER_SECONDS = 20 * 60; // 20 minutes
+
+// ========================================
+// Challenge and Timer Functions
+// ========================================
+
+function initializeChallengeSection() {
+    // Check URL parameters for challenge data
+    const urlParams = new URLSearchParams(window.location.search);
+    const challengeParam = urlParams.get('challenge');
+
+    if (!challengeParam) {
+        return; // No challenge in URL, keep section hidden
+    }
+
+    // Parse challenge data
+    const challengeData = new URLSearchParams(decodeURIComponent(challengeParam));
+    const design = challengeData.get('design');
+    const forValue = challengeData.get('for');
+    const toHelp = challengeData.get('toHelp');
+
+    if (!design || !forValue || !toHelp) {
+        return; // Invalid challenge data
+    }
+
+    // Show challenge section
+    const challengeSection = document.getElementById('whiteboard-challenge-section');
+    challengeSection.style.display = 'block';
+
+    // Populate challenge details
+    const challengeDetails = document.getElementById('challenge-details');
+    challengeDetails.innerHTML = `
+        <div class="challenge-field-inline">
+            <span class="challenge-label-inline">Design:</span>
+            <span class="challenge-value-inline">${design}</span>
+        </div>
+        <div class="challenge-field-inline">
+            <span class="challenge-label-inline">For:</span>
+            <span class="challenge-value-inline">${forValue}</span>
+        </div>
+        <div class="challenge-field-inline">
+            <span class="challenge-label-inline">To help:</span>
+            <span class="challenge-value-inline">${toHelp}</span>
+        </div>
+    `;
+
+    // Initialize timer
+    challengeTimeLeft = DEFAULT_TIMER_SECONDS;
+    updateChallengeTimerDisplay();
+
+    // Set up timer button event listeners
+    document.getElementById('start-btn').addEventListener('click', startChallengeTimer);
+    document.getElementById('pause-btn').addEventListener('click', pauseChallengeTimer);
+    document.getElementById('reset-btn').addEventListener('click', resetChallengeTimer);
+}
+
+function formatChallengeTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function updateChallengeTimerDisplay() {
+    const timerDisplay = document.getElementById('timer-display-large');
+    timerDisplay.textContent = formatChallengeTime(challengeTimeLeft);
+}
+
+function startChallengeTimer() {
+    if (isTimerRunning) return;
+
+    isTimerRunning = true;
+    document.getElementById('start-btn').disabled = true;
+    document.getElementById('pause-btn').disabled = false;
+
+    challengeTimer = setInterval(() => {
+        challengeTimeLeft--;
+        updateChallengeTimerDisplay();
+
+        if (challengeTimeLeft <= 0) {
+            clearInterval(challengeTimer);
+            isTimerRunning = false;
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            alert("Time's up! Great work on your challenge!");
+        }
+    }, 1000);
+}
+
+function pauseChallengeTimer() {
+    if (!isTimerRunning) return;
+
+    clearInterval(challengeTimer);
+    isTimerRunning = false;
+    document.getElementById('start-btn').disabled = false;
+    document.getElementById('pause-btn').disabled = true;
+}
+
+function resetChallengeTimer() {
+    clearInterval(challengeTimer);
+    isTimerRunning = false;
+    challengeTimeLeft = DEFAULT_TIMER_SECONDS;
+    updateChallengeTimerDisplay();
+    document.getElementById('start-btn').disabled = false;
+    document.getElementById('pause-btn').disabled = true;
+}
+
+// ========================================
 // Initialization on Page Load
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeCanvas();
     setupEventListeners();
+    initializeChallengeSection(); // Initialize challenge display if coming from dojo
     console.log('Whiteboard ready!');
 });

@@ -134,6 +134,26 @@
             </div>
         </section>
 
+        <!-- Challenge Display Section (shown when opened from Dojo) -->
+        <section class="whiteboard-challenge-section" id="whiteboard-challenge-section" style="display: none;">
+            <div class="challenge-info-container">
+                <div class="challenge-info">
+                    <h3 class="challenge-title">Your Challenge:</h3>
+                    <div class="challenge-details" id="challenge-details">
+                        <!-- Challenge will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="challenge-timer">
+                    <div class="timer-display-large" id="timer-display-large">20:00</div>
+                    <div class="timer-controls">
+                        <button class="button button-primary timer-control-btn" id="start-btn">Start</button>
+                        <button class="button button-secondary timer-control-btn" id="pause-btn">Pause</button>
+                        <button class="button button-secondary timer-control-btn" id="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Canvas Area -->
         <section class="whiteboard-canvas-section">
             <div class="canvas-wrapper">

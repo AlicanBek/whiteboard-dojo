@@ -883,6 +883,7 @@ newChallengeBtn.addEventListener('click', () => {
     
     challengeContent.innerHTML = `
         <div class="challenge-structure">
+            <button class="button button-primary go-to-whiteboard-btn" id="go-to-whiteboard-btn">Go to Whiteboard</button>
             <div class="challenge-field">
                 <div class="challenge-label">Design:</div>
                 <div class="challenge-value">${currentChallenge.design}</div>
@@ -897,6 +898,19 @@ newChallengeBtn.addEventListener('click', () => {
             </div>
         </div>
     `;
+
+    // Add click handler for "Go to Whiteboard" button
+    const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
+    if (goToWhiteboardBtn) {
+        goToWhiteboardBtn.addEventListener('click', () => {
+            const challengeParams = new URLSearchParams({
+                design: currentChallenge.design,
+                for: currentChallenge.for,
+                toHelp: currentChallenge.toHelp
+            });
+            window.location.href = `../whiteboard/?challenge=${encodeURIComponent(challengeParams.toString())}`;
+        });
+    }
     
     startTimerBtn.disabled = false;
     
