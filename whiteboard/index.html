@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZWR4FHPSWG');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online whiteboard for drawing, creating shapes, and adding text. Perfect for brainstorming, wireframing, and visual thinking.">
+    <meta name="keywords" content="whiteboard, online whiteboard, drawing tool, shapes, design tool, brainstorming, wireframe">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.whiteboarddojo.com/whiteboard/">
+    <meta property="og:title" content="Whiteboard - Whiteboard Dojo">
+    <meta property="og:description" content="Free online whiteboard for drawing, creating shapes, and adding text. Perfect for brainstorming, wireframing, and visual thinking.">
+    <meta property="og:image" content="https://www.whiteboarddojo.com/images/logo.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.whiteboarddojo.com/whiteboard/">
+    <meta property="twitter:title" content="Whiteboard - Whiteboard Dojo">
+    <meta property="twitter:description" content="Free online whiteboard for drawing, creating shapes, and adding text. Perfect for brainstorming, wireframing, and visual thinking.">
+    <meta property="twitter:image" content="https://www.whiteboarddojo.com/images/logo.svg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.whiteboarddojo.com/whiteboard/">
+
+    <title>Whiteboard - Whiteboard Dojo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+
+    <!-- Fabric.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../" class="logo">
+                <img src="../images/logo.svg" alt="Whiteboard Dojo Logo" class="logo-image">
+                <span class="logo-text">Whiteboard Dojo</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../" class="nav-link">Home</a></li>
+                <li><a href="../dojo/" class="nav-link">Dojo</a></li>
+                <li><a href="../docs/" class="nav-link">Docs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="whiteboard-container">
+        <!-- Toolbar Section -->
+        <section class="whiteboard-toolbar">
+            <div class="toolbar-section">
+                <label class="toolbar-label">Tools:</label>
+                <div class="toolbar-buttons">
+                    <button class="selector-btn tool-btn active" data-tool="select" title="Select and move objects">
+                        <span class="tool-icon">↖</span> Select
+                    </button>
+                    <button class="selector-btn tool-btn" data-tool="draw" title="Free draw">
+                        <span class="tool-icon">✏</span> Draw
+                    </button>
+                    <button class="selector-btn tool-btn" data-tool="text" title="Add text">
+                        <span class="tool-icon">T</span> Text
+                    </button>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <label class="toolbar-label">Shapes:</label>
+                <div class="toolbar-buttons">
+                    <button class="selector-btn shape-btn" data-shape="rectangle" title="Rectangle">
+                        <span class="tool-icon">▭</span> Rectangle
+                    </button>
+                    <button class="selector-btn shape-btn" data-shape="circle" title="Circle">
+                        <span class="tool-icon">○</span> Circle
+                    </button>
+                    <button class="selector-btn shape-btn" data-shape="triangle" title="Triangle">
+                        <span class="tool-icon">△</span> Triangle
+                    </button>
+                    <button class="selector-btn shape-btn" data-shape="line" title="Line">
+                        <span class="tool-icon">—</span> Line
+                    </button>
+                    <button class="selector-btn shape-btn" data-shape="arrow" title="Arrow">
+                        <span class="tool-icon">→</span> Arrow
+                    </button>
+                    <button class="selector-btn shape-btn" data-shape="star" title="Star">
+                        <span class="tool-icon">★</span> Star
+                    </button>
+                </div>
+            </div>
+
+            <div class="toolbar-section">
+                <label class="toolbar-label">Color:</label>
+                <input type="color" id="color-picker" class="color-picker" value="#E32727">
+            </div>
+
+            <div class="toolbar-section">
+                <label class="toolbar-label">Stroke:</label>
+                <input type="range" id="stroke-width" class="stroke-slider" min="1" max="20" value="2">
+                <span id="stroke-value" class="stroke-value">2px</span>
+            </div>
+
+            <div class="toolbar-section toolbar-actions">
+                <button class="button button-secondary" id="delete-btn" title="Delete selected object">
+                    Delete
+                </button>
+                <button class="button button-secondary" id="clear-btn" title="Clear canvas">
+                    Clear All
+                </button>
+                <button class="button button-primary" id="export-btn" title="Export as PNG">
+                    Export PNG
+                </button>
+            </div>
+        </section>
+
+        <!-- Canvas Area -->
+        <section class="whiteboard-canvas-section">
+            <div class="canvas-wrapper">
+                <canvas id="whiteboard-canvas"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/footer.js"></script>
+    <script src="../js/whiteboard.js"></script>
+</body>
+</html>
