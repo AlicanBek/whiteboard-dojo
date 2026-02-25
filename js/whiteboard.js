@@ -10,6 +10,7 @@ let currentTool = 'select';
 let currentShape = null;
 let currentColor = '#E32727';
 let currentStrokeWidth = 2;
+let isFillMode = false;
 let isDrawingShape = false;
 let shapeStartPoint = null;
 let tempShape = null;
@@ -122,6 +123,13 @@ function setupEventListeners() {
         currentStrokeWidth = parseInt(e.target.value);
         strokeValue.textContent = `${currentStrokeWidth}px`;
         updateDrawingBrush();
+    });
+
+    // Fill toggle button
+    const fillToggleBtn = document.getElementById('fill-toggle-btn');
+    fillToggleBtn.addEventListener('click', () => {
+        isFillMode = !isFillMode;
+        fillToggleBtn.classList.toggle('active', isFillMode);
     });
 
     // Action buttons
@@ -365,9 +373,9 @@ function createShape(shapeType, start, end) {
     const commonProps = {
         left,
         top,
-        fill: 'transparent',
+        fill: isFillMode ? currentColor : 'transparent',
         stroke: currentColor,
-        strokeWidth: currentStrokeWidth
+        strokeWidth: isFillMode ? 0 : currentStrokeWidth
     };
 
     switch(shapeType) {
@@ -461,9 +469,9 @@ function createStar(cx, cy, radius) {
     }
 
     return new fabric.Polygon(points, {
-        fill: 'transparent',
+        fill: isFillMode ? currentColor : 'transparent',
         stroke: currentColor,
-        strokeWidth: currentStrokeWidth
+        strokeWidth: isFillMode ? 0 : currentStrokeWidth
     });
 }
 

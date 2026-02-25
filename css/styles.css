@@ -1039,17 +1039,61 @@ body {
 }
 
 .tool-btn,
-.shape-btn {
-    padding: 0.5rem 0.875rem;
+.shape-btn,
+.fill-toggle-btn {
+    padding: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     white-space: nowrap;
     font-size: 0.9rem;
 }
 
 .tool-icon {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+.fill-toggle-btn.active .tool-icon::after {
+    content: '▮';
+}
+
+/* Tooltips for all toolbar buttons */
+.tool-btn,
+.shape-btn,
+.fill-toggle-btn {
+    position: relative;
+}
+
+.tool-btn::after,
+.shape-btn::after,
+.fill-toggle-btn::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition-delay: 0.6s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    z-index: 1000;
+}
+
+.tool-btn:hover::after,
+.shape-btn:hover::after,
+.fill-toggle-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
 }
 
 /* Color Picker */
@@ -1060,30 +1104,58 @@ body {
 }
 
 .color-presets {
-    display: flex;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3rem;
     align-items: center;
 }
 
 .color-preset {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     border: 2px solid var(--border);
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
     padding: 0;
+    position: relative;
 }
 
 .color-preset:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.color-preset::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition-delay: 0.6s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    z-index: 1000;
+}
+
+.color-preset:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
 }
 
 .color-preset.active {
     border-color: var(--primary);
-    border-width: 3px;
-    box-shadow: 0 0 0 2px var(--primary-light);
+    border-width: 2px;
+    box-shadow: 0 0 0 1px var(--primary);
 }
 
 .color-picker {
@@ -1102,7 +1174,7 @@ body {
 
 /* Stroke Width Slider */
 .stroke-slider {
-    width: 100px;
+    width: 70px;
     height: 6px;
     border-radius: 3px;
     background: var(--border);
@@ -1176,7 +1248,7 @@ body {
     cursor: crosshair;
     border-radius: 8px;
     background-color: #ffffff;
-    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-image: radial-gradient(circle, #b0b0b0 1.5px, transparent 1.5px);
     background-size: 20px 20px;
     background-position: 0 0;
 }
@@ -1187,9 +1259,47 @@ body {
     gap: 0.5rem;
 }
 
-.toolbar-actions .button {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+.toolbar-actions .toolbar-btn {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Tooltip on hover */
+.toolbar-btn::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition-delay: 0.6s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    z-index: 1000;
+}
+
+.toolbar-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* Hide native tooltip */
+.toolbar-btn {
+    pointer-events: auto;
 }
 
 /* Responsive Design - Tablet */
