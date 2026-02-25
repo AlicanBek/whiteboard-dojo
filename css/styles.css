@@ -1015,8 +1015,8 @@ body {
     gap: 2rem;
     flex-wrap: wrap;
     position: sticky;
-    top: 0;
-    z-index: 90;
+    top: 65px;
+    z-index: 101;
 }
 
 .toolbar-section {
