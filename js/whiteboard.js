@@ -317,7 +317,17 @@ function handleCanvasMouseDown(options) {
     const pointer = canvas.getPointer(evt);
 
     if (currentTool === 'text') {
-        addText(pointer);
+        // Check if there's a text object currently being edited
+        const activeObject = canvas.getActiveObject();
+        if (activeObject && activeObject.isEditing) {
+            // Exit editing mode, which will trigger the switch to select tool
+            activeObject.exitEditing();
+            canvas.discardActiveObject();
+            selectTool('select');
+        } else {
+            // No text being edited, create new text
+            addText(pointer);
+        }
     } else if (currentTool === 'shape' && currentShape) {
         startShapeDrawing(pointer);
     }
