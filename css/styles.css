@@ -1046,8 +1046,7 @@ body {
 }
 
 .tool-btn,
-.shape-btn,
-.fill-toggle-btn {
+.shape-btn {
     padding: 0.5rem;
     display: flex;
     align-items: center;
@@ -1062,30 +1061,6 @@ body {
     font-size: 1.2rem;
 }
 
-/* Fill toggle button styles */
-.fill-toggle-btn {
-    position: relative;
-}
-
-.fill-toggle-btn .tool-icon {
-    font-size: 1.3rem;
-    display: inline-block;
-}
-
-/* Show outlined rectangle when in stroke mode (default) */
-.fill-toggle-btn[data-fill="stroke"] .tool-icon {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--text-primary);
-    text-stroke: 2px var(--text-primary);
-}
-
-/* Show filled rectangle when in fill mode */
-.fill-toggle-btn.active[data-fill="fill"] .tool-icon {
-    color: var(--text-primary);
-    -webkit-text-stroke: 0;
-    text-stroke: 0;
-}
-
 /* Make rectangle and circle icons larger for consistency */
 .shape-btn[data-shape="rectangle"] .tool-icon,
 .shape-btn[data-shape="circle"] .tool-icon {
@@ -1094,14 +1069,12 @@ body {
 
 /* Tooltips for all toolbar buttons */
 .tool-btn,
-.shape-btn,
-.fill-toggle-btn {
+.shape-btn {
     position: relative;
 }
 
 .tool-btn::after,
-.shape-btn::after,
-.fill-toggle-btn::after {
+.shape-btn::after {
     content: attr(title);
     position: absolute;
     top: 100%;
@@ -1123,8 +1096,67 @@ body {
 }
 
 .tool-btn:hover::after,
-.shape-btn:hover::after,
-.fill-toggle-btn:hover::after {
+.shape-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(8px);
+}
+
+/* Fill Radio Button */
+.fill-radio-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #E32727;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.fill-radio-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(227, 39, 39, 0.1);
+}
+
+.fill-radio-btn .radio-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+.fill-radio-btn[data-fill="fill"] .radio-circle {
+    background: #E32727;
+}
+
+/* Tooltip for fill radio button */
+.fill-radio-btn::after {
+    content: attr(title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition-delay: 0.6s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    z-index: 9999;
+}
+
+.fill-radio-btn:hover::after {
     opacity: 1;
     transform: translateX(-50%) translateY(8px);
 }
