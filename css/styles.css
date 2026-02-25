@@ -432,6 +432,7 @@ body {
     max-width: 800px;
     margin: 0;
     position: relative;
+    padding-top: 3rem;
 }
 
 .go-to-whiteboard-btn {
@@ -440,6 +441,7 @@ body {
     right: 0;
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
+    z-index: 10;
 }
 
 .challenge-field {
