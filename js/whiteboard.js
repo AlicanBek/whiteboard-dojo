@@ -20,6 +20,9 @@ let history = [];
 let historyStep = 0;
 let isUndoRedoAction = false;
 
+// Clipboard for copy/paste
+let clipboard = null;
+
 // ========================================
 // Configuration
 // ========================================
@@ -552,6 +555,48 @@ function deleteSelected() {
     }
 }
 
+function copySelected() {
+    const activeObject = canvas.getActiveObject();
+    if (activeObject) {
+        activeObject.clone(function(cloned) {
+            clipboard = cloned;
+        });
+    }
+}
+
+function pasteFromClipboard() {
+    if (!clipboard) return;
+
+    clipboard.clone(function(clonedObj) {
+        canvas.discardActiveObject();
+
+        // Offset the pasted object slightly so it doesn't overlap exactly
+        clonedObj.set({
+            left: clonedObj.left + 10,
+            top: clonedObj.top + 10,
+            evented: true,
+        });
+
+        // Handle multi-selection (ActiveSelection)
+        if (clonedObj.type === 'activeSelection') {
+            // ActiveSelection needs special handling
+            clonedObj.canvas = canvas;
+            clonedObj.forEachObject(function(obj) {
+                canvas.add(obj);
+            });
+            clonedObj.setCoords();
+        } else {
+            // Single object
+            canvas.add(clonedObj);
+        }
+
+        // Bring to front and select the pasted object(s)
+        canvas.bringToFront(clonedObj);
+        canvas.setActiveObject(clonedObj);
+        canvas.requestRenderAll();
+    });
+}
+
 function clearCanvas() {
     if (confirm('Are you sure you want to clear the entire canvas? This cannot be undone.')) {
         canvas.clear();
@@ -633,6 +678,22 @@ function handleKeyDown(e) {
         if (e.key === 't' || e.key === 'T') {
             e.preventDefault();
             selectTool('text');
+        }
+    }
+
+    // Ctrl/Cmd + C for copy
+    if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+        if (activeObject && !activeObject.isEditing) {
+            e.preventDefault();
+            copySelected();
+        }
+    }
+
+    // Ctrl/Cmd + V for paste
+    if ((e.ctrlKey || e.metaKey) && e.key === 'v') {
+        if (!activeObject || !activeObject.isEditing) {
+            e.preventDefault();
+            pasteFromClipboard();
         }
     }
 
