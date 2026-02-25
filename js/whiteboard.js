@@ -130,6 +130,7 @@ function setupEventListeners() {
     fillToggleBtn.addEventListener('click', () => {
         isFillMode = !isFillMode;
         fillToggleBtn.classList.toggle('active', isFillMode);
+        fillToggleBtn.setAttribute('data-fill', isFillMode ? 'fill' : 'stroke');
     });
 
     // Action buttons
