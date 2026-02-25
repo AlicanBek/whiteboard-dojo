@@ -231,6 +231,9 @@ function updateColorPresets() {
 function saveHistory() {
     if (isUndoRedoAction) return;
 
+    // Don't save history while actively drawing shapes (during preview)
+    if (isDrawingShape) return;
+
     const json = JSON.stringify(canvas.toJSON());
 
     // Remove any states after current step (when user makes new action after undo)
@@ -331,6 +334,11 @@ function addText(pointer) {
     canvas.setActiveObject(text);
     text.enterEditing();
     text.selectAll();
+
+    // Switch to select tool after text editing is done
+    text.on('editing:exited', () => {
+        selectTool('select');
+    });
 }
 
 // ========================================

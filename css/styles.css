@@ -1061,27 +1061,22 @@ body {
 }
 
 .fill-toggle-btn .tool-icon {
-    color: var(--text-primary);
-    position: relative;
+    font-size: 1.3rem;
+    display: inline-block;
 }
 
-/* Show outline when in stroke mode (default) */
+/* Show outlined rectangle when in stroke mode (default) */
 .fill-toggle-btn[data-fill="stroke"] .tool-icon {
     color: transparent;
     -webkit-text-stroke: 2px var(--text-primary);
     text-stroke: 2px var(--text-primary);
 }
 
-/* Show filled when in fill mode */
-.fill-toggle-btn.active .tool-icon {
+/* Show filled rectangle when in fill mode */
+.fill-toggle-btn.active[data-fill="fill"] .tool-icon {
     color: var(--text-primary);
     -webkit-text-stroke: 0;
     text-stroke: 0;
-}
-
-/* Update data attribute when active */
-.fill-toggle-btn.active {
-    background: var(--surface-elevated);
 }
 
 /* Make rectangle and circle icons larger for consistency */
@@ -1117,7 +1112,7 @@ body {
     transition-delay: 0.6s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--border-light);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .tool-btn:hover::after,
@@ -1175,7 +1170,7 @@ body {
     transition-delay: 0.6s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--border-light);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .color-preset:hover::after {
@@ -1320,7 +1315,7 @@ body {
     transition-delay: 0.6s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--border-light);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .toolbar-btn:hover::after {
