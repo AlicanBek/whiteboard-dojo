@@ -1001,8 +1001,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 /* Toolbar */
@@ -1030,6 +1029,7 @@ body {
     font-weight: 600;
     padding: 0.5rem 1rem;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .toolbar-label {
@@ -1106,7 +1106,7 @@ body {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(8px);
+    transform: translateX(-50%) translateY(12px);
     background: var(--surface-elevated);
     color: var(--text-primary);
     padding: 0.35rem 0.55rem;
@@ -1126,7 +1126,7 @@ body {
 .shape-btn:hover::after,
 .fill-toggle-btn:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(4px);
+    transform: translateX(-50%) translateY(8px);
 }
 
 /* Color Picker */
@@ -1164,7 +1164,7 @@ body {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(8px);
+    transform: translateX(-50%) translateY(12px);
     background: var(--surface-elevated);
     color: var(--text-primary);
     padding: 0.3rem 0.5rem;
@@ -1182,7 +1182,7 @@ body {
 
 .color-preset:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(4px);
+    transform: translateX(-50%) translateY(8px);
 }
 
 .color-preset.active {
@@ -1259,10 +1259,10 @@ body {
     flex: 1;
     background: var(--background);
     padding: 1.5rem;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    min-height: calc(100vh - 80px);
 }
 
 .canvas-wrapper {
@@ -1281,7 +1281,7 @@ body {
     cursor: crosshair;
     border-radius: 8px;
     background-color: #ffffff;
-    background-image: radial-gradient(circle, #999999 2.5px, transparent 2.5px);
+    background-image: radial-gradient(circle, #666666 3px, transparent 3px);
     background-size: 20px 20px;
     background-position: 0 0;
 }
@@ -1303,13 +1303,13 @@ body {
     position: relative;
 }
 
-/* Tooltip on hover */
+/* Tooltip on hover*/
 .toolbar-btn::after {
     content: attr(title);
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(8px);
+    transform: translateX(-50%) translateY(12px);
     background: var(--surface-elevated);
     color: var(--text-primary);
     padding: 0.4rem 0.6rem;
@@ -1327,7 +1327,7 @@ body {
 
 .toolbar-btn:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(4px);
+    transform: translateX(-50%) translateY(8px);
 }
 
 /* Hide native tooltip */

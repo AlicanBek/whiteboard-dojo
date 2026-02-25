@@ -561,6 +561,27 @@ function handleKeyDown(e) {
         redo();
     }
 
+    // Tool shortcuts (only when not editing text)
+    if (!activeObject || !activeObject.isEditing) {
+        // V for select tool
+        if (e.key === 'v' || e.key === 'V') {
+            e.preventDefault();
+            selectTool('select');
+        }
+
+        // B for draw/brush tool
+        if (e.key === 'b' || e.key === 'B') {
+            e.preventDefault();
+            selectTool('draw');
+        }
+
+        // T for text tool
+        if (e.key === 't' || e.key === 'T') {
+            e.preventDefault();
+            selectTool('text');
+        }
+    }
+
     // Ctrl/Cmd + S for export
     if ((e.ctrlKey || e.metaKey) && e.key === 's') {
         e.preventDefault();
