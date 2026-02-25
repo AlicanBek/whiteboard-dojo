@@ -157,12 +157,15 @@ function selectTool(tool) {
     if (tool === 'draw') {
         canvas.isDrawingMode = true;
         canvas.selection = false;
+        setObjectsSelectable(false);
     } else if (tool === 'select') {
         canvas.isDrawingMode = false;
         canvas.selection = true;
+        setObjectsSelectable(true);
     } else if (tool === 'text') {
         canvas.isDrawingMode = false;
         canvas.selection = false;
+        setObjectsSelectable(false);
     }
 
     // Update button states
@@ -175,9 +178,18 @@ function selectShape(shape) {
     currentTool = 'shape';
     canvas.isDrawingMode = false;
     canvas.selection = false;
+    setObjectsSelectable(false);
 
     updateToolButtons();
     updateShapeButtons();
+}
+
+function setObjectsSelectable(selectable) {
+    canvas.forEachObject(function(obj) {
+        obj.selectable = selectable;
+        obj.evented = selectable;
+    });
+    canvas.renderAll();
 }
 
 function updateToolButtons() {
@@ -260,6 +272,11 @@ function undo() {
             canvas.renderAll();
             isUndoRedoAction = false;
             updateUndoRedoButtons();
+
+            // Ensure objects match current tool's selection state
+            if (currentTool !== 'select') {
+                setObjectsSelectable(false);
+            }
         });
     }
 }
@@ -274,6 +291,11 @@ function redo() {
             canvas.renderAll();
             isUndoRedoAction = false;
             updateUndoRedoButtons();
+
+            // Ensure objects match current tool's selection state
+            if (currentTool !== 'select') {
+                setObjectsSelectable(false);
+            }
         });
     }
 }
@@ -329,6 +351,7 @@ function addText(pointer) {
     });
 
     canvas.add(text);
+    canvas.bringToFront(text);
     canvas.setActiveObject(text);
     text.enterEditing();
     text.selectAll();
@@ -368,11 +391,21 @@ function continueShapeDrawing(pointer) {
 function finishShapeDrawing() {
     isDrawingShape = false;
     shapeStartPoint = null;
+
+    // Select the shape that was just created before switching tools
+    if (tempShape) {
+        // Bring the shape to the front (highest z-index)
+        canvas.bringToFront(tempShape);
+        canvas.setActiveObject(tempShape);
+    }
     tempShape = null;
 
     // Save history now that shape drawing is complete
     // This ensures the undo button works after creating shapes
     saveHistory();
+
+    // Switch to select tool after shape creation
+    selectTool('select');
 }
 
 function createShape(shapeType, start, end) {
@@ -438,7 +471,6 @@ function createShape(shapeType, start, end) {
 function createArrow(x1, y1, x2, y2) {
     // Calculate angle
     const angle = Math.atan2(y2 - y1, x2 - x1);
-    const headLength = 15;
 
     // Create line
     const line = new fabric.Line([x1, y1, x2, y2], {
@@ -446,14 +478,17 @@ function createArrow(x1, y1, x2, y2) {
         strokeWidth: currentStrokeWidth
     });
 
-    // Create arrow head (triangle)
+    // Create arrow head (triangle) - scale with stroke width
     const headAngle = fabric.util.radiansToDegrees(angle);
+    const headWidth = currentStrokeWidth * 5;
+    const headHeight = currentStrokeWidth * 7.5;
+
     const triangle = new fabric.Triangle({
         left: x2,
         top: y2,
         angle: headAngle + 90,
-        width: 10,
-        height: 15,
+        width: headWidth,
+        height: headHeight,
         fill: currentColor,
         originX: 'center',
         originY: 'center'
@@ -493,7 +528,15 @@ function createStar(cx, cy, radius) {
 function deleteSelected() {
     const activeObject = canvas.getActiveObject();
     if (activeObject) {
-        canvas.remove(activeObject);
+        // Handle multi-selection (ActiveSelection)
+        if (activeObject.type === 'activeSelection') {
+            activeObject.forEachObject(function(obj) {
+                canvas.remove(obj);
+            });
+        } else {
+            // Single object
+            canvas.remove(activeObject);
+        }
         canvas.discardActiveObject();
         canvas.requestRenderAll();
     }
