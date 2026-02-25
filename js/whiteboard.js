@@ -49,7 +49,6 @@ function initializeCanvas() {
 
     // Initialize Fabric.js canvas
     canvas = new fabric.Canvas('whiteboard-canvas', {
-        backgroundColor: CONFIG.CANVAS_BACKGROUND,
         width: canvasWidth,
         height: canvasHeight,
         isDrawingMode: false,
@@ -69,7 +68,6 @@ function initializeCanvas() {
     canvas.on('object:added', () => saveHistory());
     canvas.on('object:modified', () => saveHistory());
     canvas.on('object:removed', () => saveHistory());
-    canvas.on('path:created', () => saveHistory());
 
     // Save initial empty state
     saveHistory();
@@ -371,6 +369,10 @@ function finishShapeDrawing() {
     isDrawingShape = false;
     shapeStartPoint = null;
     tempShape = null;
+
+    // Save history now that shape drawing is complete
+    // This ensures the undo button works after creating shapes
+    saveHistory();
 }
 
 function createShape(shapeType, start, end) {
@@ -500,7 +502,6 @@ function deleteSelected() {
 function clearCanvas() {
     if (confirm('Are you sure you want to clear the entire canvas? This cannot be undone.')) {
         canvas.clear();
-        canvas.backgroundColor = CONFIG.CANVAS_BACKGROUND;
         canvas.renderAll();
         saveHistory();
     }
