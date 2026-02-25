@@ -827,6 +827,12 @@ categoryBtns.forEach(btn => {
         `;
         currentChallenge = null;
         startTimerBtn.disabled = true;
+
+        // Disable Go to Whiteboard button
+        const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
+        if (goToWhiteboardBtn) {
+            goToWhiteboardBtn.disabled = true;
+        }
     });
 });
 
@@ -845,6 +851,12 @@ difficultyBtns.forEach(btn => {
         `;
         currentChallenge = null;
         startTimerBtn.disabled = true;
+
+        // Disable Go to Whiteboard button
+        const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
+        if (goToWhiteboardBtn) {
+            goToWhiteboardBtn.disabled = true;
+        }
     });
 });
 
@@ -896,31 +908,14 @@ newChallengeBtn.addEventListener('click', () => {
                 <div class="challenge-value">${currentChallenge.toHelp}</div>
             </div>
         </div>
-        <div class="challenge-action">
-            <button class="button button-primary go-to-whiteboard-btn" id="go-to-whiteboard-btn">
-                <span class="btn-text">Go to Whiteboard</span>
-                <span class="btn-icon">→</span>
-            </button>
-        </div>
     `;
 
-    // Add click handler for "Go to Whiteboard" button
+    // Enable "Go to Whiteboard" button
     const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
     if (goToWhiteboardBtn) {
-        goToWhiteboardBtn.addEventListener('click', () => {
-            // Get current timer value
-            const currentTimerValue = parseTimeInput(timerDisplay.textContent);
-
-            const challengeParams = new URLSearchParams({
-                design: currentChallenge.design,
-                for: currentChallenge.for,
-                toHelp: currentChallenge.toHelp,
-                timer: currentTimerValue.toString()
-            });
-            window.location.href = `../whiteboard/?challenge=${encodeURIComponent(challengeParams.toString())}`;
-        });
+        goToWhiteboardBtn.disabled = false;
     }
-    
+
     startTimerBtn.disabled = false;
     
     // Reset timer
@@ -955,7 +950,7 @@ function updateTimerDisplay() {
 function increaseTimer() {
     if (!isTimerRunning && timeLeft === 0) {
         const currentTime = parseTimeInput(timerDisplay.textContent);
-        const newTime = Math.min(currentTime + (5 * 60), 120 * 60); // Add 5 minutes, max 120 minutes
+        const newTime = Math.min(currentTime + 60, 120 * 60); // Add 1 minute, max 120 minutes
         timerDisplay.textContent = formatTime(newTime);
     }
 }
@@ -963,7 +958,7 @@ function increaseTimer() {
 function decreaseTimer() {
     if (!isTimerRunning && timeLeft === 0) {
         const currentTime = parseTimeInput(timerDisplay.textContent);
-        const newTime = Math.max(currentTime - (5 * 60), 5 * 60); // Remove 5 minutes, min 5 minutes
+        const newTime = Math.max(currentTime - 60, 60); // Remove 1 minute, min 1 minute
         timerDisplay.textContent = formatTime(newTime);
     }
 }
@@ -1038,6 +1033,23 @@ decreaseTimerBtn.addEventListener('click', decreaseTimer);
 startTimerBtn.addEventListener('click', startTimer);
 pauseTimerBtn.addEventListener('click', pauseTimer);
 resetTimerBtn.addEventListener('click', resetTimer);
+
+// Go to Whiteboard button event listener
+const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
+goToWhiteboardBtn.addEventListener('click', () => {
+    if (currentChallenge) {
+        // Get current timer value
+        const currentTimerValue = parseTimeInput(timerDisplay.textContent);
+
+        const challengeParams = new URLSearchParams({
+            design: currentChallenge.design,
+            for: currentChallenge.for,
+            toHelp: currentChallenge.toHelp,
+            timer: currentTimerValue.toString()
+        });
+        window.location.href = `../whiteboard/?challenge=${encodeURIComponent(challengeParams.toString())}`;
+    }
+});
 
 // Initialize timer display and button states
 timerDisplay.textContent = '20:00';

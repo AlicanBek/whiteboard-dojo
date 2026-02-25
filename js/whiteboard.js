@@ -839,14 +839,14 @@ function resetChallengeTimer() {
 
 function increaseChallengeTimer() {
     if (!isTimerRunning && challengeTimeLeft > 0) {
-        challengeTimeLeft = Math.min(challengeTimeLeft + (5 * 60), 120 * 60); // Add 5 minutes, max 120 minutes
+        challengeTimeLeft = Math.min(challengeTimeLeft + 60, 120 * 60); // Add 1 minute, max 120 minutes
         updateChallengeTimerDisplay();
     }
 }
 
 function decreaseChallengeTimer() {
     if (!isTimerRunning && challengeTimeLeft > 0) {
-        challengeTimeLeft = Math.max(challengeTimeLeft - (5 * 60), 5 * 60); // Remove 5 minutes, min 5 minutes
+        challengeTimeLeft = Math.max(challengeTimeLeft - 60, 60); // Remove 1 minute, min 1 minute
         updateChallengeTimerDisplay();
     }
 }

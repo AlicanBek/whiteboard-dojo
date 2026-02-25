@@ -259,14 +259,14 @@ body {
 }
 
 .dojo-title {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     color: var(--primary);
 }
 
 .dojo-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 900px;
     margin: 0 auto;
@@ -319,7 +319,7 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     min-width: 80px;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     flex-shrink: 0;
 }
 
@@ -331,13 +331,13 @@ body {
 }
 
 .selector-btn {
-    padding: 0.4rem 0.75rem;
+    padding: 0.5rem 0.875rem;
     border: 2px solid var(--border);
     background: var(--background);
     color: var(--text-secondary);
     border-radius: 6px;
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
@@ -416,7 +416,25 @@ body {
 
 .timer-btn {
     padding: 0.6rem 1rem;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
+}
+
+.timer-btn.go-to-whiteboard-btn {
+    margin-left: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    box-shadow: 0 2px 6px rgba(227, 39, 39, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timer-btn.go-to-whiteboard-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(227, 39, 39, 0.4);
+}
+
+.timer-btn.go-to-whiteboard-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
 .challenge-content {
@@ -436,39 +454,6 @@ body {
     margin: 0;
 }
 
-.challenge-action {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-}
-
-.go-to-whiteboard-btn {
-    font-size: 0.95rem;
-    padding: 0.65rem 1.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(227, 39, 39, 0.3);
-}
-
-.go-to-whiteboard-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(227, 39, 39, 0.4);
-}
-
-.go-to-whiteboard-btn .btn-icon {
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.go-to-whiteboard-btn:hover .btn-icon {
-    transform: translateX(4px);
-}
-
 .challenge-field {
     margin-bottom: 0.75rem;
     display: flex;
@@ -483,7 +468,7 @@ body {
 .challenge-label {
     font-weight: 600;
     color: var(--primary);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     min-width: 90px;
@@ -491,7 +476,7 @@ body {
 }
 
 .challenge-value {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--text-primary);
     font-weight: 500;
     line-height: 1.3;
