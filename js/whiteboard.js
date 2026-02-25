@@ -606,12 +606,20 @@ function clearCanvas() {
 }
 
 function exportCanvas() {
+    // Temporarily set white background for export
+    canvas.backgroundColor = CONFIG.EXPORT_BACKGROUND;
+    canvas.renderAll();
+
     // Generate PNG data URL with high resolution
     const dataURL = canvas.toDataURL({
         format: 'png',
         quality: 1.0,
         multiplier: 2
     });
+
+    // Remove background to show grid again
+    canvas.backgroundColor = null;
+    canvas.renderAll();
 
     // Create download link and trigger
     const link = document.createElement('a');
