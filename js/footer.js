@@ -49,9 +49,9 @@ function createFooter() {
             </div>
 
             <div class="footer-section">
-                <h3 class="footer-section-title">Connect</h3>
+                <h3 class="footer-section-title">Connect & Feedback</h3>
                 <ul class="footer-links">
-                    <li><a href="https://github.com/yourusername/whiteboard-dojo" class="footer-link" target="_blank">GitHub</a></li>
+                    <li><a href="https://x.com/alicanbektas93" class="footer-link" target="_blank">x.com</a></li>
                     <li class="footer-link">hello@whiteboarddojo.com</li>
                 </ul>
             </div>
