@@ -100,7 +100,18 @@
 
             <div class="toolbar-section">
                 <label class="toolbar-label">Color:</label>
-                <input type="color" id="color-picker" class="color-picker" value="#E32727">
+                <div class="color-controls">
+                    <div class="color-presets">
+                        <button class="color-preset" data-color="#000000" style="background: #000000;" title="Black"></button>
+                        <button class="color-preset" data-color="#ffffff" style="background: #ffffff; border: 1px solid #ccc;" title="White"></button>
+                        <button class="color-preset active" data-color="#E32727" style="background: #E32727;" title="Red"></button>
+                        <button class="color-preset" data-color="#22c55e" style="background: #22c55e;" title="Green"></button>
+                        <button class="color-preset" data-color="#3b82f6" style="background: #3b82f6;" title="Blue"></button>
+                        <button class="color-preset" data-color="#fbbf24" style="background: #fbbf24;" title="Yellow"></button>
+                        <button class="color-preset" data-color="#a855f7" style="background: #a855f7;" title="Purple"></button>
+                    </div>
+                    <input type="color" id="color-picker" class="color-picker" value="#E32727">
+                </div>
             </div>
 
             <div class="toolbar-section">
@@ -110,6 +121,12 @@
             </div>
 
             <div class="toolbar-section toolbar-actions">
+                <button class="button button-secondary" id="undo-btn" title="Undo last action" disabled>
+                    ↶ Undo
+                </button>
+                <button class="button button-secondary" id="redo-btn" title="Redo last action" disabled>
+                    ↷ Redo
+                </button>
                 <button class="button button-secondary" id="delete-btn" title="Delete selected object">
                     Delete
                 </button>

@@ -14,6 +14,11 @@ let isDrawingShape = false;
 let shapeStartPoint = null;
 let tempShape = null;
 
+// Undo/Redo state
+let history = [];
+let historyStep = 0;
+let isUndoRedoAction = false;
+
 // ========================================
 // Configuration
 // ========================================
@@ -22,7 +27,7 @@ const CONFIG = {
     MIN_STROKE_WIDTH: 1,
     MAX_STROKE_WIDTH: 20,
     DEFAULT_COLOR: '#E32727',
-    CANVAS_BACKGROUND: '#1a1a1a',
+    CANVAS_BACKGROUND: '#ffffff',
     EXPORT_BACKGROUND: '#ffffff',
     DEFAULT_FONT_SIZE: 24,
     FONT_FAMILY: 'Space Grotesk',
@@ -59,6 +64,15 @@ function initializeCanvas() {
     canvas.on('mouse:move', handleCanvasMouseMove);
     canvas.on('mouse:up', handleCanvasMouseUp);
 
+    // History tracking events
+    canvas.on('object:added', () => saveHistory());
+    canvas.on('object:modified', () => saveHistory());
+    canvas.on('object:removed', () => saveHistory());
+    canvas.on('path:created', () => saveHistory());
+
+    // Save initial empty state
+    saveHistory();
+
     console.log('Canvas initialized:', canvasWidth, 'x', canvasHeight);
 }
 
@@ -85,7 +99,20 @@ function setupEventListeners() {
     const colorPicker = document.getElementById('color-picker');
     colorPicker.addEventListener('change', (e) => {
         currentColor = e.target.value;
+        updateColorPresets();
         updateDrawingBrush();
+    });
+
+    // Color presets
+    const colorPresets = document.querySelectorAll('.color-preset');
+    colorPresets.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const color = e.currentTarget.dataset.color;
+            currentColor = color;
+            colorPicker.value = color;
+            updateColorPresets();
+            updateDrawingBrush();
+        });
     });
 
     // Stroke width slider
@@ -98,6 +125,8 @@ function setupEventListeners() {
     });
 
     // Action buttons
+    document.getElementById('undo-btn').addEventListener('click', undo);
+    document.getElementById('redo-btn').addEventListener('click', redo);
     document.getElementById('delete-btn').addEventListener('click', deleteSelected);
     document.getElementById('clear-btn').addEventListener('click', clearCanvas);
     document.getElementById('export-btn').addEventListener('click', exportCanvas);
@@ -171,6 +200,80 @@ function updateDrawingBrush() {
         canvas.freeDrawingBrush.color = currentColor;
         canvas.freeDrawingBrush.width = currentStrokeWidth;
     }
+}
+
+function updateColorPresets() {
+    const colorPresets = document.querySelectorAll('.color-preset');
+    colorPresets.forEach(btn => {
+        const btnColor = btn.dataset.color.toUpperCase();
+        const currentColorUpper = currentColor.toUpperCase();
+        if (btnColor === currentColorUpper) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+// ========================================
+// Undo/Redo Functions
+// ========================================
+
+function saveHistory() {
+    if (isUndoRedoAction) return;
+
+    const json = JSON.stringify(canvas.toJSON());
+
+    // Remove any states after current step (when user makes new action after undo)
+    history = history.slice(0, historyStep + 1);
+
+    // Add new state
+    history.push(json);
+    historyStep = history.length - 1;
+
+    // Limit history to 50 states to prevent memory issues
+    if (history.length > 50) {
+        history.shift();
+        historyStep--;
+    }
+
+    updateUndoRedoButtons();
+}
+
+function undo() {
+    if (historyStep > 0) {
+        isUndoRedoAction = true;
+        historyStep--;
+
+        const state = history[historyStep];
+        canvas.loadFromJSON(state, () => {
+            canvas.renderAll();
+            isUndoRedoAction = false;
+            updateUndoRedoButtons();
+        });
+    }
+}
+
+function redo() {
+    if (historyStep < history.length - 1) {
+        isUndoRedoAction = true;
+        historyStep++;
+
+        const state = history[historyStep];
+        canvas.loadFromJSON(state, () => {
+            canvas.renderAll();
+            isUndoRedoAction = false;
+            updateUndoRedoButtons();
+        });
+    }
+}
+
+function updateUndoRedoButtons() {
+    const undoBtn = document.getElementById('undo-btn');
+    const redoBtn = document.getElementById('redo-btn');
+
+    undoBtn.disabled = historyStep <= 0;
+    redoBtn.disabled = historyStep >= history.length - 1;
 }
 
 // ========================================
@@ -382,25 +485,17 @@ function clearCanvas() {
         canvas.clear();
         canvas.backgroundColor = CONFIG.CANVAS_BACKGROUND;
         canvas.renderAll();
+        saveHistory();
     }
 }
 
 function exportCanvas() {
-    // Temporarily change background to white for better export
-    const originalBg = canvas.backgroundColor;
-    canvas.backgroundColor = CONFIG.EXPORT_BACKGROUND;
-    canvas.renderAll();
-
     // Generate PNG data URL with high resolution
     const dataURL = canvas.toDataURL({
         format: 'png',
         quality: 1.0,
         multiplier: 2
     });
-
-    // Restore original background
-    canvas.backgroundColor = originalBg;
-    canvas.renderAll();
 
     // Create download link and trigger
     const link = document.createElement('a');
@@ -427,13 +522,26 @@ function resizeCanvas() {
 }
 
 function handleKeyDown(e) {
+    const activeObject = canvas.getActiveObject();
+
     // Delete key
     if (e.key === 'Delete' || e.key === 'Backspace') {
-        const activeObject = canvas.getActiveObject();
         if (activeObject && !activeObject.isEditing) {
             e.preventDefault();
             deleteSelected();
         }
+    }
+
+    // Ctrl/Cmd + Z for undo
+    if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
+        e.preventDefault();
+        undo();
+    }
+
+    // Ctrl/Cmd + Y or Ctrl/Cmd + Shift + Z for redo
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'y' || (e.key === 'z' && e.shiftKey))) {
+        e.preventDefault();
+        redo();
     }
 
     // Ctrl/Cmd + S for export

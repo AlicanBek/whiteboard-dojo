@@ -1053,6 +1053,39 @@ body {
 }
 
 /* Color Picker */
+.color-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.color-presets {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.color-preset {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.color-preset:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.color-preset.active {
+    border-color: var(--primary);
+    border-width: 3px;
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
 .color-picker {
     width: 50px;
     height: 40px;
@@ -1128,7 +1161,7 @@ body {
 }
 
 .canvas-wrapper {
-    background: var(--surface);
+    background: #ffffff;
     border: 2px solid var(--border);
     border-radius: 12px;
     padding: 1rem;
@@ -1142,6 +1175,10 @@ body {
     display: block;
     cursor: crosshair;
     border-radius: 8px;
+    background-color: #ffffff;
+    background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
 }
 
 /* Action Buttons in Toolbar */
