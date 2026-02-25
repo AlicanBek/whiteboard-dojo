@@ -718,6 +718,7 @@ function handleKeyDown(e) {
 
 let challengeTimer = null;
 let challengeTimeLeft = 0;
+let initialChallengeTime = 0;
 let isTimerRunning = false;
 const DEFAULT_TIMER_SECONDS = 20 * 60; // 20 minutes
 
@@ -739,6 +740,7 @@ function initializeChallengeSection() {
     const design = challengeData.get('design');
     const forValue = challengeData.get('for');
     const toHelp = challengeData.get('toHelp');
+    const timerValue = challengeData.get('timer');
 
     if (!design || !forValue || !toHelp) {
         return; // Invalid challenge data
@@ -765,14 +767,20 @@ function initializeChallengeSection() {
         </div>
     `;
 
-    // Initialize timer
-    challengeTimeLeft = DEFAULT_TIMER_SECONDS;
+    // Initialize timer with value from URL or default
+    challengeTimeLeft = timerValue ? parseInt(timerValue) : DEFAULT_TIMER_SECONDS;
+    initialChallengeTime = challengeTimeLeft; // Store initial time for reset
     updateChallengeTimerDisplay();
 
     // Set up timer button event listeners
     document.getElementById('start-btn').addEventListener('click', startChallengeTimer);
     document.getElementById('pause-btn').addEventListener('click', pauseChallengeTimer);
     document.getElementById('reset-btn').addEventListener('click', resetChallengeTimer);
+    document.getElementById('increase-timer-btn-wb').addEventListener('click', increaseChallengeTimer);
+    document.getElementById('decrease-timer-btn-wb').addEventListener('click', decreaseChallengeTimer);
+
+    // Update button states
+    updateTimerButtonStates();
 }
 
 function formatChallengeTime(seconds) {
@@ -792,6 +800,7 @@ function startChallengeTimer() {
     isTimerRunning = true;
     document.getElementById('start-btn').disabled = true;
     document.getElementById('pause-btn').disabled = false;
+    updateTimerButtonStates();
 
     challengeTimer = setInterval(() => {
         challengeTimeLeft--;
@@ -802,6 +811,7 @@ function startChallengeTimer() {
             isTimerRunning = false;
             document.getElementById('start-btn').disabled = false;
             document.getElementById('pause-btn').disabled = true;
+            updateTimerButtonStates();
             alert("Time's up! Great work on your challenge!");
         }
     }, 1000);
@@ -814,15 +824,41 @@ function pauseChallengeTimer() {
     isTimerRunning = false;
     document.getElementById('start-btn').disabled = false;
     document.getElementById('pause-btn').disabled = true;
+    updateTimerButtonStates();
 }
 
 function resetChallengeTimer() {
     clearInterval(challengeTimer);
     isTimerRunning = false;
-    challengeTimeLeft = DEFAULT_TIMER_SECONDS;
+    challengeTimeLeft = initialChallengeTime;
     updateChallengeTimerDisplay();
     document.getElementById('start-btn').disabled = false;
     document.getElementById('pause-btn').disabled = true;
+    updateTimerButtonStates();
+}
+
+function increaseChallengeTimer() {
+    if (!isTimerRunning && challengeTimeLeft > 0) {
+        challengeTimeLeft = Math.min(challengeTimeLeft + (5 * 60), 120 * 60); // Add 5 minutes, max 120 minutes
+        updateChallengeTimerDisplay();
+    }
+}
+
+function decreaseChallengeTimer() {
+    if (!isTimerRunning && challengeTimeLeft > 0) {
+        challengeTimeLeft = Math.max(challengeTimeLeft - (5 * 60), 5 * 60); // Remove 5 minutes, min 5 minutes
+        updateChallengeTimerDisplay();
+    }
+}
+
+function updateTimerButtonStates() {
+    const increaseBtn = document.getElementById('increase-timer-btn-wb');
+    const decreaseBtn = document.getElementById('decrease-timer-btn-wb');
+
+    if (increaseBtn && decreaseBtn) {
+        increaseBtn.disabled = isTimerRunning;
+        decreaseBtn.disabled = isTimerRunning;
+    }
 }
 
 // ========================================

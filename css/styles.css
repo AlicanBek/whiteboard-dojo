@@ -431,17 +431,39 @@ body {
     text-align: left;
     max-width: 800px;
     margin: 0;
-    position: relative;
-    padding-top: 3rem;
+}
+
+.challenge-action {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
 }
 
 .go-to-whiteboard-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    z-index: 10;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(227, 39, 39, 0.3);
+}
+
+.go-to-whiteboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(227, 39, 39, 0.4);
+}
+
+.go-to-whiteboard-btn .btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.go-to-whiteboard-btn:hover .btn-icon {
+    transform: translateX(4px);
 }
 
 .challenge-field {
@@ -1339,7 +1361,7 @@ body {
 .whiteboard-challenge-section {
     background: var(--surface);
     border-bottom: 1px solid var(--border-light);
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
 }
 
 .challenge-info-container {
@@ -1356,16 +1378,16 @@ body {
 }
 
 .challenge-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--primary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .challenge-details {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.35rem;
 }
 
 .challenge-field-inline {
@@ -1377,32 +1399,67 @@ body {
 .challenge-label-inline {
     font-weight: 600;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    min-width: 70px;
+    min-width: 60px;
     flex-shrink: 0;
 }
 
 .challenge-value-inline {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-primary);
     font-weight: 500;
+    line-height: 1.3;
 }
 
 .challenge-timer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+}
+
+.timer-input-group-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timer-adjust-btn-compact {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.timer-adjust-btn-compact:hover {
+    background: var(--border);
+    border-color: var(--border-light);
+}
+
+.timer-adjust-btn-compact:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 .timer-display-large {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--primary);
     font-family: 'JetBrains Mono', monospace;
     letter-spacing: 0.1em;
+    min-width: 120px;
+    text-align: center;
 }
 
 .timer-controls {
@@ -1411,8 +1468,8 @@ body {
 }
 
 .timer-control-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
     font-weight: 600;
 }
 

@@ -883,7 +883,6 @@ newChallengeBtn.addEventListener('click', () => {
     
     challengeContent.innerHTML = `
         <div class="challenge-structure">
-            <button class="button button-primary go-to-whiteboard-btn" id="go-to-whiteboard-btn">Go to Whiteboard</button>
             <div class="challenge-field">
                 <div class="challenge-label">Design:</div>
                 <div class="challenge-value">${currentChallenge.design}</div>
@@ -897,16 +896,26 @@ newChallengeBtn.addEventListener('click', () => {
                 <div class="challenge-value">${currentChallenge.toHelp}</div>
             </div>
         </div>
+        <div class="challenge-action">
+            <button class="button button-primary go-to-whiteboard-btn" id="go-to-whiteboard-btn">
+                <span class="btn-text">Start Designing</span>
+                <span class="btn-icon">→</span>
+            </button>
+        </div>
     `;
 
     // Add click handler for "Go to Whiteboard" button
     const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
     if (goToWhiteboardBtn) {
         goToWhiteboardBtn.addEventListener('click', () => {
+            // Get current timer value
+            const currentTimerValue = parseTimeInput(timerDisplay.value);
+
             const challengeParams = new URLSearchParams({
                 design: currentChallenge.design,
                 for: currentChallenge.for,
-                toHelp: currentChallenge.toHelp
+                toHelp: currentChallenge.toHelp,
+                timer: currentTimerValue.toString()
             });
             window.location.href = `../whiteboard/?challenge=${encodeURIComponent(challengeParams.toString())}`;
         });
