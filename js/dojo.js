@@ -898,7 +898,7 @@ newChallengeBtn.addEventListener('click', () => {
         </div>
         <div class="challenge-action">
             <button class="button button-primary go-to-whiteboard-btn" id="go-to-whiteboard-btn">
-                <span class="btn-text">Start Designing</span>
+                <span class="btn-text">Go to Whiteboard</span>
                 <span class="btn-icon">→</span>
             </button>
         </div>
@@ -909,7 +909,7 @@ newChallengeBtn.addEventListener('click', () => {
     if (goToWhiteboardBtn) {
         goToWhiteboardBtn.addEventListener('click', () => {
             // Get current timer value
-            const currentTimerValue = parseTimeInput(timerDisplay.value);
+            const currentTimerValue = parseTimeInput(timerDisplay.textContent);
 
             const challengeParams = new URLSearchParams({
                 design: currentChallenge.design,
@@ -949,40 +949,39 @@ function formatTime(totalSeconds) {
 }
 
 function updateTimerDisplay() {
-    timerDisplay.value = formatTime(timeLeft);
+    timerDisplay.textContent = formatTime(timeLeft);
 }
 
 function increaseTimer() {
     if (!isTimerRunning && timeLeft === 0) {
-        const currentTime = parseTimeInput(timerDisplay.value);
+        const currentTime = parseTimeInput(timerDisplay.textContent);
         const newTime = Math.min(currentTime + (5 * 60), 120 * 60); // Add 5 minutes, max 120 minutes
-        timerDisplay.value = formatTime(newTime);
+        timerDisplay.textContent = formatTime(newTime);
     }
 }
 
 function decreaseTimer() {
     if (!isTimerRunning && timeLeft === 0) {
-        const currentTime = parseTimeInput(timerDisplay.value);
+        const currentTime = parseTimeInput(timerDisplay.textContent);
         const newTime = Math.max(currentTime - (5 * 60), 5 * 60); // Remove 5 minutes, min 5 minutes
-        timerDisplay.value = formatTime(newTime);
+        timerDisplay.textContent = formatTime(newTime);
     }
 }
 
 function updateButtonStates() {
     const isRunning = isTimerRunning;
     const isPaused = timeLeft > 0 && !isTimerRunning;
-    
+
     increaseTimerBtn.disabled = isRunning || isPaused;
     decreaseTimerBtn.disabled = isRunning || isPaused;
-    timerDisplay.disabled = isRunning;
 }
 
 function startTimer() {
     if (!currentChallenge) return;
-    
+
     if (!isTimerRunning) {
         if (timeLeft === 0) {
-            timeLeft = parseTimeInput(timerDisplay.value);
+            timeLeft = parseTimeInput(timerDisplay.textContent);
             if (timeLeft === 0) {
                 alert('Please enter a valid time (e.g., 20:00 or 20)');
                 return;
@@ -1026,7 +1025,7 @@ function resetTimer() {
     clearInterval(timer);
     isTimerRunning = false;
     timeLeft = 0;
-    timerDisplay.value = '20:00';
+    timerDisplay.textContent = '20:00';
     startTimerBtn.textContent = 'Start';
     startTimerBtn.disabled = currentChallenge ? false : true;
     pauseTimerBtn.disabled = true;
@@ -1041,5 +1040,5 @@ pauseTimerBtn.addEventListener('click', pauseTimer);
 resetTimerBtn.addEventListener('click', resetTimer);
 
 // Initialize timer display and button states
-timerDisplay.value = '20:00';
+timerDisplay.textContent = '20:00';
 updateButtonStates();
