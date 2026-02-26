@@ -296,21 +296,14 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.level-and-button-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-}
-
 .level-row {
-    margin-bottom: 0;
-    flex: 0 1 auto;
+    margin-bottom: 0.75rem;
 }
 
-.level-and-button-row .generate-btn {
-    flex-shrink: 0;
+.generate-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .selector-section {
@@ -828,15 +821,12 @@ body {
         margin-bottom: 0.5rem;
     }
 
-    .level-and-button-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
-        margin-bottom: 0;
+    .level-row {
+        margin-bottom: 0.75rem;
     }
 
-    .level-row {
-        margin-bottom: 0.5rem;
+    .generate-row {
+        margin-bottom: 1rem;
     }
 
     .selector-section {
@@ -864,9 +854,8 @@ body {
         padding: 1rem 2rem;
         font-size: 1rem;
         width: 100%;
-        max-width: 100%;
-        margin: 0;
-        min-width: auto;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     .challenge-display {
