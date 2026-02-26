@@ -298,12 +298,20 @@ body {
 
 .level-row {
     margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
 }
 
-.generate-button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+.level-row .selector-section {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+.level-row .generate-btn {
+    flex-shrink: 0;
 }
 
 .selector-section {
@@ -336,7 +344,7 @@ body {
     color: var(--text-secondary);
     border-radius: 6px;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.875rem;
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
@@ -823,10 +831,13 @@ body {
 
     .level-row {
         margin-bottom: 0.75rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
     }
 
-    .generate-button-container {
-        justify-content: center;
+    .level-row .selector-section {
+        min-width: auto;
     }
 
     .selector-section {
@@ -847,7 +858,7 @@ body {
 
     .selector-btn {
         padding: 0.5rem 0.75rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .generate-btn {
