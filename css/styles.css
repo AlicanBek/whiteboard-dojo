@@ -296,21 +296,20 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.level-row {
-    margin-bottom: 0.75rem;
+.level-and-button-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.level-row .selector-section {
+.level-row {
+    margin-bottom: 0;
     flex: 0 1 auto;
-    min-width: 0;
 }
 
-.level-row .generate-btn {
+.level-and-button-row .generate-btn {
     flex-shrink: 0;
 }
 
@@ -829,15 +828,15 @@ body {
         margin-bottom: 0.5rem;
     }
 
-    .level-row {
-        margin-bottom: 0.75rem;
+    .level-and-button-row {
         flex-direction: column;
         align-items: stretch;
         gap: 1rem;
+        margin-bottom: 0;
     }
 
-    .level-row .selector-section {
-        min-width: auto;
+    .level-row {
+        margin-bottom: 0.5rem;
     }
 
     .selector-section {
