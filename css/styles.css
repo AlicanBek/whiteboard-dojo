@@ -298,30 +298,20 @@ body {
 
 .level-row {
     margin-bottom: 0.75rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
 }
 
-.level-row .generate-btn {
-    flex-shrink: 0;
+.generate-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
 }
 
 .selector-section {
     display: flex;
     align-items: center;
     gap: 1rem;
-    max-width: 1000px;
-}
-
-.level-row .selector-section {
-    width: auto;
-    flex: 0 1 auto;
-}
-
-.category-row .selector-section {
     width: 100%;
+    max-width: 1000px;
 }
 
 .selector-label {
@@ -374,6 +364,8 @@ body {
     border: none;
     color: white;
     cursor: pointer;
+    white-space: nowrap;
+    min-width: 240px;
 }
 
 .generate-btn:hover {
@@ -830,9 +822,11 @@ body {
     }
 
     .level-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .generate-button-container {
+        justify-content: center;
     }
 
     .selector-section {
@@ -862,6 +856,7 @@ body {
         width: 100%;
         max-width: 100%;
         margin: 0;
+        min-width: auto;
     }
 
     .challenge-display {
