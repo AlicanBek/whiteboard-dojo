@@ -491,10 +491,10 @@ function createArrow(x1, y1, x2, y2) {
         strokeWidth: currentStrokeWidth
     });
 
-    // Create arrow head (triangle) - scale with stroke width
+    // Create arrow head (triangle) - scale with stroke width but less aggressively
     const headAngle = fabric.util.radiansToDegrees(angle);
-    const headWidth = currentStrokeWidth * 5;
-    const headHeight = currentStrokeWidth * 7.5;
+    const headWidth = currentStrokeWidth * 3.5;
+    const headHeight = currentStrokeWidth * 5;
 
     const triangle = new fabric.Triangle({
         left: x2,
