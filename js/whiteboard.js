@@ -720,7 +720,7 @@ let challengeTimer = null;
 let challengeTimeLeft = 0;
 let initialChallengeTime = 0;
 let isTimerRunning = false;
-const DEFAULT_TIMER_SECONDS = 20 * 60; // 20 minutes
+const DEFAULT_TIMER_SECONDS = 15 * 60; // 15 minutes
 
 // ========================================
 // Challenge and Timer Functions

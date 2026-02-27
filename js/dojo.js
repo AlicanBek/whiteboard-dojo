@@ -827,12 +827,6 @@ categoryBtns.forEach(btn => {
         `;
         currentChallenge = null;
         startTimerBtn.disabled = true;
-
-        // Disable Go to Whiteboard button
-        const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
-        if (goToWhiteboardBtn) {
-            goToWhiteboardBtn.disabled = true;
-        }
     });
 });
 
@@ -851,12 +845,6 @@ difficultyBtns.forEach(btn => {
         `;
         currentChallenge = null;
         startTimerBtn.disabled = true;
-
-        // Disable Go to Whiteboard button
-        const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
-        if (goToWhiteboardBtn) {
-            goToWhiteboardBtn.disabled = true;
-        }
     });
 });
 
@@ -909,12 +897,6 @@ newChallengeBtn.addEventListener('click', () => {
             </div>
         </div>
     `;
-
-    // Enable "Go to Whiteboard" button
-    const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
-    if (goToWhiteboardBtn) {
-        goToWhiteboardBtn.disabled = false;
-    }
 
     startTimerBtn.disabled = false;
     
@@ -1048,9 +1030,12 @@ goToWhiteboardBtn.addEventListener('click', () => {
             timer: currentTimerValue.toString()
         });
         window.location.href = `../whiteboard/?challenge=${encodeURIComponent(challengeParams.toString())}`;
+    } else {
+        // No challenge generated - navigate to whiteboard without challenge
+        window.location.href = `../whiteboard/`;
     }
 });
 
 // Initialize timer display and button states
-timerDisplay.textContent = '20:00';
+timerDisplay.textContent = '15:00';
 updateButtonStates();
