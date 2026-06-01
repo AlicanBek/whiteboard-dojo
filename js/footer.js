@@ -42,9 +42,10 @@ function createFooter() {
             <div class="footer-section">
                 <h3 class="footer-section-title">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="${basePath}" class="footer-link">Home</a></li>
+                    <li><a href="${basePath}whiteboard/" class="footer-link">Whiteboard</a></li>
                     <li><a href="${basePath}dojo/" class="footer-link">Dojo</a></li>
                     <li><a href="${basePath}docs/" class="footer-link">Docs</a></li>
+                    <li><a href="${basePath}" class="footer-link">Home</a></li>
                 </ul>
             </div>
 

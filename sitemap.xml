@@ -6,9 +6,14 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.whiteboarddojo.com/whiteboard/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.whiteboarddojo.com/docs/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.whiteboarddojo.com/dojo/</loc>

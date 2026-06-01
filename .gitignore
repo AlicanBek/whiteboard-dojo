@@ -1,0 +1,6 @@
+# Local editor / agent config
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db

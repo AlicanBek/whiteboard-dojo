@@ -46,131 +46,144 @@
     <!-- Fabric.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
 </head>
-<body>
-    <main class="whiteboard-container">
-        <!-- Toolbar Section -->
-        <section class="whiteboard-toolbar">
-            <div class="toolbar-section">
-                <a href="../dojo/" class="button button-primary dojo-back-btn">← Dojo</a>
+<body class="wb-body">
+    <div class="wb-app">
+        <!-- Full-bleed canvas -->
+        <div class="wb-canvas-host">
+            <canvas id="whiteboard-canvas"></canvas>
+        </div>
+
+        <!-- Top-right: actions -->
+        <div class="wb-float wb-topright">
+            <a href="../dojo/" class="button button-secondary wb-challenge-btn">🎲 Get a challenge</a>
+            <span class="wb-divider"></span>
+            <button class="wb-icon-btn" id="undo-btn" title="Undo (Ctrl+Z)" disabled>↶</button>
+            <button class="wb-icon-btn" id="redo-btn" title="Redo (Ctrl+Y)" disabled>↷</button>
+            <button class="wb-icon-btn" id="delete-btn" title="Delete (Del)">🗑</button>
+            <button class="wb-icon-btn" id="clear-btn" title="Clear all">✕</button>
+            <button class="button button-primary wb-export-btn" id="export-btn" title="Export PNG (Ctrl+S)">💾 Export</button>
+        </div>
+
+        <!-- Left panel: brand + tools + shapes + fill + color + stroke -->
+        <div class="wb-float wb-panel">
+            <div class="wb-panel-brand">
+                <a href="../" class="wb-logo" title="Whiteboard Dojo — Home">
+                    <img src="../images/logo.svg" alt="Whiteboard Dojo Logo">
+                </a>
             </div>
 
-            <div class="toolbar-section">
-                <div class="toolbar-buttons">
-                    <button class="selector-btn tool-btn active" data-tool="select" title="Select and move objects (V)">
-                        <span class="tool-icon">↖</span>
-                    </button>
-                    <button class="selector-btn tool-btn" data-tool="draw" title="Free draw (B)">
-                        <span class="tool-icon">✏</span>
-                    </button>
-                    <button class="selector-btn tool-btn" data-tool="text" title="Add text (T)">
-                        <span class="tool-icon">T</span>
-                    </button>
-                </div>
+            <span class="wb-panel-divider"></span>
+
+            <div class="wb-tool-grid">
+                <button class="selector-btn tool-btn active" data-tool="select" title="Select (V)">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.037 4.688a.5.5 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"/></svg></span>
+                </button>
+                <button class="selector-btn tool-btn" data-tool="draw" title="Draw (B)">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg></span>
+                </button>
+                <button class="selector-btn tool-btn" data-tool="text" title="Text (T)">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></span>
+                </button>
             </div>
 
-            <div class="toolbar-section">
-                <div class="toolbar-buttons">
-                    <button class="selector-btn shape-btn" data-shape="rectangle" title="Rectangle">
-                        <span class="tool-icon">▭</span>
-                    </button>
-                    <button class="selector-btn shape-btn" data-shape="circle" title="Circle">
-                        <span class="tool-icon">○</span>
-                    </button>
-                    <button class="selector-btn shape-btn" data-shape="triangle" title="Triangle">
-                        <span class="tool-icon">△</span>
-                    </button>
-                    <button class="selector-btn shape-btn" data-shape="line" title="Line">
-                        <span class="tool-icon">—</span>
-                    </button>
-                    <button class="selector-btn shape-btn" data-shape="arrow" title="Arrow">
-                        <span class="tool-icon">→</span>
-                    </button>
-                    <button class="selector-btn shape-btn" data-shape="star" title="Star">
-                        <span class="tool-icon">★</span>
-                    </button>
-                </div>
+            <span class="wb-panel-divider"></span>
+
+            <div class="wb-shape-grid">
+                <button class="selector-btn shape-btn" data-shape="rectangle" title="Rectangle">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/></svg></span>
+                </button>
+                <button class="selector-btn shape-btn" data-shape="circle" title="Circle">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg></span>
+                </button>
+                <button class="selector-btn shape-btn" data-shape="triangle" title="Triangle">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/></svg></span>
+                </button>
+                <button class="selector-btn shape-btn" data-shape="line" title="Line">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/></svg></span>
+                </button>
+                <button class="selector-btn shape-btn" data-shape="arrow" title="Arrow">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+                </button>
+                <button class="selector-btn shape-btn" data-shape="star" title="Star">
+                    <span class="tool-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 14.85 8.52 21.96 9.27 16.7 14.04 18.18 21.02 12 17.27 5.82 21.02 7.3 14.04 2.04 9.27 9.15 8.52 12 2"/></svg></span>
+                </button>
             </div>
 
-            <div class="toolbar-section">
-                <label class="toolbar-label">Shape Fill:</label>
+            <span class="wb-panel-divider"></span>
+
+            <div class="wb-fill-row">
                 <button class="fill-radio-btn" id="fill-toggle-btn" title="Toggle shape fill" data-fill="stroke">
                     <span class="radio-circle"></span>
                 </button>
+                <span class="wb-panel-label">Fill</span>
             </div>
 
-            <div class="toolbar-section">
-                <div class="color-controls">
-                    <div class="color-presets">
-                        <button class="color-preset" data-color="#000000" style="background: #000000;" title="Black"></button>
-                        <button class="color-preset" data-color="#ffffff" style="background: #ffffff; border: 1px solid #ccc;" title="White"></button>
-                        <button class="color-preset active" data-color="#E32727" style="background: #E32727;" title="Red"></button>
-                        <button class="color-preset" data-color="#ff8c00" style="background: #ff8c00;" title="Orange"></button>
-                        <button class="color-preset" data-color="#22c55e" style="background: #22c55e;" title="Green"></button>
-                        <button class="color-preset" data-color="#3b82f6" style="background: #3b82f6;" title="Blue"></button>
-                        <button class="color-preset" data-color="#ffb300" style="background: #ffb300;" title="Yellow"></button>
-                        <button class="color-preset" data-color="#a855f7" style="background: #a855f7;" title="Purple"></button>
-                    </div>
-                    <input type="color" id="color-picker" class="color-picker" value="#E32727">
-                </div>
+            <span class="wb-panel-divider"></span>
+
+            <div class="color-presets">
+                <button class="color-preset" data-color="#18181b" style="background: #18181b;" title="Ink"></button>
+                <button class="color-preset" data-color="#ffffff" style="background: #ffffff;" title="White"></button>
+                <button class="color-preset active" data-color="#E32727" style="background: #E32727;" title="Red"></button>
+                <button class="color-preset" data-color="#f97316" style="background: #f97316;" title="Orange"></button>
+                <button class="color-preset" data-color="#f59e0b" style="background: #f59e0b;" title="Amber"></button>
+                <button class="color-preset" data-color="#10b981" style="background: #10b981;" title="Emerald"></button>
+                <button class="color-preset" data-color="#0ea5e9" style="background: #0ea5e9;" title="Sky"></button>
+                <button class="color-preset" data-color="#8b5cf6" style="background: #8b5cf6;" title="Violet"></button>
+                <input type="color" id="color-picker" class="color-picker" value="#E32727" title="Custom color">
             </div>
 
-            <div class="toolbar-section">
-                <label class="toolbar-label">Stroke:</label>
+            <span class="wb-panel-divider"></span>
+
+            <div class="wb-stroke-row">
+                <label class="wb-panel-label">Stroke</label>
                 <input type="range" id="stroke-width" class="stroke-slider" min="1" max="20" value="2">
                 <span id="stroke-value" class="stroke-value">2px</span>
             </div>
+        </div>
 
-            <div class="toolbar-section toolbar-actions">
-                <button class="button button-secondary toolbar-btn" id="undo-btn" title="Undo (Ctrl+Z)" disabled>
-                    ↶
-                </button>
-                <button class="button button-secondary toolbar-btn" id="redo-btn" title="Redo (Ctrl+Y)" disabled>
-                    ↷
-                </button>
-                <button class="button button-secondary toolbar-btn" id="delete-btn" title="Delete (Del)">
-                    🗑
-                </button>
-                <button class="button button-secondary toolbar-btn" id="clear-btn" title="Clear All">
-                    ✕
-                </button>
-                <button class="button button-primary toolbar-btn" id="export-btn" title="Export PNG (Ctrl+S)">
-                    💾
-                </button>
+        <!-- Bottom-right: canvas navigation (pan + zoom) -->
+        <div class="wb-float wb-controls">
+            <div class="wb-dpad">
+                <button class="wb-ctrl-btn wb-pan-up" id="pan-up" title="Pan up">↑</button>
+                <button class="wb-ctrl-btn wb-pan-left" id="pan-left" title="Pan left">←</button>
+                <button class="wb-ctrl-btn wb-ctrl-center" id="fit-btn" title="Fit page to screen">⤢</button>
+                <button class="wb-ctrl-btn wb-pan-right" id="pan-right" title="Pan right">→</button>
+                <button class="wb-ctrl-btn wb-pan-down" id="pan-down" title="Pan down">↓</button>
             </div>
-        </section>
+            <span class="wb-stylebar-divider"></span>
+            <div class="wb-zoom">
+                <button class="wb-ctrl-btn" id="zoom-out" title="Zoom out (Ctrl + scroll)">−</button>
+                <button class="wb-zoom-level" id="zoom-level" title="Reset to 100%">100%</button>
+                <button class="wb-ctrl-btn" id="zoom-in" title="Zoom in (Ctrl + scroll)">+</button>
+            </div>
+        </div>
 
-        <!-- Challenge Display Section (shown when opened from Dojo) -->
-        <section class="whiteboard-challenge-section" id="whiteboard-challenge-section" style="display: none;">
-            <div class="challenge-info-container">
-                <div class="challenge-info">
-                    <h3 class="challenge-title">Your Challenge:</h3>
-                    <div class="challenge-details" id="challenge-details">
-                        <!-- Challenge will be populated by JavaScript -->
-                    </div>
-                </div>
-                <div class="challenge-timer">
-                    <div class="timer-input-group-compact">
-                        <button class="timer-adjust-btn-compact" id="decrease-timer-btn-wb">−</button>
-                        <div class="timer-display-large" id="timer-display-large">20:00</div>
-                        <button class="timer-adjust-btn-compact" id="increase-timer-btn-wb">+</button>
-                    </div>
-                    <div class="timer-controls">
-                        <button class="button button-primary timer-control-btn" id="start-btn">Start</button>
-                        <button class="button button-secondary timer-control-btn" id="pause-btn">Pause</button>
-                        <button class="button button-secondary timer-control-btn" id="reset-btn">Reset</button>
-                    </div>
+        <!-- Challenge card (shown when opened from the Dojo) — anchored under top-right -->
+        <section class="wb-float wb-challenge" id="whiteboard-challenge-section" style="display: none;">
+            <div class="wb-challenge-top">
+                <h3 class="challenge-title">Your Challenge</h3>
+                <div class="wb-challenge-actions">
+                    <button class="wb-mini-btn" id="challenge-minimize" title="Minimize">–</button>
+                    <button class="wb-mini-btn" id="challenge-close" title="Close challenge">✕</button>
                 </div>
             </div>
-        </section>
-
-        <!-- Canvas Area -->
-        <section class="whiteboard-canvas-section">
-            <div class="canvas-wrapper">
-                <canvas id="whiteboard-canvas"></canvas>
+            <div class="timer-input-group-compact">
+                <button class="timer-adjust-btn-compact" id="decrease-timer-btn-wb">−</button>
+                <div class="timer-display-large" id="timer-display-large">20:00</div>
+                <button class="timer-adjust-btn-compact" id="increase-timer-btn-wb">+</button>
+            </div>
+            <div class="challenge-details" id="challenge-details">
+                <!-- Challenge will be populated by JavaScript -->
+            </div>
+            <div class="timer-controls">
+                <button class="button button-primary timer-control-btn" id="start-btn">Start</button>
+                <button class="button button-secondary timer-control-btn" id="pause-btn">Pause</button>
+                <button class="button button-secondary timer-control-btn" id="reset-btn">Reset</button>
             </div>
         </section>
-    </main>
+    </div>
 
     <script src="../js/whiteboard.js"></script>
 </body>
 </html>
+1

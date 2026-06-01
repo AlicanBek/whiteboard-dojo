@@ -23,6 +23,12 @@ let isUndoRedoAction = false;
 // Clipboard for copy/paste
 let clipboard = null;
 
+// The fixed-size drawing page (artboard) and pan/zoom state
+let page = null;
+let isPanning = false;
+let isSpaceDown = false;
+let lastPanPoint = null;
+
 // ========================================
 // Configuration
 // ========================================
@@ -35,7 +41,17 @@ const CONFIG = {
     EXPORT_BACKGROUND: '#ffffff',
     DEFAULT_FONT_SIZE: 24,
     FONT_FAMILY: 'Space Grotesk',
-    STAR_POINTS: 5
+    STAR_POINTS: 5,
+    // Fixed page (artboard) dimensions
+    PAGE_WIDTH: 1600,
+    PAGE_HEIGHT: 1000,
+    BACKDROP_COLOR: '#141414',
+    GRID_SIZE: 22,
+    // Zoom / pan
+    MIN_ZOOM: 0.1,
+    MAX_ZOOM: 5,
+    ZOOM_STEP: 1.2,
+    PAN_STEP: 140
 };
 
 // ========================================
@@ -45,18 +61,21 @@ const CONFIG = {
 function initializeCanvas() {
     const canvasElement = document.getElementById('whiteboard-canvas');
 
-    // Calculate canvas dimensions
-    const toolbarHeight = document.querySelector('.whiteboard-toolbar').offsetHeight;
-    const canvasWidth = Math.min(window.innerWidth - 100, 1400);
-    const canvasHeight = window.innerHeight - toolbarHeight - 150;
+    // Full-bleed canvas: fill the entire viewport (floating panels overlay on top)
+    const canvasWidth = window.innerWidth;
+    const canvasHeight = window.innerHeight;
 
     // Initialize Fabric.js canvas
     canvas = new fabric.Canvas('whiteboard-canvas', {
         width: canvasWidth,
         height: canvasHeight,
         isDrawingMode: false,
-        selection: true
+        selection: true,
+        backgroundColor: CONFIG.BACKDROP_COLOR
     });
+
+    // Build the fixed-size page and place it under all content
+    createPage();
 
     // Configure drawing brush
     canvas.freeDrawingBrush.color = currentColor;
@@ -66,6 +85,7 @@ function initializeCanvas() {
     canvas.on('mouse:down', handleCanvasMouseDown);
     canvas.on('mouse:move', handleCanvasMouseMove);
     canvas.on('mouse:up', handleCanvasMouseUp);
+    canvas.on('mouse:wheel', handleCanvasWheel);
 
     // History tracking events
     canvas.on('object:added', () => saveHistory());
@@ -75,7 +95,114 @@ function initializeCanvas() {
     // Save initial empty state
     saveHistory();
 
+    // On load, cover the viewport with the page so no backdrop shows
+    coverScreen();
+
     console.log('Canvas initialized:', canvasWidth, 'x', canvasHeight);
+}
+
+// ========================================
+// Page (artboard) + Zoom / Pan
+// ========================================
+
+// A repeating dot-grid pattern, drawn on the page so it pans/zooms with content
+function buildGridPattern() {
+    const tile = document.createElement('canvas');
+    tile.width = CONFIG.GRID_SIZE;
+    tile.height = CONFIG.GRID_SIZE;
+    const ctx = tile.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, CONFIG.GRID_SIZE, CONFIG.GRID_SIZE);
+    ctx.fillStyle = '#e0e0e0';
+    ctx.beginPath();
+    ctx.arc(1.5, 1.5, 1.5, 0, Math.PI * 2);
+    ctx.fill();
+    return new fabric.Pattern({ source: tile, repeat: 'repeat' });
+}
+
+function createPage() {
+    page = new fabric.Rect({
+        left: 0,
+        top: 0,
+        width: CONFIG.PAGE_WIDTH,
+        height: CONFIG.PAGE_HEIGHT,
+        fill: buildGridPattern(),
+        stroke: '#d0d0d0',
+        strokeWidth: 1,
+        selectable: false,
+        evented: false,
+        excludeFromExport: true,
+        hoverCursor: 'default',
+        shadow: new fabric.Shadow({ color: 'rgba(0,0,0,0.5)', blur: 30, offsetX: 0, offsetY: 10 })
+    });
+    // Render the page beneath all drawn objects, transformed by the viewport
+    canvas.setBackgroundImage(page, canvas.renderAll.bind(canvas));
+}
+
+function clampZoom(zoom) {
+    return Math.min(Math.max(zoom, CONFIG.MIN_ZOOM), CONFIG.MAX_ZOOM);
+}
+
+function applyZoom(zoom, point) {
+    zoom = clampZoom(zoom);
+    const pt = point || new fabric.Point(canvas.getWidth() / 2, canvas.getHeight() / 2);
+    canvas.zoomToPoint(pt, zoom);
+    updateZoomDisplay();
+}
+
+function zoomIn() { applyZoom(canvas.getZoom() * CONFIG.ZOOM_STEP); }
+function zoomOut() { applyZoom(canvas.getZoom() / CONFIG.ZOOM_STEP); }
+function resetZoom() { applyZoom(1); }
+
+function updateZoomDisplay() {
+    const el = document.getElementById('zoom-level');
+    if (el) el.textContent = `${Math.round(canvas.getZoom() * 100)}%`;
+}
+
+// Pan the viewport. Arrow direction = direction the view moves (content shifts opposite).
+function panBy(dx, dy) {
+    canvas.relativePan(new fabric.Point(dx, dy));
+}
+
+// Center the page at a given zoom (helper for fit / cover)
+function centerPageAtZoom(zoom) {
+    zoom = clampZoom(zoom);
+    canvas.setZoom(zoom);
+    const vpt = canvas.viewportTransform;
+    vpt[4] = (canvas.getWidth() - CONFIG.PAGE_WIDTH * zoom) / 2;
+    vpt[5] = (canvas.getHeight() - CONFIG.PAGE_HEIGHT * zoom) / 2;
+    canvas.setViewportTransform(vpt);
+    updateZoomDisplay();
+}
+
+// Fit the whole page within the viewport (page fully visible, may show backdrop)
+function fitToScreen() {
+    const padding = 100;
+    centerPageAtZoom(Math.min(
+        (canvas.getWidth() - padding) / CONFIG.PAGE_WIDTH,
+        (canvas.getHeight() - padding) / CONFIG.PAGE_HEIGHT
+    ));
+}
+
+// Cover the viewport with the page (no backdrop visible; page may extend off-screen)
+function coverScreen() {
+    centerPageAtZoom(Math.max(
+        canvas.getWidth() / CONFIG.PAGE_WIDTH,
+        canvas.getHeight() / CONFIG.PAGE_HEIGHT
+    ));
+}
+
+// Ctrl/Cmd + wheel zooms to cursor; plain wheel pans
+function handleCanvasWheel(opt) {
+    const e = opt.e;
+    if (e.ctrlKey || e.metaKey) {
+        const zoom = canvas.getZoom() * Math.pow(0.999, e.deltaY);
+        applyZoom(zoom, new fabric.Point(e.offsetX, e.offsetY));
+    } else {
+        canvas.relativePan(new fabric.Point(-e.deltaX, -e.deltaY));
+    }
+    e.preventDefault();
+    e.stopPropagation();
 }
 
 function setupEventListeners() {
@@ -141,8 +268,21 @@ function setupEventListeners() {
     document.getElementById('clear-btn').addEventListener('click', clearCanvas);
     document.getElementById('export-btn').addEventListener('click', exportCanvas);
 
+    // Canvas navigation: zoom
+    document.getElementById('zoom-in').addEventListener('click', zoomIn);
+    document.getElementById('zoom-out').addEventListener('click', zoomOut);
+    document.getElementById('zoom-level').addEventListener('click', resetZoom);
+    document.getElementById('fit-btn').addEventListener('click', fitToScreen);
+
+    // Canvas navigation: pan (arrow = direction the view moves)
+    document.getElementById('pan-up').addEventListener('click', () => panBy(0, CONFIG.PAN_STEP));
+    document.getElementById('pan-down').addEventListener('click', () => panBy(0, -CONFIG.PAN_STEP));
+    document.getElementById('pan-left').addEventListener('click', () => panBy(CONFIG.PAN_STEP, 0));
+    document.getElementById('pan-right').addEventListener('click', () => panBy(-CONFIG.PAN_STEP, 0));
+
     // Keyboard shortcuts
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
 
     // Window resize
     window.addEventListener('resize', resizeCanvas);
@@ -247,7 +387,8 @@ function saveHistory() {
     // Don't save history while actively drawing shapes (during preview)
     if (isDrawingShape) return;
 
-    const json = JSON.stringify(canvas.toJSON());
+    // Snapshot drawn objects only — the page lives in backgroundImage and is never undone
+    const json = JSON.stringify(canvas.getObjects().map(obj => obj.toObject()));
 
     // Remove any states after current step (when user makes new action after undo)
     history = history.slice(0, historyStep + 1);
@@ -265,41 +406,35 @@ function saveHistory() {
     updateUndoRedoButtons();
 }
 
+function loadHistoryState(step) {
+    isUndoRedoAction = true;
+    const objects = JSON.parse(history[step]);
+
+    fabric.util.enlivenObjects(objects, (enlivened) => {
+        canvas.remove(...canvas.getObjects());
+        enlivened.forEach(obj => canvas.add(obj));
+        canvas.renderAll();
+        isUndoRedoAction = false;
+        updateUndoRedoButtons();
+
+        // Ensure objects match current tool's selection state
+        if (currentTool !== 'select') {
+            setObjectsSelectable(false);
+        }
+    });
+}
+
 function undo() {
     if (historyStep > 0) {
-        isUndoRedoAction = true;
         historyStep--;
-
-        const state = history[historyStep];
-        canvas.loadFromJSON(state, () => {
-            canvas.renderAll();
-            isUndoRedoAction = false;
-            updateUndoRedoButtons();
-
-            // Ensure objects match current tool's selection state
-            if (currentTool !== 'select') {
-                setObjectsSelectable(false);
-            }
-        });
+        loadHistoryState(historyStep);
     }
 }
 
 function redo() {
     if (historyStep < history.length - 1) {
-        isUndoRedoAction = true;
         historyStep++;
-
-        const state = history[historyStep];
-        canvas.loadFromJSON(state, () => {
-            canvas.renderAll();
-            isUndoRedoAction = false;
-            updateUndoRedoButtons();
-
-            // Ensure objects match current tool's selection state
-            if (currentTool !== 'select') {
-                setObjectsSelectable(false);
-            }
-        });
+        loadHistoryState(historyStep);
     }
 }
 
@@ -317,6 +452,16 @@ function updateUndoRedoButtons() {
 
 function handleCanvasMouseDown(options) {
     const evt = options.e;
+
+    // Space-drag (or middle mouse) pans the viewport
+    if (isSpaceDown || evt.button === 1) {
+        isPanning = true;
+        canvas.selection = false;
+        canvas.setCursor('grabbing');
+        lastPanPoint = { x: evt.clientX, y: evt.clientY };
+        return;
+    }
+
     const pointer = canvas.getPointer(evt);
 
     if (currentTool === 'text') {
@@ -337,6 +482,16 @@ function handleCanvasMouseDown(options) {
 }
 
 function handleCanvasMouseMove(options) {
+    if (isPanning) {
+        const evt = options.e;
+        canvas.relativePan(new fabric.Point(
+            evt.clientX - lastPanPoint.x,
+            evt.clientY - lastPanPoint.y
+        ));
+        lastPanPoint = { x: evt.clientX, y: evt.clientY };
+        return;
+    }
+
     if (currentTool === 'shape' && isDrawingShape) {
         const evt = options.e;
         const pointer = canvas.getPointer(evt);
@@ -345,6 +500,13 @@ function handleCanvasMouseMove(options) {
 }
 
 function handleCanvasMouseUp(options) {
+    if (isPanning) {
+        isPanning = false;
+        canvas.selection = (currentTool === 'select');
+        canvas.setCursor(isSpaceDown ? 'grab' : 'default');
+        return;
+    }
+
     if (currentTool === 'shape' && isDrawingShape) {
         finishShapeDrawing();
     }
@@ -432,16 +594,23 @@ function createShape(shapeType, start, end) {
         top,
         fill: isFillMode ? currentColor : 'transparent',
         stroke: currentColor,
-        strokeWidth: isFillMode ? 0 : currentStrokeWidth
+        strokeWidth: isFillMode ? 0 : currentStrokeWidth,
+        strokeLineCap: 'round',
+        strokeLineJoin: 'round'
     };
 
     switch(shapeType) {
-        case 'rectangle':
+        case 'rectangle': {
+            // Smart modern radius: scales with the smaller side, clamped 4–18px
+            const r = Math.max(4, Math.min(18, Math.min(width, height) * 0.08));
             return new fabric.Rect({
                 ...commonProps,
                 width,
-                height
+                height,
+                rx: r,
+                ry: r
             });
+        }
 
         case 'circle':
             const radius = Math.min(width, height) / 2;
@@ -464,7 +633,8 @@ function createShape(shapeType, start, end) {
         case 'line':
             return new fabric.Line([start.x, start.y, end.x, end.y], {
                 stroke: currentColor,
-                strokeWidth: currentStrokeWidth
+                strokeWidth: currentStrokeWidth,
+                strokeLineCap: 'round'
             });
 
         case 'arrow':
@@ -485,10 +655,11 @@ function createArrow(x1, y1, x2, y2) {
     // Calculate angle
     const angle = Math.atan2(y2 - y1, x2 - x1);
 
-    // Create line
+    // Create line with rounded caps for a softer modern look
     const line = new fabric.Line([x1, y1, x2, y2], {
         stroke: currentColor,
-        strokeWidth: currentStrokeWidth
+        strokeWidth: currentStrokeWidth,
+        strokeLineCap: 'round'
     });
 
     // Create arrow head (triangle) - scale with stroke width but less aggressively
@@ -504,7 +675,8 @@ function createArrow(x1, y1, x2, y2) {
         height: headHeight,
         fill: currentColor,
         originX: 'center',
-        originY: 'center'
+        originY: 'center',
+        strokeLineJoin: 'round'
     });
 
     // Group line and triangle
@@ -530,7 +702,9 @@ function createStar(cx, cy, radius) {
     return new fabric.Polygon(points, {
         fill: isFillMode ? currentColor : 'transparent',
         stroke: currentColor,
-        strokeWidth: isFillMode ? 0 : currentStrokeWidth
+        strokeWidth: isFillMode ? 0 : currentStrokeWidth,
+        strokeLineCap: 'round',
+        strokeLineJoin: 'round'
     });
 }
 
@@ -599,26 +773,38 @@ function pasteFromClipboard() {
 
 function clearCanvas() {
     if (confirm('Are you sure you want to clear the entire canvas? This cannot be undone.')) {
-        canvas.clear();
-        canvas.renderAll();
+        // Remove drawn objects only; keep the page (backgroundImage)
+        canvas.remove(...canvas.getObjects());
+        canvas.discardActiveObject();
+        canvas.requestRenderAll();
         saveHistory();
     }
 }
 
 function exportCanvas() {
-    // Temporarily set white background for export
+    // Export the page region at full resolution, independent of current zoom/pan.
+    // The page (backgroundImage) is excluded from export, so paint a clean white
+    // backdrop and crop to the page bounds.
+    const savedVpt = canvas.viewportTransform.slice();
+    const savedBg = canvas.backgroundColor;
+
+    canvas.setViewportTransform([1, 0, 0, 1, 0, 0]);
     canvas.backgroundColor = CONFIG.EXPORT_BACKGROUND;
     canvas.renderAll();
 
-    // Generate PNG data URL with high resolution
     const dataURL = canvas.toDataURL({
         format: 'png',
         quality: 1.0,
-        multiplier: 2
+        multiplier: 2,
+        left: 0,
+        top: 0,
+        width: CONFIG.PAGE_WIDTH,
+        height: CONFIG.PAGE_HEIGHT
     });
 
-    // Remove background to show grid again
-    canvas.backgroundColor = null;
+    // Restore the backdrop and the user's view
+    canvas.backgroundColor = savedBg;
+    canvas.setViewportTransform(savedVpt);
     canvas.renderAll();
 
     // Create download link and trigger
@@ -634,19 +820,44 @@ function exportCanvas() {
 // ========================================
 
 function resizeCanvas() {
-    const toolbarHeight = document.querySelector('.whiteboard-toolbar').offsetHeight;
-    const canvasWidth = Math.min(window.innerWidth - 100, 1400);
-    const canvasHeight = window.innerHeight - toolbarHeight - 150;
-
     canvas.setDimensions({
-        width: canvasWidth,
-        height: canvasHeight
+        width: window.innerWidth,
+        height: window.innerHeight
     });
     canvas.renderAll();
 }
 
 function handleKeyDown(e) {
     const activeObject = canvas.getActiveObject();
+    const editing = activeObject && activeObject.isEditing;
+
+    // Hold Space to temporarily pan (grab cursor)
+    if (e.code === 'Space' && !editing) {
+        if (!isSpaceDown) {
+            isSpaceDown = true;
+            canvas.defaultCursor = 'grab';
+            canvas.setCursor('grab');
+        }
+        e.preventDefault();
+        return;
+    }
+
+    // Zoom shortcuts: Ctrl/Cmd + plus / minus / 0 (fit)
+    if ((e.ctrlKey || e.metaKey) && (e.key === '=' || e.key === '+')) {
+        e.preventDefault();
+        zoomIn();
+        return;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key === '-') {
+        e.preventDefault();
+        zoomOut();
+        return;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key === '0') {
+        e.preventDefault();
+        fitToScreen();
+        return;
+    }
 
     // Delete key
     if (e.key === 'Delete' || e.key === 'Backspace') {
@@ -712,6 +923,14 @@ function handleKeyDown(e) {
     }
 }
 
+function handleKeyUp(e) {
+    if (e.code === 'Space') {
+        isSpaceDown = false;
+        canvas.defaultCursor = 'default';
+        if (!isPanning) canvas.setCursor('default');
+    }
+}
+
 // ========================================
 // Challenge Timer State
 // ========================================
@@ -748,7 +967,7 @@ function initializeChallengeSection() {
 
     // Show challenge section
     const challengeSection = document.getElementById('whiteboard-challenge-section');
-    challengeSection.style.display = 'block';
+    challengeSection.style.display = 'flex';
 
     // Populate challenge details
     const challengeDetails = document.getElementById('challenge-details');
@@ -778,6 +997,18 @@ function initializeChallengeSection() {
     document.getElementById('reset-btn').addEventListener('click', resetChallengeTimer);
     document.getElementById('increase-timer-btn-wb').addEventListener('click', increaseChallengeTimer);
     document.getElementById('decrease-timer-btn-wb').addEventListener('click', decreaseChallengeTimer);
+
+    // Minimize / close the challenge card
+    const minimizeBtn = document.getElementById('challenge-minimize');
+    minimizeBtn.addEventListener('click', () => {
+        const minimized = challengeSection.classList.toggle('minimized');
+        minimizeBtn.textContent = minimized ? '▢' : '–';
+        minimizeBtn.title = minimized ? 'Expand' : 'Minimize';
+    });
+    document.getElementById('challenge-close').addEventListener('click', () => {
+        pauseChallengeTimer();
+        challengeSection.style.display = 'none';
+    });
 
     // Update button states
     updateTimerButtonStates();
