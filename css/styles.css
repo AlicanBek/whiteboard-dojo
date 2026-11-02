@@ -1728,7 +1728,7 @@ body {
 }
 
 /* ========================================
-   Whiteboard — Full-bleed floating layout
+   Whiteboard: full-bleed floating layout
    ======================================== */
 
 .wb-body {
@@ -1951,7 +1951,7 @@ body {
     background: var(--border-light);
 }
 
-/* Challenge card — compact, anchored under the top-right actions */
+/* Challenge card: compact, anchored under the top-right actions */
 .wb-challenge {
     top: 74px;
     right: 16px;

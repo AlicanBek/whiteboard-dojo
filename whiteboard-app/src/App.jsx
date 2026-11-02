@@ -298,7 +298,7 @@ export default function App() {
               <WelcomeScreen.Center.MenuItemHelp />
             </WelcomeScreen.Center.Menu>
             <p className="wd-welcome-tips">
-              Pick a tool above or press 1–9 · Drop images straight onto the canvas · Boards save automatically in
+              Pick a tool above or press 1 to 9 · Drop images straight onto the canvas · Boards save automatically in
               this browser
             </p>
           </WelcomeScreen.Center>
