@@ -1,0 +1,291 @@
+html, body, #root, .wd-app {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.wd-app {
+  --wd-brand: #e32727;
+  --wd-brand-dark: #c01f1f;
+  --wd-surface: #ffffff;
+  --wd-text: #1b1b1f;
+  --wd-muted: #6b6b76;
+  --wd-border: #e4e4e8;
+  --wd-hover: #f1f1f4;
+  --wd-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Assistant", system-ui, -apple-system, sans-serif;
+}
+
+.wd-app[data-theme="dark"] {
+  --wd-surface: #232329;
+  --wd-text: #e3e3e8;
+  --wd-muted: #9a9aa5;
+  --wd-border: #34343c;
+  --wd-hover: #2e2e35;
+  --wd-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Board switcher pill, top right */
+.wd-board-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 220px;
+  height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--island-bg-color);
+  color: var(--text-primary-color);
+  box-shadow: var(--shadow-island);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wd-board-pill:hover { background: var(--button-hover-bg); }
+.wd-board-pill-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wd-app {
+  --wd-font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --wd-font-ui: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Brand link next to Excalidraw's menu button, styled like its islands */
+.wd-brand {
+  position: fixed;
+  top: 16px;
+  left: 60px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px 0 10px;
+  border-radius: 8px;
+  background: var(--wd-surface);
+  color: var(--wd-text);
+  box-shadow: 0 0 0 1px var(--wd-border), 0 1px 2px rgba(0, 0, 0, 0.04);
+  font-family: var(--wd-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wd-brand:hover { background: var(--wd-hover); }
+.wd-brand img { width: 22px; height: auto; }
+
+/* Not enough room beside the centred toolbar: keep just the mark. */
+@media (max-width: 1180px) {
+  .wd-brand { width: 36px; padding: 0; justify-content: center; }
+  .wd-brand span { display: none; }
+}
+
+/* Welcome screen: one typeface family instead of Excalidraw's handwriting */
+.wd-welcome-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--wd-font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--wd-text);
+}
+.wd-welcome-logo img { width: 52px; height: auto; }
+
+.excalidraw .welcome-screen-center { gap: 1.75rem; }
+.excalidraw .welcome-screen-center__heading {
+  max-width: 420px;
+  font-family: var(--wd-font-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--wd-muted);
+}
+.excalidraw .welcome-screen-menu { min-width: 300px; }
+.excalidraw .welcome-screen-menu-item__text { font-family: var(--wd-font-ui); font-weight: 500; }
+.excalidraw .welcome-screen-menu-item__shortcut { font-family: var(--wd-font-ui); }
+
+.wd-welcome-tips {
+  max-width: 420px;
+  margin: 0;
+  font-family: var(--wd-font-ui);
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--wd-muted);
+}
+
+/* Shared buttons */
+.wd-btn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--wd-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--wd-text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.wd-btn:hover { background: var(--wd-hover); }
+.wd-btn-primary {
+  border-color: var(--wd-brand);
+  background: var(--wd-brand);
+  color: #fff;
+}
+.wd-btn-primary:hover { background: var(--wd-brand-dark); }
+
+.wd-icon-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--wd-muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+.wd-icon-btn:hover:not(:disabled) { background: var(--wd-hover); color: var(--wd-text); }
+.wd-icon-btn:disabled { opacity: 0.35; cursor: default; }
+
+/* Boards sidebar */
+.wd-boards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  min-height: 0;
+  padding: 0 12px 12px;
+  color: var(--wd-text);
+}
+.wd-boards-actions { display: flex; gap: 8px; }
+.wd-boards-actions .wd-btn-primary { flex: 1; }
+.wd-boards-list {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+.wd-board {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px 2px 0;
+  border-radius: 8px;
+}
+.wd-board:hover { background: var(--wd-hover); }
+.wd-board.is-current { background: var(--wd-hover); box-shadow: inset 3px 0 0 var(--wd-brand); }
+.wd-board-open {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.wd-board-title {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wd-board-meta { font-size: 12px; color: var(--wd-muted); }
+.wd-board-tools { display: flex; opacity: 0; }
+.wd-board:hover .wd-board-tools,
+.wd-board:focus-within .wd-board-tools,
+.wd-board.is-current .wd-board-tools { opacity: 1; }
+.wd-board-input {
+  flex: 1;
+  min-width: 0;
+  margin: 4px 0 4px 6px;
+  padding: 6px 8px;
+  border: 1px solid var(--wd-brand);
+  border-radius: 6px;
+  background: var(--wd-surface);
+  color: var(--wd-text);
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+.wd-boards-note { margin: 0; font-size: 12px; line-height: 1.4; color: var(--wd-muted); }
+
+/* Challenge timer, bottom centre on desktop */
+.wd-timer {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 32px);
+  padding: 8px 10px 8px 14px;
+  border: 1px solid var(--wd-border);
+  border-radius: 12px;
+  background: var(--wd-surface);
+  color: var(--wd-text);
+  box-shadow: var(--wd-shadow);
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+.wd-timer.is-up { border-color: var(--wd-brand); }
+.wd-timer-brief { display: flex; min-width: 0; flex-direction: column; }
+.wd-timer-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--wd-brand);
+}
+.wd-timer-design {
+  max-width: 220px;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wd-timer-clock { display: flex; align-items: center; gap: 2px; }
+.wd-timer-time {
+  min-width: 76px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.wd-timer.is-up .wd-timer-time { font-family: inherit; font-size: 15px; color: var(--wd-brand); }
+.wd-timer-actions { display: flex; align-items: center; gap: 6px; }
+
+/* On phones Excalidraw's toolbar sits at the bottom, so the timer moves up top. */
+@media (max-width: 730px) {
+  .wd-timer {
+    top: 64px;
+    bottom: auto;
+    gap: 8px;
+    padding: 6px 6px 6px 10px;
+  }
+  .wd-timer-brief { display: none; }
+  .wd-brand { display: none; }
+  .wd-timer-time { min-width: 64px; font-size: 17px; }
+}
