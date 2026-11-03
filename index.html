@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG"></script>
+    <!-- Google tag (gtag.js): loads only on the live site, so local testing is never counted -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-ZWR4FHPSWG');
+      if (/(^|\.)whiteboarddojo\.com$/.test(location.hostname)) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG';
+        document.head.appendChild(gaScript);
+        gtag('js', new Date());
+        gtag('config', 'G-ZWR4FHPSWG');
+      }
+      // Any element with data-track="name" reports a cta_click event when clicked.
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest && e.target.closest('[data-track]');
+        if (el) gtag('event', 'cta_click', { cta: el.getAttribute('data-track'), page_path: location.pathname });
+      });
     </script>
 
     <meta charset="UTF-8">
@@ -46,9 +55,9 @@
                 <span class="logo-text">Whiteboard Dojo</span>
             </a>
             <ul class="nav-links">
-                <li><a href="whiteboard/" class="nav-link">Whiteboard</a></li>
-                <li><a href="dojo/" class="nav-link">Dojo</a></li>
-                <li><a href="docs/" class="nav-link">Docs</a></li>
+                <li><a href="whiteboard/" class="nav-link" data-track="nav_whiteboard">Whiteboard</a></li>
+                <li><a href="dojo/" class="nav-link" data-track="nav_dojo">Dojo</a></li>
+                <li><a href="docs/" class="nav-link" data-track="nav_docs">Docs</a></li>
             </ul>
         </nav>
     </header>
@@ -59,15 +68,15 @@
             <p class="hero-subtitle">Opens right in your browser, no account needed. Sketch ideas, wireframe flows, and when you want to practice, pick one of 150 design challenges from the Dojo.</p>
 
             <div class="hero-buttons">
-                <a href="whiteboard/" class="hero-button hero-button-primary">
+                <a href="whiteboard/" class="hero-button hero-button-primary" data-track="hero_open_whiteboard">
                     Open the Whiteboard
                 </a>
-                <a href="dojo/" class="hero-button hero-button-secondary">
+                <a href="dojo/" class="hero-button hero-button-secondary" data-track="hero_practice">
                     Practice with Challenges
                 </a>
             </div>
 
-            <a href="whiteboard/" class="hero-canvas-preview" aria-label="Open the whiteboard">
+            <a href="whiteboard/" class="hero-canvas-preview" data-track="hero_preview_image" aria-label="Open the whiteboard">
                 <img src="images/whiteboard-preview.png" width="1440" height="860" alt="The Whiteboard Dojo board with a design challenge, a wireframe and a user flow" class="hero-canvas-image">
             </a>
         </section>

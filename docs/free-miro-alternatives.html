@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG"></script>
+    <!-- Google tag (gtag.js): loads only on the live site, so local testing is never counted -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-ZWR4FHPSWG');
+      if (/(^|\.)whiteboarddojo\.com$/.test(location.hostname)) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG';
+        document.head.appendChild(gaScript);
+        gtag('js', new Date());
+        gtag('config', 'G-ZWR4FHPSWG');
+      }
+      // Any element with data-track="name" reports a cta_click event when clicked.
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest && e.target.closest('[data-track]');
+        if (el) gtag('event', 'cta_click', { cta: el.getAttribute('data-track'), page_path: location.pathname });
+      });
     </script>
 
     <meta charset="UTF-8">
@@ -72,9 +81,9 @@
                 <span class="logo-text">Whiteboard Dojo</span>
             </a>
             <ul class="nav-links">
-                <li><a href="../whiteboard/" class="nav-link">Whiteboard</a></li>
-                <li><a href="../dojo/" class="nav-link">Dojo</a></li>
-                <li><a href="./" class="nav-link">Docs</a></li>
+                <li><a href="../whiteboard/" class="nav-link" data-track="nav_whiteboard">Whiteboard</a></li>
+                <li><a href="../dojo/" class="nav-link" data-track="nav_dojo">Dojo</a></li>
+                <li><a href="./" class="nav-link" data-track="nav_docs">Docs</a></li>
             </ul>
         </nav>
     </header>
@@ -192,8 +201,8 @@
 
             <div class="doc-cta">
                 <p>Try it now. There's nothing to sign up for.</p>
-                <a href="../whiteboard/" class="doc-link-btn">Open the whiteboard</a>
-                <a href="../dojo/" class="doc-link-btn secondary">Get a challenge</a>
+                <a href="../whiteboard/" class="doc-link-btn" data-track="article_open_whiteboard">Open the whiteboard</a>
+                <a href="../dojo/" class="doc-link-btn secondary" data-track="article_get_challenge">Get a challenge</a>
             </div>
         </div>
 

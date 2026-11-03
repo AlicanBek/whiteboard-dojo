@@ -902,6 +902,8 @@ newChallengeBtn.addEventListener('click', () => {
     
     // Reset timer
     resetTimer();
+
+    gtag('event', 'challenge_generated', { category: currentCategory, difficulty: currentDifficulty });
 });
 
 // Timer functions
@@ -1019,6 +1021,7 @@ resetTimerBtn.addEventListener('click', resetTimer);
 // Go to Whiteboard button event listener
 const goToWhiteboardBtn = document.getElementById('go-to-whiteboard-btn');
 goToWhiteboardBtn.addEventListener('click', () => {
+    gtag('event', 'go_to_whiteboard', { with_challenge: Boolean(currentChallenge), difficulty: currentDifficulty });
     if (currentChallenge) {
         // Get current timer value
         const currentTimerValue = parseTimeInput(timerDisplay.textContent);

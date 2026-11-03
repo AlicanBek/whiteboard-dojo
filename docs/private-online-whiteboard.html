@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG"></script>
+    <!-- Google tag (gtag.js): loads only on the live site, so local testing is never counted -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-ZWR4FHPSWG');
+      if (/(^|\.)whiteboarddojo\.com$/.test(location.hostname)) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG';
+        document.head.appendChild(gaScript);
+        gtag('js', new Date());
+        gtag('config', 'G-ZWR4FHPSWG');
+      }
+      // Any element with data-track="name" reports a cta_click event when clicked.
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest && e.target.closest('[data-track]');
+        if (el) gtag('event', 'cta_click', { cta: el.getAttribute('data-track'), page_path: location.pathname });
+      });
     </script>
 
     <meta charset="UTF-8">
@@ -72,9 +81,9 @@
                 <span class="logo-text">Whiteboard Dojo</span>
             </a>
             <ul class="nav-links">
-                <li><a href="../whiteboard/" class="nav-link">Whiteboard</a></li>
-                <li><a href="../dojo/" class="nav-link">Dojo</a></li>
-                <li><a href="./" class="nav-link">Docs</a></li>
+                <li><a href="../whiteboard/" class="nav-link" data-track="nav_whiteboard">Whiteboard</a></li>
+                <li><a href="../dojo/" class="nav-link" data-track="nav_dojo">Dojo</a></li>
+                <li><a href="./" class="nav-link" data-track="nav_docs">Docs</a></li>
             </ul>
         </nav>
     </header>
@@ -92,7 +101,7 @@
 
             <h2>How it works</h2>
             <p>When you draw on the <a href="../whiteboard/">board</a>, every change is saved to your browser's own storage on your device. The website itself is just a set of files. There's no server behind it that could receive your drawings, and no database of boards on our side. We couldn't read your boards if we wanted to.</p>
-            <p>That covers everything on the board: shapes, text, images you drop in, and your shape library. We do use Google Analytics to count visits to the site, the way most websites do. That tells us how many people opened a page. It doesn't include anything you draw.</p>
+            <p>That covers everything on the board: shapes, text, images you drop in, and your shape library. We do use Google Analytics, the way most websites do, to count visits and a few anonymous actions like creating a board or starting a challenge timer. That tells us which parts of the site people use. It never includes anything you draw or write.</p>
 
             <figure class="doc-figure">
                 <img src="../images/docs/my-boards-sidebar.png" width="1440" height="860" loading="lazy" alt="The My boards sidebar listing five boards stored in the browser">
@@ -143,7 +152,7 @@
 
             <div class="doc-cta">
                 <p>Open a private board now. There's no account to create.</p>
-                <a href="../whiteboard/" class="doc-link-btn">Open the whiteboard</a>
+                <a href="../whiteboard/" class="doc-link-btn" data-track="article_open_whiteboard">Open the whiteboard</a>
                 <a href="whiteboard-shortcuts-and-power-features" class="doc-link-btn secondary">Learn the shortcuts</a>
             </div>
         </div>

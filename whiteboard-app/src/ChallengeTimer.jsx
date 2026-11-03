@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { track } from "./track.js";
 
 const STEP_SECONDS = 60;
 
@@ -26,6 +27,10 @@ export default function ChallengeTimer({ challenge, onClose }) {
     }, 1000);
     return () => clearInterval(tick);
   }, [running]);
+
+  useEffect(() => {
+    if (left === 0) track("challenge_timer_finished", { minutes: Math.round(total / 60) });
+  }, [left]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const adjust = (delta) => {
     const next = Math.max(STEP_SECONDS, total + delta);
@@ -55,7 +60,13 @@ export default function ChallengeTimer({ challenge, onClose }) {
         {timeUp ? (
           <button className="wd-btn" onClick={reset}>Restart</button>
         ) : (
-          <button className="wd-btn wd-btn-primary" onClick={() => setRunning((r) => !r)}>
+          <button
+            className="wd-btn wd-btn-primary"
+            onClick={() => {
+              if (!running && left === total) track("challenge_timer_started", { minutes: Math.round(total / 60) });
+              setRunning((r) => !r);
+            }}
+          >
             {running ? "Pause" : left === total ? "Start" : "Resume"}
           </button>
         )}

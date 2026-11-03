@@ -34,6 +34,7 @@ import {
 import BoardsPanel from "./BoardsPanel.jsx";
 import ChallengeTimer from "./ChallengeTimer.jsx";
 import { DiceIcon, UploadIcon } from "./icons.jsx";
+import { track } from "./track.js";
 
 const THEME_KEY = "wd-theme";
 const SAVE_DELAY_MS = 600;
@@ -79,6 +80,19 @@ export default function App() {
   const shownBoardId = useRef(null); // the board the canvas is showing right now
   const initialData = useRef(null);
   const fileInput = useRef(null);
+  const editedThisSession = useRef(new Set());
+  // Programmatic changes (loading a board, placing a challenge card, font refreshes) also
+  // change the scene, so an edit only counts once the person has touched the page.
+  const userInteracted = useRef(false);
+  useEffect(() => {
+    const mark = () => { userInteracted.current = true; };
+    window.addEventListener("pointerdown", mark, true);
+    window.addEventListener("keydown", mark, true);
+    return () => {
+      window.removeEventListener("pointerdown", mark, true);
+      window.removeEventListener("keydown", mark, true);
+    };
+  }, []);
 
   // Keeps the shape library across reloads and accepts libraries sent back from
   // libraries.excalidraw.com via the "Browse libraries" link.
@@ -114,12 +128,17 @@ export default function App() {
       const challenge = readChallengeFromUrl();
       if (challenge) {
         const id = await createBoard({ title: challengeTitle(challenge), challenge });
+        track("board_created", { source: "challenge" });
         clearChallengeFromUrl();
         return openBoard(id, { isNew: true });
       }
       const list = await listBoards();
       const last = getLastBoardId();
-      const id = list.find((b) => b.id === last)?.id ?? list[0]?.id ?? (await createBoard());
+      let id = list.find((b) => b.id === last)?.id ?? list[0]?.id;
+      if (!id) {
+        id = await createBoard();
+        track("board_created", { source: "first_visit" });
+      }
       openBoard(id);
     })();
   }, [openBoard]);
@@ -183,6 +202,10 @@ export default function App() {
     const version = getSceneVersion(elements);
     if (baselineVersion.current === null) baselineVersion.current = version;
     const changed = version !== baselineVersion.current;
+    if (changed && userInteracted.current && !editedThisSession.current.has(boardId)) {
+      editedThisSession.current.add(boardId);
+      track("board_edited");
+    }
     pending.current = { id: boardId, elements, appState, files, version, changed };
     clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(flush, SAVE_DELAY_MS);
@@ -190,6 +213,7 @@ export default function App() {
 
   const newBoard = useCallback(async () => {
     const id = await createBoard();
+    track("board_created", { source: "new" });
     openBoard(id, { isNew: true });
   }, [openBoard]);
 
@@ -203,6 +227,7 @@ export default function App() {
         title: file.name.replace(/\.(excalidraw|json)$/i, "") || "Imported board",
         scene: toStoredScene(scene.elements, scene.appState, scene.files),
       });
+      track("board_created", { source: "import" });
       openBoard(id, { isNew: true });
     } catch {
       window.alert("That file couldn't be opened. Use a .excalidraw or .json board file.");
