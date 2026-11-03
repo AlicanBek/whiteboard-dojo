@@ -103,6 +103,26 @@ body {
     color: var(--primary);
 }
 
+.nav-links {
+    align-items: center;
+}
+
+.nav-link.nav-cta {
+    padding: 0.5rem 0.95rem;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    font-weight: 600;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 4px 14px rgba(227, 39, 39, 0.3);
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.nav-link.nav-cta:hover {
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 22px rgba(227, 39, 39, 0.4);
+}
+
 /* Main Container */
 .container {
     max-width: 1200px;
@@ -204,6 +224,106 @@ body {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* Home page: two ways in */
+.hero-doors {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.door {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+a.door:hover {
+    border-color: rgba(227, 39, 39, 0.5);
+    background: rgba(227, 39, 39, 0.05);
+    transform: translateY(-2px);
+}
+
+.door-kicker {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-light);
+}
+
+.door-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.door-text {
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+
+a.door .door-buttons {
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.door-brief {
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    line-height: 1.5;
+}
+
+.door-brief p {
+    color: var(--text-primary);
+}
+
+.door-brief span {
+    color: var(--text-muted);
+}
+
+.door-brief strong {
+    font-weight: 500;
+}
+
+.door-buttons {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.door-buttons .hero-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+.door-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.door-link:hover {
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .hero-doors {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Features Carousel */

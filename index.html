@@ -55,7 +55,7 @@
                 <span class="logo-text">Whiteboard Dojo</span>
             </a>
             <ul class="nav-links">
-                <li><a href="whiteboard/" class="nav-link" data-track="nav_whiteboard">Whiteboard</a></li>
+                <li><a href="whiteboard/" class="nav-link nav-cta" data-track="nav_whiteboard">Open whiteboard</a></li>
                 <li><a href="dojo/" class="nav-link" data-track="nav_dojo">Dojo</a></li>
                 <li><a href="docs/" class="nav-link" data-track="nav_docs">Docs</a></li>
             </ul>
@@ -67,13 +67,27 @@
             <h1 class="hero-title">A free online whiteboard for thinking out loud</h1>
             <p class="hero-subtitle">Opens right in your browser, no account needed. Sketch ideas, wireframe flows, and when you want to practice, pick one of 150 design challenges from the Dojo.</p>
 
-            <div class="hero-buttons">
-                <a href="whiteboard/" class="hero-button hero-button-primary" data-track="hero_open_whiteboard">
-                    Open the Whiteboard
+            <div class="hero-doors">
+                <a href="whiteboard/" class="door" data-track="home_open_blank_board">
+                    <span class="door-kicker">Draw now</span>
+                    <span class="door-title">Open a blank board</span>
+                    <span class="door-text">An infinite canvas with shapes, arrows, frames and images. No sign-up, and your boards save in this browser.</span>
+                    <span class="door-buttons"><span class="hero-button hero-button-primary">Open the whiteboard</span></span>
                 </a>
-                <a href="dojo/" class="hero-button hero-button-secondary" data-track="hero_practice">
-                    Practice with Challenges
-                </a>
+                <div class="door">
+                    <span class="door-kicker">Practice</span>
+                    <span class="door-title">Start with a challenge</span>
+                    <div class="door-brief" id="home-challenge" aria-live="polite">
+                        <p><span>Design</span> <strong id="home-challenge-design">an onboarding flow</strong></p>
+                        <p><span>for</span> <strong id="home-challenge-for">a project management tool</strong></p>
+                        <p><span>to help</span> <strong id="home-challenge-tohelp">new users understand core features quickly</strong></p>
+                    </div>
+                    <div class="door-buttons">
+                        <a href="whiteboard/?challenge=design%3Dan%2Bonboarding%2Bflow%26for%3Da%2Bproject%2Bmanagement%2Btool%26toHelp%3Dnew%2Busers%2Bunderstand%2Bcore%2Bfeatures%2Bquickly%26timer%3D1200" id="home-challenge-start" class="hero-button hero-button-primary" data-track="home_start_challenge">Start · 20 min</a>
+                        <button type="button" id="home-challenge-shuffle" class="hero-button hero-button-secondary" data-track="home_shuffle_challenge">Shuffle</button>
+                    </div>
+                    <a href="dojo/" class="door-link" data-track="home_pick_in_dojo">Or pick a category and difficulty in the Dojo</a>
+                </div>
             </div>
 
             <a href="whiteboard/" class="hero-canvas-preview" data-track="hero_preview_image" aria-label="Open the whiteboard">
@@ -162,6 +176,8 @@
     </main>
 
     <div id="footer-container"></div>
+    <script src="js/challenges.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/footer.js"></script>
 </body>
 </html>
