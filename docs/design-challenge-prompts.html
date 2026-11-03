@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js): loads only on the live site, so local testing is never counted -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (/(^|\.)whiteboarddojo\.com$/.test(location.hostname)) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG';
+        document.head.appendChild(gaScript);
+        gtag('js', new Date());
+        gtag('config', 'G-ZWR4FHPSWG');
+      }
+      // Any element with data-track="name" reports a cta_click event when clicked.
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest && e.target.closest('[data-track]');
+        if (el) gtag('event', 'cta_click', { cta: el.getAttribute('data-track'), page_path: location.pathname });
+      });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="50 design challenge prompts for UX, product, marketing, sales, strategy and data practice, sorted by difficulty. Open any of them on a free whiteboard with a timer.">
+    <meta name="keywords" content="design challenge prompts, UX design challenges, product design challenge ideas, design interview practice, whiteboard challenge examples, design exercises">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.whiteboarddojo.com/docs/design-challenge-prompts">
+    <meta property="og:title" content="Design Challenge Prompts: 50 Ideas for Practice - Whiteboard Dojo">
+    <meta property="og:description" content="50 design challenge prompts for UX, product, marketing, sales, strategy and data practice, sorted by difficulty. Open any of them on a free whiteboard with a timer.">
+    <meta property="og:image" content="https://www.whiteboarddojo.com/images/whiteboard-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.whiteboarddojo.com/docs/design-challenge-prompts">
+    <meta property="twitter:title" content="Design Challenge Prompts: 50 Ideas for Practice - Whiteboard Dojo">
+    <meta property="twitter:description" content="50 design challenge prompts for UX, product, marketing, sales, strategy and data practice, sorted by difficulty. Open any of them on a free whiteboard with a timer.">
+    <meta property="twitter:image" content="https://www.whiteboarddojo.com/images/whiteboard-preview.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.whiteboarddojo.com/docs/design-challenge-prompts">
+
+    <title>Design Challenge Prompts: 50 Ideas for Practice - Whiteboard Dojo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Design Challenge Prompts: 50 Ideas for Practice",
+  "description": "50 design challenge prompts for UX, product, marketing, sales, strategy and data practice, sorted by difficulty. Open any of them on a free whiteboard with a timer.",
+  "image": "https://www.whiteboarddojo.com/images/whiteboard-preview.png",
+  "datePublished": "2026-11-03",
+  "dateModified": "2026-11-03",
+  "mainEntityOfPage": "https://www.whiteboarddojo.com/docs/design-challenge-prompts",
+  "author": {
+    "@type": "Organization",
+    "name": "Whiteboard Dojo",
+    "url": "https://www.whiteboarddojo.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Whiteboard Dojo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.whiteboarddojo.com/images/logo.svg"
+    }
+  }
+}
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../" class="logo">
+                <img src="../images/logo.svg" alt="Whiteboard Dojo Logo" class="logo-image">
+                <span class="logo-text">Whiteboard Dojo</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../whiteboard/" class="nav-link nav-cta" data-track="nav_whiteboard">Open whiteboard</a></li>
+                <li><a href="../dojo/" class="nav-link" data-track="nav_dojo">Dojo</a></li>
+                <li><a href="./" class="nav-link" data-track="nav_docs">Docs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="doc-container">
+        <div class="doc-header">
+            <h1 class="doc-title">Design Challenge Prompts: 50 Ideas for Practice</h1>
+            <p class="doc-meta">Sorted by category and difficulty, each one ready to open on the board with a timer</p>
+        </div>
+
+        <div class="doc-content">
+            <p>Fifty design challenge prompts for practice, sorted by category and difficulty. Each one is a short, open-ended brief of the kind you get in a design or product interview: design something, for a specific product, to help a specific group of people.</p>
+
+            <p>Every prompt has a <strong>Start</strong> link. It opens the prompt on a free online whiteboard with the brief already on the board and a timer ready to go. There's nothing to sign up for.</p>
+
+            <h2>How to Use These Prompts</h2>
+            <ol>
+                <li><strong>Pick a level that stretches you a little.</strong> Beginner prompts are a single screen or feature. Advanced ones are systems with competing needs.</li>
+                <li><strong>Set a time box and stick to it.</strong> We suggest 15 minutes for beginner, 20 for intermediate and 30 for advanced. The Start links use those times, and you can change them on the board.</li>
+                <li><strong>Clarify before you draw.</strong> Write down who the user is, what they're trying to do and how you'll know it worked.</li>
+                <li><strong>Talk out loud.</strong> Even alone. In an interview, your reasoning is what gets scored.</li>
+                <li><strong>Stop and sum up.</strong> Leave a minute at the end to say what you designed and what you'd test next.</li>
+            </ol>
+            <p>New to the format? Start with <a href="what-is-whiteboard-challenge">What is a Whiteboard Challenge?</a></p>
+
+            <p><strong>Jump to:</strong> <a href="#product-ux-design">Product &amp; UX Design</a> · <a href="#marketing-growth">Marketing &amp; Growth</a> · <a href="#sales-pitching">Sales &amp; Pitching</a> · <a href="#strategy-operations">Strategy &amp; Operations</a> · <a href="#data-analytics">Data &amp; Analytics</a></p>
+
+            <h2 id="product-ux-design">Product &amp; UX Design Prompts</h2>
+            <p>Screens, flows and features for apps and websites. The classic design interview format.</p>
+            <h3>Beginner</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a login screen</strong> for a fitness app to help busy professionals.</span> <a href="../whiteboard/?challenge=design%3Da%2Blogin%2Bscreen%26for%3Da%2Bfitness%2Bapp%26toHelp%3Dbusy%2Bprofessionals%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a shopping cart view</strong> for a recipe app to help college students.</span> <a href="../whiteboard/?challenge=design%3Da%2Bshopping%2Bcart%2Bview%26for%3Da%2Brecipe%2Bapp%26toHelp%3Dcollege%2Bstudents%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a profile page</strong> for a music streaming app to help commuters.</span> <a href="../whiteboard/?challenge=design%3Da%2Bprofile%2Bpage%26for%3Da%2Bmusic%2Bstreaming%2Bapp%26toHelp%3Dcommuters%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a search results view</strong> for a book reading app to help bookworms.</span> <a href="../whiteboard/?challenge=design%3Da%2Bsearch%2Bresults%2Bview%26for%3Da%2Bbook%2Breading%2Bapp%26toHelp%3Dbookworms%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+            </ol>
+            <h3>Intermediate</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a multi-step checkout flow</strong> for an e-commerce platform to help elderly users with accessibility needs.</span> <a href="../whiteboard/?challenge=design%3Da%2Bmulti-step%2Bcheckout%2Bflow%26for%3Dan%2Be-commerce%2Bplatform%26toHelp%3Delderly%2Busers%2Bwith%2Baccessibility%2Bneeds%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a collaborative playlist feature</strong> for a music streaming service to help remote teams who want to bond.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcollaborative%2Bplaylist%2Bfeature%26for%3Da%2Bmusic%2Bstreaming%2Bservice%26toHelp%3Dremote%2Bteams%2Bwho%2Bwant%2Bto%2Bbond%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a habit tracking dashboard</strong> for a productivity app to help freelancers and consultants.</span> <a href="../whiteboard/?challenge=design%3Da%2Bhabit%2Btracking%2Bdashboard%26for%3Da%2Bproductivity%2Bapp%26toHelp%3Dfreelancers%2Band%2Bconsultants%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+            </ol>
+            <h3>Advanced</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a real-time collaboration system</strong> for a design tool to help distributed teams across different time zones.</span> <a href="../whiteboard/?challenge=design%3Da%2Breal-time%2Bcollaboration%2Bsystem%26for%3Da%2Bdesign%2Btool%26toHelp%3Ddistributed%2Bteams%2Bacross%2Bdifferent%2Btime%2Bzones%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>an AI-powered content moderation interface</strong> for a social media platform to help moderators handling complex policy violations.</span> <a href="../whiteboard/?challenge=design%3Dan%2BAI-powered%2Bcontent%2Bmoderation%2Binterface%26for%3Da%2Bsocial%2Bmedia%2Bplatform%26toHelp%3Dmoderators%2Bhandling%2Bcomplex%2Bpolicy%2Bviolations%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a financial planning dashboard</strong> for a fintech application to help both individual investors and financial advisors.</span> <a href="../whiteboard/?challenge=design%3Da%2Bfinancial%2Bplanning%2Bdashboard%26for%3Da%2Bfintech%2Bapplication%26toHelp%3Dboth%2Bindividual%2Binvestors%2Band%2Bfinancial%2Badvisors%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+            </ol>
+
+            <h2 id="marketing-growth">Marketing &amp; Growth Prompts</h2>
+            <p>Campaigns, funnels and growth loops. Good practice for growth designers, marketers and PMs.</p>
+            <h3>Beginner</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a social media post template</strong> for a bakery&#x27;s Instagram account to help increase daily engagement with local customers.</span> <a href="../whiteboard/?challenge=design%3Da%2Bsocial%2Bmedia%2Bpost%2Btemplate%26for%3Da%2Bbakery%2527s%2BInstagram%2Baccount%26toHelp%3Dincrease%2Bdaily%2Bengagement%2Bwith%2Blocal%2Bcustomers%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>an email newsletter layout</strong> for a book club to help keep members informed about upcoming meetings.</span> <a href="../whiteboard/?challenge=design%3Dan%2Bemail%2Bnewsletter%2Blayout%26for%3Da%2Bbook%2Bclub%26toHelp%3Dkeep%2Bmembers%2Binformed%2Babout%2Bupcoming%2Bmeetings%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a referral program interface</strong> for a mobile app startup to help incentivize users to invite friends.</span> <a href="../whiteboard/?challenge=design%3Da%2Breferral%2Bprogram%2Binterface%26for%3Da%2Bmobile%2Bapp%2Bstartup%26toHelp%3Dincentivize%2Busers%2Bto%2Binvite%2Bfriends%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a content calendar</strong> for a lifestyle blogger to help plan and schedule consistent posts across platforms.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcontent%2Bcalendar%26for%3Da%2Blifestyle%2Bblogger%26toHelp%3Dplan%2Band%2Bschedule%2Bconsistent%2Bposts%2Bacross%2Bplatforms%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+            </ol>
+            <h3>Intermediate</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a landing page for a marketing campaign</strong> for a SaaS product launch to help convert free trial users to paid subscribers.</span> <a href="../whiteboard/?challenge=design%3Da%2Blanding%2Bpage%2Bfor%2Ba%2Bmarketing%2Bcampaign%26for%3Da%2BSaaS%2Bproduct%2Blaunch%26toHelp%3Dconvert%2Bfree%2Btrial%2Busers%2Bto%2Bpaid%2Bsubscribers%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a multi-channel campaign strategy</strong> for a non-profit fundraising event to help reach diverse donor demographics across platforms.</span> <a href="../whiteboard/?challenge=design%3Da%2Bmulti-channel%2Bcampaign%2Bstrategy%26for%3Da%2Bnon-profit%2Bfundraising%2Bevent%26toHelp%3Dreach%2Bdiverse%2Bdonor%2Bdemographics%2Bacross%2Bplatforms%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a viral loop strategy</strong> for a social networking app to help achieve exponential user growth through network effects.</span> <a href="../whiteboard/?challenge=design%3Da%2Bviral%2Bloop%2Bstrategy%26for%3Da%2Bsocial%2Bnetworking%2Bapp%26toHelp%3Dachieve%2Bexponential%2Buser%2Bgrowth%2Bthrough%2Bnetwork%2Beffects%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+            </ol>
+            <h3>Advanced</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a comprehensive marketing automation flow</strong> for an e-commerce platform to help reduce cart abandonment and increase customer lifetime value.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcomprehensive%2Bmarketing%2Bautomation%2Bflow%26for%3Dan%2Be-commerce%2Bplatform%26toHelp%3Dreduce%2Bcart%2Babandonment%2Band%2Bincrease%2Bcustomer%2Blifetime%2Bvalue%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a growth experiment framework</strong> for a fintech startup to help systematically test and optimize acquisition channels.</span> <a href="../whiteboard/?challenge=design%3Da%2Bgrowth%2Bexperiment%2Bframework%26for%3Da%2Bfintech%2Bstartup%26toHelp%3Dsystematically%2Btest%2Band%2Boptimize%2Bacquisition%2Bchannels%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a community-driven growth strategy</strong> for a developer tools platform to help build organic adoption through influencers and advocates.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcommunity-driven%2Bgrowth%2Bstrategy%26for%3Da%2Bdeveloper%2Btools%2Bplatform%26toHelp%3Dbuild%2Borganic%2Badoption%2Bthrough%2Binfluencers%2Band%2Badvocates%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+            </ol>
+
+            <h2 id="sales-pitching">Sales &amp; Pitching Prompts</h2>
+            <p>Pitches, decks and sales processes. Useful for founders, sales teams and anyone who presents ideas.</p>
+            <h3>Beginner</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a 60-second elevator pitch</strong> for a mobile app for busy parents to help clearly communicate value to potential investors.</span> <a href="../whiteboard/?challenge=design%3Da%2B60-second%2Belevator%2Bpitch%26for%3Da%2Bmobile%2Bapp%2Bfor%2Bbusy%2Bparents%26toHelp%3Dclearly%2Bcommunicate%2Bvalue%2Bto%2Bpotential%2Binvestors%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a product demo script</strong> for a productivity software tool to help showcase key features to prospective customers.</span> <a href="../whiteboard/?challenge=design%3Da%2Bproduct%2Bdemo%2Bscript%26for%3Da%2Bproductivity%2Bsoftware%2Btool%26toHelp%3Dshowcase%2Bkey%2Bfeatures%2Bto%2Bprospective%2Bcustomers%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a cold email template</strong> for a B2B SaaS sales team to help book discovery calls with enterprise prospects.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcold%2Bemail%2Btemplate%26for%3Da%2BB2B%2BSaaS%2Bsales%2Bteam%26toHelp%3Dbook%2Bdiscovery%2Bcalls%2Bwith%2Benterprise%2Bprospects%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a discovery call framework</strong> for a consulting services firm to help uncover client pain points and qualify opportunities.</span> <a href="../whiteboard/?challenge=design%3Da%2Bdiscovery%2Bcall%2Bframework%26for%3Da%2Bconsulting%2Bservices%2Bfirm%26toHelp%3Duncover%2Bclient%2Bpain%2Bpoints%2Band%2Bqualify%2Bopportunities%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+            </ol>
+            <h3>Intermediate</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a sales presentation deck</strong> for an enterprise software solution to help convince C-level executives to adopt the platform.</span> <a href="../whiteboard/?challenge=design%3Da%2Bsales%2Bpresentation%2Bdeck%26for%3Dan%2Benterprise%2Bsoftware%2Bsolution%26toHelp%3Dconvince%2BC-level%2Bexecutives%2Bto%2Badopt%2Bthe%2Bplatform%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>an objection handling framework</strong> for a high-ticket coaching program to help address common concerns and move prospects to close.</span> <a href="../whiteboard/?challenge=design%3Dan%2Bobjection%2Bhandling%2Bframework%26for%3Da%2Bhigh-ticket%2Bcoaching%2Bprogram%26toHelp%3Daddress%2Bcommon%2Bconcerns%2Band%2Bmove%2Bprospects%2Bto%2Bclose%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a competitive battle card</strong> for a SaaS sales team facing strong competition to help position unique value and counter competitor claims.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcompetitive%2Bbattle%2Bcard%26for%3Da%2BSaaS%2Bsales%2Bteam%2Bfacing%2Bstrong%2Bcompetition%26toHelp%3Dposition%2Bunique%2Bvalue%2Band%2Bcounter%2Bcompetitor%2Bclaims%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+            </ol>
+            <h3>Advanced</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a strategic account plan</strong> for an enterprise software vendor targeting Fortune 500 to help orchestrate complex multi-stakeholder sales cycles.</span> <a href="../whiteboard/?challenge=design%3Da%2Bstrategic%2Baccount%2Bplan%26for%3Dan%2Benterprise%2Bsoftware%2Bvendor%2Btargeting%2BFortune%2B500%26toHelp%3Dorchestrate%2Bcomplex%2Bmulti-stakeholder%2Bsales%2Bcycles%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>an investor pitch deck</strong> for a seed-stage startup raising Series A to help secure $5M funding with compelling growth narrative.</span> <a href="../whiteboard/?challenge=design%3Dan%2Binvestor%2Bpitch%2Bdeck%26for%3Da%2Bseed-stage%2Bstartup%2Braising%2BSeries%2BA%26toHelp%3Dsecure%2B%25245M%2Bfunding%2Bwith%2Bcompelling%2Bgrowth%2Bnarrative%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a partnership proposal</strong> for a marketplace platform seeking channel partners to help structure mutually beneficial co-selling agreements.</span> <a href="../whiteboard/?challenge=design%3Da%2Bpartnership%2Bproposal%26for%3Da%2Bmarketplace%2Bplatform%2Bseeking%2Bchannel%2Bpartners%26toHelp%3Dstructure%2Bmutually%2Bbeneficial%2Bco-selling%2Bagreements%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+            </ol>
+
+            <h2 id="strategy-operations">Strategy &amp; Operations Prompts</h2>
+            <p>Plans, processes and how teams work together. Close to what product and ops leads do every week.</p>
+            <h3>Beginner</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a project timeline</strong> for a website redesign project to help coordinate designers, developers, and stakeholders.</span> <a href="../whiteboard/?challenge=design%3Da%2Bproject%2Btimeline%26for%3Da%2Bwebsite%2Bredesign%2Bproject%26toHelp%3Dcoordinate%2Bdesigners%252C%2Bdevelopers%252C%2Band%2Bstakeholders%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a process documentation</strong> for a customer support team to help standardize ticket handling and reduce response times.</span> <a href="../whiteboard/?challenge=design%3Da%2Bprocess%2Bdocumentation%26for%3Da%2Bcustomer%2Bsupport%2Bteam%26toHelp%3Dstandardize%2Bticket%2Bhandling%2Band%2Breduce%2Bresponse%2Btimes%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a resource allocation plan</strong> for a small marketing agency to help balance team workload across client projects.</span> <a href="../whiteboard/?challenge=design%3Da%2Bresource%2Ballocation%2Bplan%26for%3Da%2Bsmall%2Bmarketing%2Bagency%26toHelp%3Dbalance%2Bteam%2Bworkload%2Bacross%2Bclient%2Bprojects%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a meeting agenda framework</strong> for a remote-first startup to help run efficient, productive team sync meetings.</span> <a href="../whiteboard/?challenge=design%3Da%2Bmeeting%2Bagenda%2Bframework%26for%3Da%2Bremote-first%2Bstartup%26toHelp%3Drun%2Befficient%252C%2Bproductive%2Bteam%2Bsync%2Bmeetings%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+            </ol>
+            <h3>Intermediate</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a quarterly OKR framework</strong> for a fast-growing tech startup to help align cross-functional teams around strategic priorities.</span> <a href="../whiteboard/?challenge=design%3Da%2Bquarterly%2BOKR%2Bframework%26for%3Da%2Bfast-growing%2Btech%2Bstartup%26toHelp%3Dalign%2Bcross-functional%2Bteams%2Baround%2Bstrategic%2Bpriorities%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a vendor evaluation matrix</strong> for an operations team selecting a CRM system to help systematically compare solutions and make data-driven decisions.</span> <a href="../whiteboard/?challenge=design%3Da%2Bvendor%2Bevaluation%2Bmatrix%26for%3Dan%2Boperations%2Bteam%2Bselecting%2Ba%2BCRM%2Bsystem%26toHelp%3Dsystematically%2Bcompare%2Bsolutions%2Band%2Bmake%2Bdata-driven%2Bdecisions%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a scaling operations playbook</strong> for a marketplace expanding to new markets to help replicate success while adapting to local contexts.</span> <a href="../whiteboard/?challenge=design%3Da%2Bscaling%2Boperations%2Bplaybook%26for%3Da%2Bmarketplace%2Bexpanding%2Bto%2Bnew%2Bmarkets%26toHelp%3Dreplicate%2Bsuccess%2Bwhile%2Badapting%2Bto%2Blocal%2Bcontexts%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+            </ol>
+            <h3>Advanced</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a business model transformation strategy</strong> for a traditional media company pivoting to digital to help navigate organizational change while maintaining revenue.</span> <a href="../whiteboard/?challenge=design%3Da%2Bbusiness%2Bmodel%2Btransformation%2Bstrategy%26for%3Da%2Btraditional%2Bmedia%2Bcompany%2Bpivoting%2Bto%2Bdigital%26toHelp%3Dnavigate%2Borganizational%2Bchange%2Bwhile%2Bmaintaining%2Brevenue%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a merger integration plan</strong> for two SaaS companies combining operations to help unify processes, systems, and cultures efficiently.</span> <a href="../whiteboard/?challenge=design%3Da%2Bmerger%2Bintegration%2Bplan%26for%3Dtwo%2BSaaS%2Bcompanies%2Bcombining%2Boperations%26toHelp%3Dunify%2Bprocesses%252C%2Bsystems%252C%2Band%2Bcultures%2Befficiently%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a multi-year strategic roadmap</strong> for a scaling startup planning IPO to help balance growth, profitability, and operational excellence.</span> <a href="../whiteboard/?challenge=design%3Da%2Bmulti-year%2Bstrategic%2Broadmap%26for%3Da%2Bscaling%2Bstartup%2Bplanning%2BIPO%26toHelp%3Dbalance%2Bgrowth%252C%2Bprofitability%252C%2Band%2Boperational%2Bexcellence%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+            </ol>
+
+            <h2 id="data-analytics">Data &amp; Analytics Prompts</h2>
+            <p>Dashboards, metrics and models. Practice turning data questions into something people can act on.</p>
+            <h3>Beginner</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a basic metrics dashboard</strong> for a content creator tracking audience growth to help visualize key performance indicators across platforms.</span> <a href="../whiteboard/?challenge=design%3Da%2Bbasic%2Bmetrics%2Bdashboard%26for%3Da%2Bcontent%2Bcreator%2Btracking%2Baudience%2Bgrowth%26toHelp%3Dvisualize%2Bkey%2Bperformance%2Bindicators%2Bacross%2Bplatforms%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a sales report template</strong> for a small retail business to help track daily revenue and identify top-selling products.</span> <a href="../whiteboard/?challenge=design%3Da%2Bsales%2Breport%2Btemplate%26for%3Da%2Bsmall%2Bretail%2Bbusiness%26toHelp%3Dtrack%2Bdaily%2Brevenue%2Band%2Bidentify%2Btop-selling%2Bproducts%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a customer feedback analysis</strong> for a mobile app with user reviews to help categorize feedback themes and prioritize improvements.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcustomer%2Bfeedback%2Banalysis%26for%3Da%2Bmobile%2Bapp%2Bwith%2Buser%2Breviews%26toHelp%3Dcategorize%2Bfeedback%2Bthemes%2Band%2Bprioritize%2Bimprovements%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+                <li><span class="prompt-text">Design <strong>a website traffic report</strong> for a blog or portfolio site to help understand visitor behavior and popular content.</span> <a href="../whiteboard/?challenge=design%3Da%2Bwebsite%2Btraffic%2Breport%26for%3Da%2Bblog%2Bor%2Bportfolio%2Bsite%26toHelp%3Dunderstand%2Bvisitor%2Bbehavior%2Band%2Bpopular%2Bcontent%26timer%3D900" class="prompt-start" data-track="prompts_start_beginner">Start · 15 min</a></li>
+            </ol>
+            <h3>Intermediate</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a cohort retention analysis</strong> for a subscription-based mobile app to help identify when and why users churn.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcohort%2Bretention%2Banalysis%26for%3Da%2Bsubscription-based%2Bmobile%2Bapp%26toHelp%3Didentify%2Bwhen%2Band%2Bwhy%2Busers%2Bchurn%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>an A/B test framework</strong> for an e-commerce product page to help determine which design variation drives more conversions.</span> <a href="../whiteboard/?challenge=design%3Dan%2BA%252FB%2Btest%2Bframework%26for%3Dan%2Be-commerce%2Bproduct%2Bpage%26toHelp%3Ddetermine%2Bwhich%2Bdesign%2Bvariation%2Bdrives%2Bmore%2Bconversions%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+                <li><span class="prompt-text">Design <strong>a customer segmentation model</strong> for a SaaS platform with diverse user base to help personalize marketing and product experiences.</span> <a href="../whiteboard/?challenge=design%3Da%2Bcustomer%2Bsegmentation%2Bmodel%26for%3Da%2BSaaS%2Bplatform%2Bwith%2Bdiverse%2Buser%2Bbase%26toHelp%3Dpersonalize%2Bmarketing%2Band%2Bproduct%2Bexperiences%26timer%3D1200" class="prompt-start" data-track="prompts_start_intermediate">Start · 20 min</a></li>
+            </ol>
+            <h3>Advanced</h3>
+            <ol class="prompt-list">
+                <li><span class="prompt-text">Design <strong>a predictive churn model</strong> for a subscription service to help proactively identify at-risk customers for retention campaigns.</span> <a href="../whiteboard/?challenge=design%3Da%2Bpredictive%2Bchurn%2Bmodel%26for%3Da%2Bsubscription%2Bservice%26toHelp%3Dproactively%2Bidentify%2Bat-risk%2Bcustomers%2Bfor%2Bretention%2Bcampaigns%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>an attribution modeling system</strong> for a multi-channel marketing operation to help understand true impact of each touchpoint on conversions.</span> <a href="../whiteboard/?challenge=design%3Dan%2Battribution%2Bmodeling%2Bsystem%26for%3Da%2Bmulti-channel%2Bmarketing%2Boperation%26toHelp%3Dunderstand%2Btrue%2Bimpact%2Bof%2Beach%2Btouchpoint%2Bon%2Bconversions%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+                <li><span class="prompt-text">Design <strong>a real-time anomaly detection dashboard</strong> for a high-traffic e-commerce platform to help immediately identify and respond to unusual patterns or issues.</span> <a href="../whiteboard/?challenge=design%3Da%2Breal-time%2Banomaly%2Bdetection%2Bdashboard%26for%3Da%2Bhigh-traffic%2Be-commerce%2Bplatform%26toHelp%3Dimmediately%2Bidentify%2Band%2Brespond%2Bto%2Bunusual%2Bpatterns%2Bor%2Bissues%26timer%3D1800" class="prompt-start" data-track="prompts_start_advanced">Start · 30 min</a></li>
+            </ol>
+
+            <h2>Want More?</h2>
+            <p>These are 50 of the 150 prompts in the <a href="../dojo/">Dojo</a>. There you can pick a category and difficulty and get a random one, so you don't know what's coming, just like in a real interview.</p>
+            <p>To get better from one session to the next, read <a href="running-solo-practice-sessions">Running Solo Practice Sessions</a> and <a href="self-assessment-after-challenges">Self-Assessment After Challenges</a>. If you're practicing as a team, <a href="running-team-practice-sessions">Running Practice Sessions with Your Team</a> covers how to run them.</p>
+
+            <div class="doc-cta">
+                <p>Want a surprise? Let the Dojo pick a prompt for you.</p>
+                <a href="../dojo/" class="doc-link-btn" data-track="article_get_challenge">Get a random challenge</a>
+                <a href="../whiteboard/" class="doc-link-btn secondary" data-track="article_open_whiteboard">Open a blank board</a>
+            </div>
+        </div>
+
+        <div class="doc-links">
+            <a href="./" class="doc-link-btn secondary">← Back to Docs</a>
+            <a href="whiteboard-challenge-fundamentals" class="doc-link-btn">Next Article →</a>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/footer.js"></script>
+</body>
+</html>

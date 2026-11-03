@@ -1087,6 +1087,66 @@ a.door .door-buttons {
     white-space: nowrap;
 }
 
+.doc-content ol.prompt-list {
+    margin-left: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: prompt;
+}
+
+.prompt-list li {
+    counter-increment: prompt;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.prompt-list li::before {
+    content: counter(prompt);
+    flex: 0 0 1.5rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.prompt-text {
+    flex: 1;
+}
+
+.doc-content a.prompt-start {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(227, 39, 39, 0.45);
+    border-radius: var(--radius-sm);
+    color: var(--primary-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.doc-content a.prompt-start:hover {
+    background: rgba(227, 39, 39, 0.1);
+    color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+    .prompt-list li {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+    }
+
+    .prompt-text {
+        flex: 1 1 calc(100% - 2.5rem);
+    }
+
+    .doc-content a.prompt-start {
+        margin-left: 2.5rem;
+    }
+}
+
 .doc-updated {
     color: var(--text-muted);
     font-size: 0.85rem;
