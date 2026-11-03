@@ -52,8 +52,7 @@ function createFooter() {
             <div class="footer-section">
                 <h3 class="footer-section-title">Connect & Feedback</h3>
                 <ul class="footer-links">
-                    <li><a href="https://x.com/alicanbektas93" class="footer-link" target="_blank">x.com</a></li>
-                    <li class="footer-link">hello@whiteboarddojo.com</li>
+                    <li><a href="mailto:hello@whiteboarddojo.com" class="footer-link" data-track="footer_email">hello@whiteboarddojo.com</a></li>
                 </ul>
             </div>
         </div>

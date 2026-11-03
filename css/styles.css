@@ -1010,6 +1010,18 @@ a.door .door-buttons {
     color: var(--text-primary);
 }
 
+.doc-content a.doc-link-btn {
+    display: inline-block;
+    margin: 0 0.5rem 0.5rem 0;
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.doc-content a.doc-link-btn.secondary {
+    color: var(--text-primary);
+}
+
 .doc-content strong {
     color: var(--text-primary);
 }
