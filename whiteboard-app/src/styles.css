@@ -302,3 +302,28 @@ html, body, #root, .wd-app {
   white-space: nowrap;
   border: 0;
 }
+
+/* No links out to Excalidraw: hide the help dialog's link row, the library
+   browse button and the "publish library" item. */
+.excalidraw .HelpDialog__header,
+.excalidraw .library-menu-browse-button,
+.excalidraw [data-testid="lib-dropdown--remove"] {
+  display: none !important;
+}
+
+/* Any other Excalidraw link (rare error dialogs) shows as plain text. */
+.excalidraw a[href*="excalidraw"],
+.excalidraw a[href*="discord.gg"] {
+  pointer-events: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The stock empty-library hint points to the public library site, which is hidden. */
+.excalidraw .library-menu-items__no-items__hint {
+  font-size: 0;
+}
+.excalidraw .library-menu-items__no-items__hint::after {
+  content: "Select something on the board, right-click and choose Add to library.";
+  font-size: 0.875rem;
+}

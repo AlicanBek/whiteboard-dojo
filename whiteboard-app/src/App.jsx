@@ -94,8 +94,7 @@ export default function App() {
     };
   }, []);
 
-  // Keeps the shape library across reloads and accepts libraries sent back from
-  // libraries.excalidraw.com via the "Browse libraries" link.
+  // Keeps the shape library across reloads.
   useHandleLibrary({ excalidrawAPI: api, adapter: libraryAdapter });
 
   const refreshBoards = useCallback(async () => setBoards(await listBoards()), []);
@@ -280,7 +279,6 @@ export default function App() {
         excalidrawAPI={setApi}
         initialData={initialData.current}
         onChange={onChange}
-        libraryReturnUrl={`${window.location.origin}${window.location.pathname}`}
         UIOptions={{ canvasActions: { loadScene: false } }}
         // Phones get no room up there; "My boards" is in the menu instead.
         renderTopRightUI={(isMobile) => !isMobile && (
