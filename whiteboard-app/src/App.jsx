@@ -9,11 +9,13 @@ import {
   loadFromBlob,
   restoreElements,
   serializeAsJSON,
+  useHandleLibrary,
 } from "@excalidraw/excalidraw";
 import {
   createBoard,
   deleteBoard,
   getLastBoardId,
+  libraryAdapter,
   listBoards,
   loadBoard,
   renameBoard,
@@ -77,6 +79,10 @@ export default function App() {
   const shownBoardId = useRef(null); // the board the canvas is showing right now
   const initialData = useRef(null);
   const fileInput = useRef(null);
+
+  // Keeps the shape library across reloads and accepts libraries sent back from
+  // libraries.excalidraw.com via the "Browse libraries" link.
+  useHandleLibrary({ excalidrawAPI: api, adapter: libraryAdapter });
 
   const refreshBoards = useCallback(async () => setBoards(await listBoards()), []);
 
@@ -249,6 +255,7 @@ export default function App() {
         excalidrawAPI={setApi}
         initialData={initialData.current}
         onChange={onChange}
+        libraryReturnUrl={`${window.location.origin}${window.location.pathname}`}
         UIOptions={{ canvasActions: { loadScene: false } }}
         // Phones get no room up there; "My boards" is in the menu instead.
         renderTopRightUI={(isMobile) => !isMobile && (

@@ -289,3 +289,16 @@ html, body, #root, .wd-app {
   .wd-brand { display: none; }
   .wd-timer-time { min-width: 64px; font-size: 17px; }
 }
+
+/* Page heading for screen readers and search engines; the canvas is the visible UI. */
+.wd-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

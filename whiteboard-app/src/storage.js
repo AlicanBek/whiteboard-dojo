@@ -58,3 +58,14 @@ export function getLastBoardId() {
 export function setLastBoardId(id) {
   try { localStorage.setItem(LAST_KEY, id); } catch { /* storage blocked */ }
 }
+
+// The shape library is shared by all boards. Excalidraw calls load/save itself.
+export const libraryAdapter = {
+  async load() {
+    const libraryItems = await get("library", store);
+    return libraryItems ? { libraryItems } : null;
+  },
+  async save({ libraryItems }) {
+    await set("library", libraryItems, store);
+  },
+};
