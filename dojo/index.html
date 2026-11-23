@@ -22,30 +22,93 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Practice whiteboard challenges across Product & UX Design, Marketing & Growth, Sales & Pitching, Strategy & Operations, and Data & Analytics. Choose your difficulty level and sharpen your skills.">
-    <meta name="keywords" content="practice whiteboard challenge, design practice, product design exercise, interview practice, design challenge practice">
+    <meta name="description" content="Get a random whiteboard challenge for product design, UX, marketing, sales, strategy or data. Pick a level, start the timer and solve it on a free online whiteboard.">
+    <meta name="keywords" content="whiteboard challenge generator, design challenge generator, whiteboard challenge prompts, ux design challenge, product design exercise, interview practice">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.whiteboarddojo.com/dojo/">
-    <meta property="og:title" content="The Dojo - Whiteboard Dojo">
-    <meta property="og:description" content="Practice whiteboard challenges across Product & UX Design, Marketing & Growth, Sales & Pitching, Strategy & Operations, and Data & Analytics.">
-    <meta property="og:image" content="https://www.whiteboarddojo.com/images/logo.svg">
+    <meta property="og:title" content="Whiteboard Challenge Generator: 150 Practice Prompts | Whiteboard Dojo">
+    <meta property="og:description" content="Get a random whiteboard challenge for product design, UX, marketing, sales, strategy or data. Pick a level, start the timer and solve it on a free online whiteboard.">
+    <meta property="og:image" content="https://www.whiteboarddojo.com/images/whiteboard-preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.whiteboarddojo.com/dojo/">
-    <meta property="twitter:title" content="The Dojo - Whiteboard Dojo">
-    <meta property="twitter:description" content="Practice whiteboard challenges across Product & UX Design, Marketing & Growth, Sales & Pitching, Strategy & Operations, and Data & Analytics.">
-    <meta property="twitter:image" content="https://www.whiteboarddojo.com/images/logo.svg">
+    <meta property="twitter:title" content="Whiteboard Challenge Generator: 150 Practice Prompts | Whiteboard Dojo">
+    <meta property="twitter:description" content="Get a random whiteboard challenge for product design, UX, marketing, sales, strategy or data. Pick a level, start the timer and solve it on a free online whiteboard.">
+    <meta property="twitter:image" content="https://www.whiteboarddojo.com/images/whiteboard-preview.png">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.whiteboarddojo.com/dojo/">
 
-    <title>The Dojo - Whiteboard Dojo</title>
+    <title>Whiteboard Challenge Generator: 150 Practice Prompts | Whiteboard Dojo</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Whiteboard Challenge Generator",
+      "url": "https://www.whiteboarddojo.com/dojo/",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Any (web browser)",
+      "description": "Get a random whiteboard challenge for product design, UX, marketing, sales, strategy or data. Pick a level, start the timer and solve it on a free online whiteboard.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Whiteboard Dojo",
+        "url": "https://www.whiteboarddojo.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the challenge generator free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All 150 challenges, the timer and the whiteboard are free, with no account and no limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a challenge to use the whiteboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. If you just need a place to draw, open a blank board. It works the same way, saves automatically in your browser and needs no sign-up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use it to prepare for a design interview?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pick the level that matches the role, set the timer to the length of a real interview round and talk through your thinking out loud as you draw. Afterwards, look at what you skipped: users, constraints, success metrics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I suggest a challenge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Please do. Email hello@whiteboarddojo.com with your prompt and the level you think it fits."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <header class="header">
@@ -66,8 +129,10 @@
         <!-- Dojo Section -->
         <section class="dojo-section" id="dojo-section">
             <div class="dojo-header">
-                <h1 class="dojo-title">The Dojo</h1>
-                <p class="dojo-subtitle">Practice with purpose & sharpen your skills. New here? Check out the <a href="../docs/running-solo-practice-sessions" class="nav-link">docs →</a></p>
+                <p class="dojo-eyebrow">The Dojo</p>
+                <h1 class="dojo-title">Whiteboard Challenge Generator</h1>
+                <p class="dojo-subtitle">150 prompts across 5 categories and 3 levels. Pick one, set the timer, solve it on the board.</p>
+                <p class="dojo-blank-note">Just need a whiteboard? <a href="../whiteboard/" data-track="dojo_blank_board">Open a blank board</a>, no challenge needed.</p>
             </div>
 
             <div class="challenge-generator">
@@ -110,7 +175,7 @@
                 <div class="challenge-display">
                     <div class="challenge-content" id="challenge-content">
                         <div class="challenge-placeholder">
-                            <span class="placeholder-text">Click "Generate New Challenge" to generate your practice challenge</span>
+                            <span class="placeholder-text">Pick a category and level, then generate a challenge.</span>
                         </div>
                     </div>
                 </div>
@@ -133,7 +198,59 @@
                 </div>
             </div>
         </section>
+
+        <section class="dojo-guide doc-content">
+            <h2>How it works</h2>
+            <ol>
+                <li><strong>Pick a category and a level.</strong> Beginner prompts are a single screen or artifact. Advanced ones are full systems with competing needs.</li>
+                <li><strong>Generate a challenge.</strong> Each one tells you what to design, who it's for and who it should help. Don't like it? Generate another.</li>
+                <li><strong>Start the timer and go to the whiteboard.</strong> The board opens with the brief already on it and a timer ready to start, so you can begin sketching straight away.</li>
+            </ol>
+
+            <h2>What's inside</h2>
+            <p>There are 30 challenges in each category, 10 per level.</p>
+            <ul>
+                <li><strong>Product &amp; UX Design.</strong> Screens, flows and features. Example: design a collaborative playlist feature for a music streaming service, to help remote teams who want to bond.</li>
+                <li><strong>Marketing &amp; Growth.</strong> Campaigns, funnels and launch plans. Example: design a growth experiment framework for a fintech startup, to systematically test and optimize acquisition channels.</li>
+                <li><strong>Sales &amp; Pitching.</strong> Demos, pitches and objection handling. Example: design an objection handling framework for a high-ticket coaching program.</li>
+                <li><strong>Strategy &amp; Operations.</strong> Processes, plans and decisions. Example: design a vendor evaluation matrix for an operations team selecting a CRM system.</li>
+                <li><strong>Data &amp; Analytics.</strong> Reports, dashboards and experiments. Example: design an A/B test framework for an e-commerce product page.</li>
+            </ul>
+
+            <h2>How long to spend</h2>
+            <ul>
+                <li><strong>Beginner: 15 minutes.</strong> Enough to understand the user, sketch one solution and explain it.</li>
+                <li><strong>Intermediate: 20 to 30 minutes.</strong> Time to compare two directions and pick one with a reason.</li>
+                <li><strong>Advanced: 30 to 45 minutes.</strong> Close to a real interview round. Spend the first few minutes on questions and constraints before you draw anything.</li>
+            </ul>
+            <p>Use the minus and plus buttons next to the timer to change the time.</p>
+
+            <h2>Common questions</h2>
+                <h3>Is the challenge generator free?</h3>
+                <p>Yes. All 150 challenges, the timer and the whiteboard are free, with no account and no limits.</p>
+                <h3>Do I need a challenge to use the whiteboard?</h3>
+                <p>No. If you just need a place to draw, <a href="../whiteboard/" data-track="dojo_faq_blank_board">open a blank board</a>. It works the same way, saves automatically in your browser and needs no sign-up.</p>
+                <h3>How do I use it to prepare for a design interview?</h3>
+                <p>Pick the level that matches the role, set the timer to the length of a real interview round and talk through your thinking out loud as you draw. Afterwards, look at what you skipped: users, constraints, success metrics.</p>
+                <h3>Can I suggest a challenge?</h3>
+                <p>Please do. Email <a href="mailto:hello@whiteboarddojo.com" data-track="dojo_faq_email">hello@whiteboarddojo.com</a> with your prompt and the level you think it fits.</p>
+
+            <h2>Keep practicing</h2>
+            <ul>
+                <li><a href="../docs/design-challenge-prompts">50 design challenge prompts</a>, sorted by level, each with a one-click start.</li>
+                <li><a href="../docs/whiteboard-challenge-fundamentals">Whiteboard Challenge Fundamentals</a> covers how to approach a prompt before you draw.</li>
+                <li><a href="../docs/running-solo-practice-sessions">Running solo practice sessions</a> shows how to practice on your own and review your work.</li>
+            </ul>
+
+            <div class="doc-cta">
+                <p>No challenge needed? The whiteboard works on its own too.</p>
+                <a href="../whiteboard/" class="doc-link-btn" data-track="dojo_cta_blank_board">Open a blank board</a>
+            </div>
+        </section>
     </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/footer.js"></script>
 
     <script src="../js/challenges.js"></script>
     <script src="../js/dojo.js"></script>

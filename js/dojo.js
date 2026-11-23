@@ -25,14 +25,7 @@ categoryBtns.forEach(btn => {
         btn.classList.add('active');
         currentCategory = btn.dataset.category;
 
-        // Reset challenge display
-        challengeContent.innerHTML = `
-            <div class="challenge-placeholder">
-                <span class="placeholder-text">Click "Generate New Challenge" to generate your practice challenge</span>
-            </div>
-        `;
-        currentChallenge = null;
-        startTimerBtn.disabled = true;
+        showRandomChallenge();
     });
 });
 
@@ -43,14 +36,7 @@ difficultyBtns.forEach(btn => {
         btn.classList.add('active');
         currentDifficulty = btn.dataset.difficulty;
 
-        // Reset challenge display
-        challengeContent.innerHTML = `
-            <div class="challenge-placeholder">
-                <span class="placeholder-text">Click "Generate New Challenge" to generate your practice challenge</span>
-            </div>
-        `;
-        currentChallenge = null;
-        startTimerBtn.disabled = true;
+        showRandomChallenge();
     });
 });
 
@@ -65,8 +51,8 @@ function getAllChallenges(difficulty) {
     return allChallenges;
 }
 
-// Challenge generation
-newChallengeBtn.addEventListener('click', () => {
+// Shows a random challenge for the current category and level
+function showRandomChallenge() {
     let challengeList = [];
     
     if (currentCategory === 'all') {
@@ -108,7 +94,10 @@ newChallengeBtn.addEventListener('click', () => {
     
     // Reset timer
     resetTimer();
+}
 
+newChallengeBtn.addEventListener('click', () => {
+    showRandomChallenge();
     gtag('event', 'challenge_generated', { category: currentCategory, difficulty: currentDifficulty });
 });
 
@@ -248,3 +237,6 @@ goToWhiteboardBtn.addEventListener('click', () => {
 // Initialize timer display and button states
 timerDisplay.textContent = '15:00';
 updateButtonStates();
+
+// Open with a challenge ready instead of an empty box
+showRandomChallenge();
