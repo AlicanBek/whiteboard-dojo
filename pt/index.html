@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Google tag (gtag.js): loads only on the live site, so local testing is never counted -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      if (/(^|\.)whiteboarddojo\.com$/.test(location.hostname)) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZWR4FHPSWG';
+        document.head.appendChild(gaScript);
+        gtag('js', new Date());
+        gtag('config', 'G-ZWR4FHPSWG');
+      }
+      // Any element with data-track="name" reports a cta_click event when clicked.
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest && e.target.closest('[data-track]');
+        if (el) gtag('event', 'cta_click', { cta: el.getAttribute('data-track'), page_path: location.pathname });
+      });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quadro branco online grátis que abre direto no navegador, sem login e sem cadastro. Desenhe, faça wireframes e brainstorms. Seus quadros ficam salvos no seu navegador.">
+    <meta name="keywords" content="quadro branco online, quadro branco online grátis, lousa online, quadro branco sem cadastro, whiteboard online">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.whiteboarddojo.com/pt/">
+    <meta property="og:title" content="Quadro Branco Online Grátis, Sem Cadastro | Whiteboard Dojo">
+    <meta property="og:description" content="Quadro branco online grátis que abre direto no navegador, sem login e sem cadastro. Desenhe, faça wireframes e brainstorms. Seus quadros ficam salvos no seu navegador.">
+    <meta property="og:image" content="https://www.whiteboarddojo.com/images/whiteboard-preview.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.whiteboarddojo.com/pt/">
+    <meta property="twitter:title" content="Quadro Branco Online Grátis, Sem Cadastro | Whiteboard Dojo">
+    <meta property="twitter:description" content="Quadro branco online grátis que abre direto no navegador, sem login e sem cadastro. Desenhe, faça wireframes e brainstorms. Seus quadros ficam salvos no seu navegador.">
+    <meta property="twitter:image" content="https://www.whiteboarddojo.com/images/whiteboard-preview.png">
+
+    <link rel="canonical" href="https://www.whiteboarddojo.com/pt/">
+    <link rel="alternate" hreflang="en" href="https://www.whiteboarddojo.com/">
+    <link rel="alternate" hreflang="pt" href="https://www.whiteboarddojo.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://www.whiteboarddojo.com/">
+
+    <title>Quadro Branco Online Grátis, Sem Cadastro | Whiteboard Dojo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Whiteboard Dojo",
+      "url": "https://www.whiteboarddojo.com/pt/",
+      "inLanguage": "pt",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Qualquer navegador",
+      "description": "Quadro branco online grátis que abre direto no navegador, sem login e sem cadastro. Desenhe, faça wireframes e brainstorms. Seus quadros ficam salvos no seu navegador.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "pt",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Preciso criar uma conta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Não tem login, cadastro nem e-mail. É só abrir o quadro e começar a desenhar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "É grátis mesmo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Não existe plano pago, período de teste nem limite de quadros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Onde meus quadros ficam salvos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No seu próprio navegador, automaticamente, enquanto você desenha. Nada é enviado para um servidor, então seus quadros continuam privados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso compartilhar um quadro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Exporte como imagem PNG ou SVG para mostrar, ou salve como arquivo para outra pessoa importar e editar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funciona no celular?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Funciona em qualquer navegador moderno, no computador, tablet ou celular, sem instalar nada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O quadro está em português?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A página do quadro está em inglês por enquanto, mas as ferramentas são visuais e fáceis de usar: formas, setas, texto, imagens e caneta."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="./" class="logo">
+                <img src="../images/logo.svg" alt="Logo do Whiteboard Dojo" class="logo-image">
+                <span class="logo-text">Whiteboard Dojo</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../whiteboard/" class="nav-link nav-cta" data-track="pt_nav_whiteboard">Abrir o quadro</a></li>
+                <li><a href="../" class="nav-link" data-track="pt_nav_english" hreflang="en" lang="en">English</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="doc-container pt-landing">
+        <div class="doc-header">
+            <h1 class="doc-title">Quadro branco online grátis, sem cadastro</h1>
+            <p class="doc-meta">Abre direto no navegador. Sem login, sem e-mail, sem instalar nada.</p>
+        </div>
+
+        <div class="doc-content">
+            <div class="doc-cta">
+                <p>Comece a desenhar agora. Seu quadro é salvo automaticamente.</p>
+                <a href="../whiteboard/" class="doc-link-btn" data-track="pt_hero_open_board">Abrir o quadro branco</a>
+            </div>
+
+            <figure class="doc-figure">
+                <img src="../images/whiteboard-preview.png" width="1440" height="860" alt="O quadro branco do Whiteboard Dojo com um wireframe e um fluxo de usuário">
+            </figure>
+
+            <h2>O que você pode fazer</h2>
+            <ul>
+                <li><strong>Tela infinita.</strong> Espaço sem limites para ideias, mapas mentais e diagramas.</li>
+                <li><strong>Formas e setas conectadas.</strong> As setas acompanham as formas quando você as move, ótimo para fluxogramas.</li>
+                <li><strong>Frames.</strong> Organize telas de um wireframe ou partes de uma apresentação.</li>
+                <li><strong>Texto, imagens e caneta.</strong> Escreva, cole capturas de tela e desenhe à mão livre.</li>
+                <li><strong>Modo escuro e exportação.</strong> Exporte em PNG ou SVG, ou salve o arquivo do quadro.</li>
+            </ul>
+
+            <h2>Como funciona</h2>
+            <ol>
+                <li>Abra o <a href="../whiteboard/" data-track="pt_howto_open_board">quadro branco</a>. Não precisa de conta.</li>
+                <li>Escolha uma ferramenta na barra superior, ou use os números de 1 a 9 no teclado.</li>
+                <li>Desenhe. Tudo é salvo no seu navegador enquanto você trabalha, e você pode criar quantos quadros quiser.</li>
+            </ol>
+
+            <h2>Privado por padrão</h2>
+            <p>Seus quadros nunca saem do seu dispositivo. Não há servidor guardando seus desenhos, então ninguém além de você tem acesso a eles. Para fazer backup ou levar um quadro para outro computador, use <strong>Save to…</strong> no menu e depois <strong>Import board</strong> no outro dispositivo.</p>
+
+            <h2>Para praticar design</h2>
+            <p>O Whiteboard Dojo também tem 150 desafios de design para treinar para entrevistas de UX e produto, com cronômetro. Os desafios estão em inglês: <a href="../dojo/" data-track="pt_dojo">abrir o gerador de desafios</a>.</p>
+
+            <h2>Perguntas frequentes</h2>
+            <h3>Preciso criar uma conta?</h3>
+            <p>Não. Não tem login, cadastro nem e-mail. É só abrir o quadro e começar a desenhar.</p>
+            <h3>É grátis mesmo?</h3>
+            <p>Sim. Não existe plano pago, período de teste nem limite de quadros.</p>
+            <h3>Onde meus quadros ficam salvos?</h3>
+            <p>No seu próprio navegador, automaticamente, enquanto você desenha. Nada é enviado para um servidor, então seus quadros continuam privados.</p>
+            <h3>Posso compartilhar um quadro?</h3>
+            <p>Sim. Exporte como imagem PNG ou SVG para mostrar, ou salve como arquivo para outra pessoa importar e editar.</p>
+            <h3>Funciona no celular?</h3>
+            <p>Funciona em qualquer navegador moderno, no computador, tablet ou celular, sem instalar nada.</p>
+            <h3>O quadro está em português?</h3>
+            <p>A página do quadro está em inglês por enquanto, mas as ferramentas são visuais e fáceis de usar: formas, setas, texto, imagens e caneta.</p>
+
+            <div class="doc-cta">
+                <p>Pronto para começar? É grátis e não precisa de cadastro.</p>
+                <a href="../whiteboard/" class="doc-link-btn" data-track="pt_cta_open_board">Abrir o quadro branco</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../js/footer.js"></script>
+</body>
+</html>

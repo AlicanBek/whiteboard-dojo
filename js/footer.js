@@ -46,6 +46,7 @@ function createFooter() {
                     <li><a href="${basePath}dojo/" class="footer-link">Dojo</a></li>
                     <li><a href="${basePath}docs/" class="footer-link">Docs</a></li>
                     <li><a href="${basePath}" class="footer-link">Home</a></li>
+                    <li><a href="${basePath}pt/" class="footer-link" hreflang="pt" lang="pt">Português</a></li>
                 </ul>
             </div>
 
